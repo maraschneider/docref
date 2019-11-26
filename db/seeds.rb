@@ -114,14 +114,43 @@ UserField.create(user_id: 3, field_id: 22)
 UserField.create(user_id: 3, field_id: 23)
 UserField.create(user_id: 3, field_id: 24)
 
-Approval.create(giver_id: 1, receiver_id: 2, specialty_id: 2, headline: "Awesome doctor", content: "I have been working together with Dr Meier and I can highly recommend him based on his experience.")
-# Approval.create(giver_id: 1, receiver_id: 3, specialty_id: 3, headline: "Excellent physician", content: "As I have taught Steffen Seibert over several years, I can highly recommend this young physician for the neurological conditions specified.")
+approval1 = Approval.create(giver_id: 1, receiver_id: 2, specialty_id: 2, headline: "Awesome doctor", content: "I have been working together with Dr Meier and I can highly recommend him based on his experience.")
+approval2 = Approval.create(giver_id: 1, receiver_id: 3, specialty_id: 3, headline: "Excellent physician", content: "As I have taught Steffen Seibert over several years, I can highly recommend this young physician for the neurological conditions specified.")
 
-# Approval.create(giver_id: 2, receiver_id: 1, specialty_id: 1, headline: "The one and only", content: "What can I say, there is only one doctor house in the world, and you can find him at Charité Mitte.")
-# Approval.create(giver_id: 2, receiver_id: 3, specialty_id: 3, headline: "Excellent neurologist", content: "Seibert is far ahead of many colleagues that I have encountered at his stage. Overall, a promising young physician that I can recommedn without any hesitation.")
+approval3 = Approval.create(giver_id: 2, receiver_id: 1, specialty_id: 1, headline: "The one and only", content: "What can I say, there is only one doctor house in the world, and you can find him at Charité Mitte.")
+approval4 = Approval.create(giver_id: 2, receiver_id: 3, specialty_id: 3, headline: "Excellent neurologist", content: "Seibert is far ahead of many colleagues that I have encountered at his stage. Overall, a promising young physician that I can recommedn without any hesitation.")
 
-# Approval.create(giver_id: 3, receiver_id: 1, specialty_id: 1, headline: "Leading expert", content: "Dr House belongs to the country's leading experts in cardiology. He is an excellent interventional cardiologist with almost three decades of experience.")
-# Approval.create(giver_id: 3, receiver_id: 2, specialty_id: 2, headline: "First hand experience", content: "As a clinician myself I have been treated by Dr Meier. He is one of the most able oncologists that I have encountered over my career.")
+approval5 = Approval.create(giver_id: 3, receiver_id: 1, specialty_id: 1, headline: "Leading expert", content: "Dr House belongs to the country's leading experts in cardiology. He is an excellent interventional cardiologist with almost three decades of experience.")
+approval6 = Approval.create(giver_id: 3, receiver_id: 2, specialty_id: 2, headline: "First hand experience", content: "As a clinician myself I have been treated by Dr Meier. He is one of the most able oncologists that I have encountered over my career.")
+
+ApprovalField.create(approval_id: 1, field_id: 11)
+ApprovalField.create(approval_id: 1, field_id: 12)
+ApprovalField.create(approval_id: 1, field_id: 13)
+ApprovalField.create(approval_id: 1, field_id: 14)
+
+ApprovalField.create(approval_id: 2, field_id: 21)
+ApprovalField.create(approval_id: 2, field_id: 22)
+ApprovalField.create(approval_id: 2, field_id: 23)
+
+ApprovalField.create(approval_id: 3, field_id: 1)
+ApprovalField.create(approval_id: 3, field_id: 2)
+ApprovalField.create(approval_id: 3, field_id: 3)
+ApprovalField.create(approval_id: 3, field_id: 4)
+
+ApprovalField.create(approval_id: 4, field_id: 22)
+ApprovalField.create(approval_id: 4, field_id: 23)
+ApprovalField.create(approval_id: 4, field_id: 24)
+ApprovalField.create(approval_id: 4, field_id: 25)
+
+ApprovalField.create(approval_id: 5, field_id: 2)
+ApprovalField.create(approval_id: 5, field_id: 3)
+ApprovalField.create(approval_id: 5, field_id: 4)
+ApprovalField.create(approval_id: 5, field_id: 5)
+
+ApprovalField.create(approval_id: 6, field_id: 12)
+ApprovalField.create(approval_id: 6, field_id: 13)
+ApprovalField.create(approval_id: 6, field_id: 14)
+ApprovalField.create(approval_id: 6, field_id: 15)
 
 puts 'SUCCESSFULLY SEEDED :-)'
 
