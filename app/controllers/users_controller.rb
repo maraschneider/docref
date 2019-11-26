@@ -1,14 +1,12 @@
 class UsersController < ApplicationController
   def index
-
     @doctors = policy_scope(User)
 
-    @clinics = Clinic.geocoded #returns flats with coordinates
-
-    @markers = @clinics.map do |clinic|
+    @markers = @doctors.map do |doctor|
       {
-        lat: clinic.latitude,
-        lng: clinic.longitude
+        lat: doctor.clinic.latitude,
+        lng: doctor.clinic.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { doctor: doctor })
       }
     end
   end
