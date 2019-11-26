@@ -3,8 +3,13 @@ class UserPolicy < ApplicationPolicy
     def resolve
       scope.all
     end
+  end
 
     def show?
+      true
+    end
+
+    def search?
       true
     end
 
@@ -19,7 +24,6 @@ class UserPolicy < ApplicationPolicy
     def delete?
       false # what if a doctor wants to not be signed up anymore?
     end
-  end
 
   private
 

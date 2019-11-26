@@ -10,11 +10,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  include PgSearch::module
-  pg_search_scope :search_by_specialty_and_field,
-    against: [:specialty, :field],
-    using: {
-      tsearch: { prefix: true }
-    }
+  #pg_search_scope :search_by_location,
+  #  associated_against: {
+  #    clinics: :address
+  #  },
+  #  using: {
+  #    tsearch: { prefix: true }
+  #  }
 end
-
