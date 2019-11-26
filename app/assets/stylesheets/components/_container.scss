@@ -16,3 +16,12 @@
   padding: $sm;
   margin: $sm;
 }
+
+.search-map-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.map-container {
+  background-color: $light-purple;
+}
