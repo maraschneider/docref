@@ -1,2 +1,13 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+
+<div class="search-container">
+  <%= form_tag users_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "input-field",
+      placeholder: "find cardiologist in Berlin for stents"
+    %>
+    <%= submit_tag "Search", class: "btn-mint" %>
+  <% end %>
+</div>
