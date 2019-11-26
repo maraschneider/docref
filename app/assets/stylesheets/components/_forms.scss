@@ -1,0 +1,37 @@
+.form-recommendation {
+margin: $lg auto;
+padding: $lg;
+width: 50vw;
+background-color: rgba(166, 167, 162, 0.1);
+text-align: center;
+border-radius: $rad;
+
+}
+
+.checkbox-container {
+display: grid;
+grid-template-columns: 1fr 1fr;
+width: 40%;
+margin: $sm auto;
+}
+
+.select-speciality {
+margin-bottom: $md;
+}
+
+textarea {
+width: 72%;
+padding: $sm;
+margin: $sm auto;
+height: 104px;
+border-radius: $rad;
+border: 1px solid rgba(66, 67, 62, 0.1);
+}
+
+.input-headline {
+  width: 72%;
+  margin: $sm 0;
+  padding: $xs;
+  border-radius: $rad;
+  border: 1px solid rgba(66, 67, 62, 0.1);
+}
