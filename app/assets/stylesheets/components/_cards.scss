@@ -1,0 +1,101 @@
+.text-card-mint {
+  padding: $lg;
+  margin: $md 0;
+  background-color: $light-mint;
+  border-radius: $rad;
+}
+.text-card-purple {
+  padding: $lg;
+  margin: $md 0;
+  background-color: $light-purple;
+  border-radius: $rad;
+  color: white;
+}
+
+.text-card-outline-mint {
+  padding: $lg;
+  margin: $md 0;
+  border-radius: $rad;
+  border: 1px solid $mint;
+  color: $mint;
+}
+
+.text-card-outline-purple {
+  padding: $lg;
+  margin: $md 0;
+  border-radius: $rad;
+  border: 1px solid $purple;
+  color: $purple;
+}
+
+// Recommendation card
+.card-approval {
+  padding: $lg;
+  margin: $lg 0;
+  border-radius: $rad;
+  border: 1px solid $mint;
+  color: $dark-grey;
+}
+
+.card-approval-mint {
+  background-color: $light-mint;
+  padding: $lg;
+  margin: $lg 0;
+  border-radius: $rad;
+  color: $dark-grey;
+}
+
+.tag {
+  background-color: $mint;
+  color: white;
+  margin: $sm;
+  padding: $xs $md;
+  border-radius: $lg;
+}
+
+.tag-outline {
+  background-color: white;
+  color: $mint;
+  margin: $sm;
+  padding: $xs $md;
+  border-radius: $lg;
+  border: 1px solid $mint;
+}
+
+.approval-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+/*Doctor card for search results in index action*/
+
+.card-doc {
+  border-radius: $rad;
+  background-color: $light-mint;
+  display: grid;
+  grid-template-columns: 3fr 104px;
+  grid-template-rows: 104px 50px;
+  grid-gap: $lg;
+  padding: $lg;
+  margin: $md 0;
+  width: 40%;
+  align-content: space-around;
+  justify-content: space-between;
+
+  .btn-outline {
+  padding: $sm $md;
+  margin: 0 auto;
+  align-self: end;
+  text-align: center;
+  align-content: center;
+  width: 100%;
+  }
+}
+
+
+.desc-doc {
+  align-self: end;
+  margin-bottom: 0;
+  /*overflow: hidden;
+  text-overflow: ellipsis;*/
+}
