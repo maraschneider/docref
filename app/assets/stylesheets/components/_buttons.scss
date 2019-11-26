@@ -57,11 +57,10 @@
   border: 1px solid $mint;
   color: $mint;
   border-radius: $rad;
-  margin: $lg 0;
+  margin: $md $xs;
   padding: $sm $lg;
   text-decoration: none;
   transition: background 0.3s ease;
-
 }
 
 .btn-outline:hover {

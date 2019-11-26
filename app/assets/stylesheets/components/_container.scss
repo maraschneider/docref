@@ -7,6 +7,11 @@
   display: flex;
 }
 
+.tag-container p {
+ margin: 0;
+ font-size: 42px;
+}
+
 .btn-container {
   padding: $sm;
   margin: $sm;

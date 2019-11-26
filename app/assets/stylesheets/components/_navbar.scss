@@ -8,5 +8,48 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 60px;
 }
+
+.navbar_menu {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar_menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar_menu li {
+  float: left;
+}
+
+.navbar_menu li a{
+  display: block;
+  text-align: center;
+  padding: 4px 12px;
+  transition: background 0.3s ease;
+}
+
+.navbar_menu li a:hover {
+  text-decoration: none;
+}
+
+.light_gray_style {
+  background-color: white;
+  border: solid $light-gray 1px;
+  border-radius: $rad;
+}
+
+.light_gray_style li a {
+  color: $light-gray;
+}
+
+.light_gray_style li a:hover {
+  background-color: rgb(160,161,158);
+  color: white;
+}
+
+
