@@ -6,7 +6,7 @@
         <input class="input-field" type="text" placeholder="Berlin">
         <a class= "btn-mint" href="#">Search</a>
       </div>
-    <% @doctors.each do |doctor| %>
+    <% @doctors_array.each do |doctor| %>
     <div class="card-doc">
       <div>
         <h4><%=doctor.title%> <%=doctor.first_name%> <%=doctor.last_name%></h4>
