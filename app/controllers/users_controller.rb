@@ -3,23 +3,19 @@ class UsersController < ApplicationController
   # before_filter check if html, js etc
   def index
     @doctors = policy_scope(User)
-    @search_location = params[:location]
 
     if params[:specialty_or_field].present?
       @doctors_array = []
-      # @doctors = User.search_by_location(params[:location])
+
       @specialty = Specialty.search_by_specialty(params[:specialty_or_field])
-      UserSpecialty.all.each do |user_spec|
-        next if user_spec.specialty != @specialty.first
-        @doctors_array << User.find(user_spec.user_id)
-      end
+      search_by_specialty(@specialty)
 
       @field = Field.search_by_field(params[:specialty_or_field])
 
       search_by_approval_fields(@field, @doctors_array)
       search_by_user_fields(@field, @doctors_array)
 
-      @doctors_array # instead of @doctors. Need to find a way to store the results there.
+      @doctors_array
     else
       @doctors_array = policy_scope(User)
     end
@@ -33,6 +29,14 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def search_by_specialty(search_input)
+    UserSpecialty.all.each do |user_spec|
+      next if user_spec.specialty != @specialty.first
+      @doctors_array << User.find(user_spec.user_id)
+    end
+    return @doctors_array
+  end
 
   def search_by_user_fields(search_input, results)
     UserField.all.each do |user_field|
