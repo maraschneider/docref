@@ -1,18 +1,41 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="page-container">
+  <div id="info-search">
+    <div id="info-intro">
+      Finding the right doctor for you.
+    </div>
+    <div id="search-image">
+      <div id="landing-search">
+        <p>Trustworthy recommendations  by doctors  for your condition.</p>
+        <div id="two-field-search-container">
+          <%= form_tag doctors_path, method: :get do %>
+            <%= text_field_tag :specialty_or_field,
+              params[:specialty_or_field],
+              class: "input-field",
+              placeholder: "cardiologist"
+            %>
+            <%= text_field_tag :location,
+              params[:location],
+              class: "input-field",
+              placeholder: "Berlin"
+            %>
+            <%= submit_tag "Search", class: "btn-mint" %>
+          <% end %>
+        </div>
+      </div>
+      <div id="landing-image">
+        <%= image_tag "picture-homepage.svg" %>
+      </div>
+    </div>
+  </div>
 
-<div class="two-field-search-container">
-  <%= form_tag doctors_path, method: :get do %>
-    <%= text_field_tag :specialty_or_field,
-      params[:specialty_or_field],
-      class: "input-field",
-      placeholder: "cardiologist"
-    %>
-    <%= text_field_tag :location,
-      params[:location],
-      class: "input-field",
-      placeholder: "Berlin"
-    %>
-    <%= submit_tag "Search", class: "btn-mint" %>
-  <% end %>
-</div>
+  <div id="info-user">
+
+  </div>
+
+  <div id="info-footer">
+
+
+  </div>
+
+
+
