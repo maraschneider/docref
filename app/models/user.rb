@@ -9,5 +9,12 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-end
 
+  #pg_search_scope :search_by_location,
+  #  associated_against: {
+  #    clinics: :address
+  #  },
+  #  using: {
+  #    tsearch: { prefix: true }
+  #  }
+end
