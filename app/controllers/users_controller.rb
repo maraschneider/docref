@@ -30,7 +30,8 @@ class UsersController < ApplicationController
       {
         lat: doctor.clinic.latitude,
         lng: doctor.clinic.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { doctor: doctor })
+        infoWindow: render_to_string(partial: "info_window", locals: { doctor: doctor }),
+        image_url: helpers.asset_url('pin-mint.png')
       }
     end
   end
