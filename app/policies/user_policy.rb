@@ -9,6 +9,10 @@ class UserPolicy < ApplicationPolicy
       true
     end
 
+    def search?
+      true
+    end
+
     def create?
       true # maybe an if-statement later for our validation of the email?
     end
