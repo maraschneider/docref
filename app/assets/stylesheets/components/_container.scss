@@ -8,9 +8,17 @@
   display: flex;
 }
 
-.tag-container p {
- margin: 0;
- font-size: 42px;
+.logo-container {
+  width: 50px;
+}
+
+.header-container {
+   margin-bottom: 40px;
+}
+
+.tag-container a{
+  padding: 0;
+  margin: 0;
 }
 
 .btn-container {
@@ -27,4 +35,12 @@
 
 .map-container {
   background-color: $light-purple;
+}
+
+.form-container {
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px 80px;
+  width: 55%;
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.25);
 }
