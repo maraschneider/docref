@@ -21,6 +21,7 @@
 .search-map-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-gap: $lg;
   margin-top: 85px;
 }
 
