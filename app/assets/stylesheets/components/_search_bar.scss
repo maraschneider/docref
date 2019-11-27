@@ -11,11 +11,11 @@
 }
 
 .two-field-search-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 100px;
-  grid-gap: $sm;
-  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
   align-items: center;
+  margin-bottom: $lg;
 
   .btn-mint {
   margin: 0;
@@ -23,8 +23,10 @@
 }
 
 .input-field {
+  flex-grow: 1;
   box-sizing: border-box;
   padding: $sm;
+  margin-right: $sm;
   border-radius: $rad;
   border: 1px solid $mint;
 }

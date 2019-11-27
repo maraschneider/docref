@@ -15,25 +15,17 @@ class UsersController < ApplicationController
       end
 
       @field = Field.search_by_field(params[:specialty_or_field])
-      UserField.all.each do |user_field|
-        next if user_field.field != @field
-        @doctors_array << User.find(user_field.user_id)
-      end
+
+      search_by_approval_fields(@field, @doctors_array)
+      search_by_user_fields(@field, @doctors_array)
+
       @doctors_array # instead of @doctors. Need to find a way to store the results there.
     else
       @doctors_array = policy_scope(User)
     end
 
     @doctors_results = doctors_by_spec_and_location(@doctors_array)
-
-    @markers = @doctors_results.map do |doctor|
-      {
-        lat: doctor.clinic.latitude,
-        lng: doctor.clinic.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { doctor: doctor }),
-        image_url: helpers.asset_url('pin-mint.png')
-      }
-    end
+    @markers = get_info_for_map_markers(@doctors_results)
   end
 
   def show
@@ -41,6 +33,24 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def search_by_user_fields(search_input, results)
+    UserField.all.each do |user_field|
+      next if user_field.field != search_input.first
+      next if results.include?(user_field.user)
+      results << user_field.user
+    end
+    return results
+  end
+
+  def search_by_approval_fields(search_input, results)
+    ApprovalField.all.each do |approval_field|
+      next if approval_field.field != search_input.first
+      next if results.include?(approval_field.approval.receiver)
+      results << approval_field.approval.receiver
+    end
+    return results
+  end
 
   def doctors_by_spec_and_location(docs_with_search_speciality)
     if params[:location].present?
@@ -56,5 +66,16 @@ class UsersController < ApplicationController
     @clinics = Clinic.near(params[:location], 10)
     @doctors_nearby = @clinics.map { |clinic| clinic.users }
     @doctors_nearby.flatten
+  end
+
+  def get_info_for_map_markers(results)
+    results.map do |doctor|
+      {
+        lat: doctor.clinic.latitude,
+        lng: doctor.clinic.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { doctor: doctor }),
+        image_url: helpers.asset_url('pin-mint.png')
+      }
+    end
   end
 end
