@@ -24,7 +24,7 @@ class UsersController < ApplicationController
       @doctors_array = policy_scope(User)
     end
 
-    @doctors_result = doctors_by_spec_and_location(@doctors_array)
+    @doctors_results = doctors_by_spec_and_location(@doctors_array)
 
     @markers = @doctors_results.map do |doctor|
       {
