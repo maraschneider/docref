@@ -24,16 +24,37 @@ class UsersController < ApplicationController
       @doctors_array = policy_scope(User)
     end
 
-    @markers = @doctors_array.map do |doctor|
+    @doctors_results = doctors_by_spec_and_location(@doctors_array)
+
+    @markers = @doctors_results.map do |doctor|
       {
         lat: doctor.clinic.latitude,
         lng: doctor.clinic.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { doctor: doctor })
+        infoWindow: render_to_string(partial: "info_window", locals: { doctor: doctor }),
+        image_url: helpers.asset_url('pin-mint.png')
       }
     end
   end
 
   def show
 
+  end
+
+  private
+
+  def doctors_by_spec_and_location(docs_with_search_speciality)
+    if params[:location].present?
+      @doctors_nearby = search_location
+      @doctors_result = docs_with_search_speciality.select { |doc| @doctors_nearby.include?(doc) }
+      return @doctors_result
+    else
+      return docs_with_search_speciality
+    end
+  end
+
+  def search_location
+    @clinics = Clinic.near(params[:location], 10)
+    @doctors_nearby = @clinics.map { |clinic| clinic.users }
+    @doctors_nearby.flatten
   end
 end
