@@ -1,0 +1,29 @@
+<div class="filter-bar">
+  <%= form_tag doctors_path, method: :get do %>
+    <%= select_tag :specialty_or_field, options_from_collection_for_select(
+      Specialty.all, "id", "name",
+      params[:specialty_or_field]),
+      multiple: true,
+      #name: "specialty_or_field[]",
+      class: "js-example-basic-multiple btn-outline",
+      placeholder: "Specialty"
+    %>
+
+    <%= select_tag "field", options_from_collection_for_select(
+      Field.all, "id", "name"),
+      multiple: true,
+      name: "fields[]",
+      class: "js-example-basic-multiple btn-outline",
+      placeholder: "Field"
+    %>
+
+    <%= text_field_tag :location,
+      params[:location],
+      class: "input-field",
+      placeholder: "Berlin"
+    %>
+    <%= submit_tag "Search", class: "btn-mint" %>
+  <% end %>
+</div>
+
+

@@ -25,3 +25,10 @@
   border: 1px solid $mint;
 }
 
+.filter-bar {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 100px;
+  grid-gap: $sm;
+  width: 90%;
+  align-items: center;
+}
