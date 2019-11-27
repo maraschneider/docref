@@ -1,30 +1,15 @@
 <div class="page-container">
   <div class="search-map-container">
     <div>
-      <div class="two-search-container">
-        <input class="input-field" type="text" placeholder="Cardiologist">
-        <input class="input-field" type="text" placeholder="Berlin">
-        <a class= "btn-mint" href="#">Search</a>
-      </div>
-    <% @doctors.each do |doctor| %>
-    <div class="card-doc">
-      <div>
-        <h4><%=doctor.title%> <%=doctor.first_name%> <%=doctor.last_name%></h4>
-        <% if doctor.clinic %>
-          <div><%= doctor.clinic.address%></div>
-        <% end %>
-        <% doctor.specialties.each do |speciality|%>
-          <div><%= speciality.name %></div>
-        <% end %>
-      </div>
-      <%= image_tag "profile.png", alt: "profile_picture", class:"avatar-square" %>
-      <p class="desc-doc">"Lorem ipsum dolor sit amet, consectetur adipisicing elit."</p>
-      <a class= "btn-outline" href="#">Profile</a>
+      <%= render 'shared/search_bar' %>
+      <%= render 'users/doctor_card' %>
     </div>
-    <% end %>
-    </div>
-    <div class="map-container">
-      TODO: Map
-    </div>
+    <div
+      id="map"
+      style="width: 100%;
+      height: 600px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+    ></div>
   </div>
 </div>

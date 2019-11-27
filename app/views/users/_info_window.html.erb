@@ -1,0 +1,9 @@
+<%= link_to doctor_path(doctor) do  %>
+  <div class="img-name-container">
+    <%= image_tag "profile.png", alt: "profile_picture", class: "avatar-square-sm" %>
+    <h4><%= doctor.title %> <%= doctor.first_name %> <%= doctor.last_name %></h4>
+  </div>
+  <p><%= doctor.specialties.first.name.capitalize %></p>
+
+  <div><%= doctor.clinic.address %></div>
+<% end %>
