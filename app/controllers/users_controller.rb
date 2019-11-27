@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   # before_filter check if html, js etc
   def index
     @doctors = policy_scope(User)
+    @search_location = params[:location]
 
     if params[:specialty_or_field].present?
       @doctors_array = []
