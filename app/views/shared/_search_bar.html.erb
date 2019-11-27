@@ -1,5 +1,15 @@
-<div class="two-field-search-container">
-  <input class="input-field" type="text" placeholder="Cardiologist">
-  <input class="input-field" type="text" placeholder="Berlin">
-  <a class= "btn-mint" href="#">Search</a>
+<div>
+  <%= form_tag doctors_path, method: :get, class: "two-field-search-container" do %>
+    <%= text_field_tag :specialty_or_field,
+      params[:specialty_or_field],
+      class: "input-field",
+      placeholder: "cardiologist"
+    %>
+    <%= text_field_tag :location,
+      params[:location],
+      class: "input-field",
+      placeholder: "Berlin"
+    %>
+    <%= submit_tag "Search", class: "btn-mint" %>
+  <% end %>
 </div>
