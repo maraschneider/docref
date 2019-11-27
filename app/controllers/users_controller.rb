@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
   # before_filter check if html, js etc
   def index
     @doctors = policy_scope(User)
@@ -21,6 +22,14 @@ class UsersController < ApplicationController
       return @doctors_array # instead of @doctors. Need to find a way to store the results there.
     else
       @doctors_array = User.all
+    end
+
+    @markers = @doctors_array.map do |doctor|
+      {
+        lat: doctor.clinic.latitude,
+        lng: doctor.clinic.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { doctor: doctor })
+      }
     end
   end
 
