@@ -1,15 +1,24 @@
 .page-container {
   width: 80vw;
   margin: $md auto;
+  margin-top: 80px;
 }
 
 .tag-container {
   display: flex;
 }
 
-.tag-container p {
- margin: 0;
- font-size: 42px;
+.logo-container {
+  width: 50px;
+}
+
+.header-container {
+   margin-bottom: 40px;
+}
+
+.tag-container a{
+  padding: 0;
+  margin: 0;
 }
 
 .btn-container {
@@ -20,8 +29,18 @@
 .search-map-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-gap: $xl;
+  margin-top: 100px;
 }
 
 .map-container {
   background-color: $light-purple;
+}
+
+.form-container {
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px 80px;
+  width: 55%;
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.25);
 }

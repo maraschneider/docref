@@ -34,7 +34,7 @@
   margin: $lg 0;
   border-radius: $rad;
   border: 1px solid $mint;
-  color: $dark-grey;
+  color: $dark-gray;
 }
 
 .card-approval-mint {
@@ -42,7 +42,7 @@
   padding: $lg;
   margin: $lg 0;
   border-radius: $rad;
-  color: $dark-grey;
+  color: $dark-gray;
 }
 
 .tag {
@@ -77,8 +77,8 @@
   grid-template-rows: 104px 50px;
   grid-gap: $lg;
   padding: $lg;
-  margin: $md 0;
-  width: 90%;
+  margin: $lg 0;
+  width: 100%;
   align-content: space-around;
   justify-content: space-between;
 
