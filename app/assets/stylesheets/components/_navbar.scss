@@ -1,3 +1,11 @@
+.navbar {
+  overflow: visible;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
@@ -11,43 +19,43 @@
   width: 60px;
 }
 
-.navbar_menu {
+.navbar-menu {
   display: flex;
   justify-content: space-between;
 }
 
-.navbar_menu ul {
+.navbar-menu ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-.navbar_menu li {
+.navbar-menu li {
   float: left;
 }
 
-.navbar_menu li a{
+.navbar-menu li a{
   display: block;
   text-align: center;
   padding: 4px 12px;
   transition: background 0.3s ease;
 }
 
-.navbar_menu li a:hover {
+.navbar-menu li a:hover {
   text-decoration: none;
 }
 
-.light_gray_style {
+.light-gray-style {
   background-color: white;
   border: solid $light-gray 1px;
   border-radius: $rad;
 }
 
-.light_gray_style li a {
+.light-gray-style li a {
   color: $light-gray;
 }
 
-.light_gray_style li a:hover {
+.light-gray-style li a:hover {
   background-color: rgb(160,161,158);
   color: white;
 }

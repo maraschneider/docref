@@ -1,5 +1,8 @@
 puts 'Cleaning database...'
 
+UserSpecialty.destroy_all
+UserField.destroy_all
+ApprovalField.destroy_all
 Approval.destroy_all
 Field.destroy_all
 Specialty.destroy_all

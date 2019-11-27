@@ -1,0 +1,16 @@
+<% @doctors_array.each do |doctor| %>
+  <div class="card-doc">
+    <div>
+      <h4><%=doctor.title%> <%=doctor.first_name%> <%=doctor.last_name%></h4>
+      <% if doctor.clinic %>
+        <div><%= doctor.clinic.address%></div>
+      <% end %>
+      <% doctor.specialties.each do |speciality|%>
+        <div><%= speciality.name %></div>
+      <% end %>
+    </div>
+    <%= image_tag "profile.png", alt: "profile_picture", class:"avatar-square" %>
+    <p class="desc-doc">"Lorem ipsum dolor sit amet, consectetur adipisicing elit."</p>
+    <a class= "btn-outline" href="#">Profile</a>
+  </div>
+<% end %>
