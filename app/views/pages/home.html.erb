@@ -1,7 +1,7 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
 
-<div class="two-search-container">
+<div class="two-field-search-container">
   <%= form_tag doctors_path, method: :get do %>
     <%= text_field_tag :specialty_or_field,
       params[:specialty_or_field],
