@@ -15,10 +15,10 @@ class UsersController < ApplicationController
       end
 
       @field = Field.search_by_field(params[:specialty_or_field])
-      UserField.all.each do |user_field|
-        next if user_field.field != @field
-        @doctors_array << User.find(user_field.user_id)
-      end
+
+      search_by_approval_fields(@field, @doctors_array)
+      search_by_user_fields(@field, @doctors_array)
+
       @doctors_array # instead of @doctors. Need to find a way to store the results there.
     else
       @doctors_array = policy_scope(User)
@@ -33,6 +33,24 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def search_by_user_fields(search_input, results)
+    UserField.all.each do |user_field|
+      next if user_field.field != search_input.first
+      next if results.include?(user_field.user)
+      results << user_field.user
+    end
+    return results
+  end
+
+  def search_by_approval_fields(search_input, results)
+    ApprovalField.all.each do |approval_field|
+      next if approval_field.field != search_input.first
+      next if results.include?(approval_field.approval.receiver)
+      results << approval_field.approval.receiver
+    end
+    return results
+  end
 
   def doctors_by_spec_and_location(docs_with_search_speciality)
     if params[:location].present?
