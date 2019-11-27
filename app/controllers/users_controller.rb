@@ -19,9 +19,9 @@ class UsersController < ApplicationController
         next if user_field.field != @field
         @doctors_array << User.find(user_field.user_id)
       end
-      return @doctors_array # instead of @doctors. Need to find a way to store the results there.
+      @doctors_array # instead of @doctors. Need to find a way to store the results there.
     else
-      @doctors_array = User.all
+      @doctors_array = policy_scope(User)
     end
 
     @markers = @doctors_array.map do |doctor|
