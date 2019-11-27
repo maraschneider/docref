@@ -25,15 +25,7 @@ class UsersController < ApplicationController
     end
 
     @doctors_results = doctors_by_spec_and_location(@doctors_array)
-
-    @markers = @doctors_results.map do |doctor|
-      {
-        lat: doctor.clinic.latitude,
-        lng: doctor.clinic.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { doctor: doctor }),
-        image_url: helpers.asset_url('pin-mint.png')
-      }
-    end
+    @markers = get_info_for_map_markers(@doctors_results)
   end
 
   def show
@@ -56,5 +48,16 @@ class UsersController < ApplicationController
     @clinics = Clinic.near(params[:location], 10)
     @doctors_nearby = @clinics.map { |clinic| clinic.users }
     @doctors_nearby.flatten
+  end
+
+  def get_info_for_map_markers(results)
+    results.map do |doctor|
+      {
+        lat: doctor.clinic.latitude,
+        lng: doctor.clinic.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { doctor: doctor }),
+        image_url: helpers.asset_url('pin-mint.png')
+      }
+    end
   end
 end
