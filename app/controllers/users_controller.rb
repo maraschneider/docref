@@ -35,6 +35,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    @approvals = Approval.all.select { |approval| approval.receiver_id == @doctor.id }
+    # @fields = Field.all.select { |field| field.approval == @doctor.approval }
   end
 
   private

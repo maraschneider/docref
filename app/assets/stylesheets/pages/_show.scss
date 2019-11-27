@@ -1,0 +1,55 @@
+// Profile Banner Section
+
+.profile-banner {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-gap: 16px;
+  height: $profile-banner-height;
+  background-color: $light-mint;
+  align-items: center;
+  margin-bottom: $md;
+}
+
+.doctor-titles {
+  margin-right: 0;
+}
+
+// Doctor Tabs Section
+
+.doctor-tabs-row {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-gap: 16px;
+  height: auto;
+}
+
+.doctor-tabs li {
+  display: inline;
+  padding-right: $md;
+}
+
+.doctor-tabs {
+  padding: 0;
+}
+
+// Doctor Content Section (Contact, About Me etc)
+
+.doctor-content-row {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-gap: 16px;
+  height: auto;
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+}
+
+.recommendation-row {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-gap: 16px;
+}
+
+
