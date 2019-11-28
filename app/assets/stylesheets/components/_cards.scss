@@ -73,9 +73,8 @@
   border-radius: $rad;
   background-color: $light-mint;
   display: grid;
-  grid-template-columns: 3fr 104px;
-  grid-template-rows: 104px 50px;
-  grid-gap: $lg;
+  grid-template-columns: 3fr 100px;
+  grid-gap: $xl;
   padding: $md;
   margin: $lg 0;
   width: 100%;
@@ -83,12 +82,18 @@
   justify-content: space-between;
 
   .btn-outline {
-  padding: $sm $md;
-  margin: 0 auto;
+  display: inline-block;
+  padding: $xs $md;
+  margin: $md 0 0 0;
   align-self: end;
   text-align: center;
   align-content: center;
   width: 100%;
+  }
+
+  .pos-clinic-title {
+    color: $purple;
+    padding: $sm 0;
   }
 }
 
