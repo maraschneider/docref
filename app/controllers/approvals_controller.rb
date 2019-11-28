@@ -8,8 +8,8 @@ class ApprovalsController < ApplicationController
 
   def create
     @approval = Approval.new(approval_params)
-    @approval.receiver = User.find(params[:doctor_id])
     @approval.giver = current_user
+    @approval.receiver = User.find(params[:doctor_id])
     authorize @approval
   end
 
@@ -28,7 +28,7 @@ class ApprovalsController < ApplicationController
   private
 
   def approval_params
-    params.require(:approval).permit(:content)
+    params.require(:approval).permit(:content, :fields, :headline)
 
   end
 end
