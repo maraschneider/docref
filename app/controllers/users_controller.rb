@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :set_doctor, only: [:show]
   # before_filter check if html, js etc
   def index
     @doctors = policy_scope(User)
@@ -19,7 +20,9 @@ class UsersController < ApplicationController
   end
 
   def show
-
+    @approvals = Approval.all.select { |approval| approval.receiver_id == @doctor.id }
+    # months required to show "Nov" instead of '11' on approval cards
+    @months = Date::ABBR_MONTHNAMES
   end
 
   private
@@ -66,5 +69,10 @@ class UsersController < ApplicationController
         image_url: helpers.asset_url('pin-mint.png')
       }
     end
+  end
+
+  def set_doctor
+    @doctor = User.find(params[:id])
+    authorize @doctor
   end
 end
