@@ -9,12 +9,8 @@ class ApprovalPolicy < ApplicationPolicy
     true
   end
 
-  def new?
-    true
-  end
-
   def create?
-    true
+    user
   end
 
   def update?
