@@ -32,6 +32,15 @@
   padding: 0;
 }
 
+.profile-tab {
+  color: $mint;
+}
+
+.profile-tab:hover {
+  color: $mint;
+  text-decoration: none;
+}
+
 // Profile Content Section (Contact, About Me etc)
 
 .doctor-content-row {
@@ -46,21 +55,34 @@
   padding: 0;
 }
 
+// Button Section
+
+.btn-profile-back {
+
+}
+
 // Profile Recommendation Section
 
 .approval-section {
   display: grid;
   grid-template-columns: 1fr 3fr;
   grid-gap: 16px;
-  border: red solid 3px;
+  margin-top: $lg;
 }
 
 .approvals-filters {
-  border: green solid 3px;
+  border: green dotted 3px;
 }
 
 #search-approvals {
   margin: 0;
   padding: 0;
+  align-items: flex-start;
+  height: auto;
+}
+
+.approval-search-btn {
+  margin: 0;
+  align-items: flex-start;
 }
 
