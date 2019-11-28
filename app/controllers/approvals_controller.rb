@@ -1,16 +1,16 @@
 class ApprovalsController < ApplicationController
 
   def new
-    @approval = Approval.new
+    @doctor = User.find(params[:doctor_id])
+    @approval = Approval.new(receiver: @receiver, giver: current_user)
     authorize @approval
-    @approval.receiver = User.find(params[:doctor_id])
-    @approval.giver = current_user
   end
 
   def create
     @approval = Approval.new(approval_params)
     @approval.receiver = User.find(params[:doctor_id])
     @approval.giver = current_user
+    authorize @approval
   end
 
   def edit
