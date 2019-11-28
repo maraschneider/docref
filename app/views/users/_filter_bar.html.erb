@@ -1,6 +1,6 @@
 <div class="filter-bar">
   <%= form_tag doctors_path, method: :get do %>
-
+    <h5>Specialty</h5>
     <%= select_tag :specialty,
       options_from_collection_for_select(
       Specialty.all, "name", "name",
@@ -9,7 +9,7 @@
       select: params[:specialty],
       class: "js-example-basic-multiple btn-outline"
     %>
-
+    <h5>Field</h5>
     <%= select_tag :field,
       options_from_collection_for_select(
       Field.all, "name", "name",
@@ -18,7 +18,6 @@
       select: params[:field],
       class: "js-example-basic-multiple btn-outline"
     %>
-
     <%= text_field_tag :location,
       params[:location],
       class: "input-field",
