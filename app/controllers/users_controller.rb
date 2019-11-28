@@ -9,8 +9,7 @@ class UsersController < ApplicationController
     elsif params[:specialty].present? || params[:field].present?
       specialty_result = search_by_specialty(params[:specialty]) if params[:specialty].present?
       field_result = search_by_field(params[:field]) if params[:field].present?
-      @doctors = [specialty_result, field_result].uniq.flatten
-
+      @doctors = [specialty_result, field_result].flatten.uniq
     else
       @doctors
     end
@@ -26,11 +25,11 @@ class UsersController < ApplicationController
   private
 
   def search_by_specialty(search_input)
-    Specialty.where(name: search_input).map {|p| p.users }.uniq
+    Specialty.where(name: search_input).map {|p| p.users }.flatten.uniq
   end
 
   def search_by_field(search_input)
-    Field.joins(:approvals).where(name: search_input).map {|p| p.users }.uniq
+    Field.joins(:approvals).where(name: search_input).map {|p| p.users }.flatten.uniq
   end
 
   def search_by_specialty_or_field(search_input)
