@@ -14,10 +14,7 @@
           <% @doctor.specialties.first.fields.each do |field| %>
             <div class="field-choice">
               <input type="checkbox" class="hidden" value="<%= field.id %>" name="approval[field_ids][]" id="approval_field_ids_<%= field.id %>">
-              <label for="approval_field_ids_<%= field.id %>">
                 <%= field.name %>
-                <!-- <i class="fa fa-check"></i> -->
-              </label>
             </div>
           <% end %>
          </div>
