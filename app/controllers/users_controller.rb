@@ -5,23 +5,16 @@ class UsersController < ApplicationController
     @doctors = policy_scope(User)
 
     if params[:specialty_or_field].present?
-      @doctors_array = []
-
-      @specialty = Specialty.search_by_specialty(params[:specialty_or_field])
-      search_by_specialty(@specialty)
-
-      @field = Field.search_by_field(params[:specialty_or_field])
-
-      search_by_approval_fields(@field, @doctors_array)
-      search_by_user_fields(@field, @doctors_array)
-
-      @doctors_array
+      search_by_specialty_or_field(params[:specialty_or_field])
     else
-      @doctors_array = policy_scope(User)
+      @doctors
     end
 
-    @doctors_results = doctors_by_spec_and_location(@doctors_array)
-    @markers = get_info_for_map_markers(@doctors_results)
+    #search_by_approval_fields(@field, @doctors)
+    #search_by_user_fields(@field, @doctors)
+
+    @doctors = doctors_by_spec_and_location(@doctors)
+    @markers = get_info_for_map_markers(@doctors)
   end
 
   def show
@@ -31,11 +24,19 @@ class UsersController < ApplicationController
   private
 
   def search_by_specialty(search_input)
-    UserSpecialty.all.each do |user_spec|
-      next if user_spec.specialty != @specialty.first
-      @doctors_array << User.find(user_spec.user_id)
+    @doctors = @doctors.joins(:specialties).where(specialties: {name: search_input})
+  end
+
+  def search_by_field(search_input)
+    @doctors = @doctors.joins(:fields).where(fields: {name: search_input})
+  end
+
+  def search_by_specialty_or_field(search_input)
+    @doctors = search_by_specialty(search_input)
+    if @doctors == []
+      @doctors = search_by_field(search_input)
     end
-    return @doctors_array
+    @doctors
   end
 
   def search_by_user_fields(search_input, results)

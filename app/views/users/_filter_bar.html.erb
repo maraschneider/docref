@@ -1,15 +1,16 @@
 <div class="filter-bar">
   <%= form_tag doctors_path, method: :get do %>
+
     <%= select_tag :specialty_or_field,
       options_from_collection_for_select(
-      Specialty.all, "id", "name",
+      Specialty.all, "name", "name",
       params[:specialty_or_field]),
       multiple: true,
       class: "js-example-basic-multiple btn-outline"
     %>
 
     <%= select_tag "field", options_from_collection_for_select(
-      Field.all, "id", "name"),
+      Field.all, "name", "name"),
       multiple: true,
       class: "js-example-basic-multiple btn-outline"
     %>
