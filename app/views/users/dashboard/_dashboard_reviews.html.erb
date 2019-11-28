@@ -9,20 +9,20 @@
   </ul>
   <div class="tab-content">
     <div role='tabpanel' class= "tab-pane active" id="received">
+
       <h4>Your latest recommendations by other doctors</h4>
       <% @re_approvals.each do |approval| %>
-
       <div class="card-approval">
         <div>
           <% approval.fields.each do |field|  %>
           <div><%= field.name %></div>
           <% end %>
-        <div>
-          <%= @user.title %>
           <div>
-            <p><%= "#{approval.created_at.strftime("%d")}" + " #{@months[approval.created_at.month]} " + "#{approval.created_at.strftime("%Y")}" %></p>
+            <%= @user.title %>
+            <div>
+              <p><%= "#{approval.created_at.strftime("%d")}" + " #{@months[approval.created_at.month]} " + "#{approval.created_at.strftime("%Y")}" %></p>
+            </div>
           </div>
-        </div>
         </div>
         <p><%= approval.content %></p>
         <div>
@@ -33,24 +33,21 @@
           </p>
         </div>
       </div>
-
       <% end %>
     </div>
+
     <div role='tabpanel' class= "tab-pane" id="given">
       <h4>Recommendations of doctors written by you</h4>
-
       <% @gi_approvals.each do |approval| %>
-
       <div class="card-approval">
-          <%= image_tag @user.profile_picture, id: "profile-pic", class: "avatar-square-profile"  %>
-          <h4><%= @user.title %> <%= @user.first_name %> <%= @user.last_name %></h4>
+        <%= image_tag @user.profile_picture, id: "profile-pic", class: "avatar-square-profile"  %>
+        <h4><%= @user.title %> <%= @user.first_name %> <%= @user.last_name %></h4>
         <div class="approval-header">
           <h4><%= approval.headline %></h4>
           <div class="card-approval-date">
             <p><%= "#{approval.created_at.strftime("%d")}" + " #{@months[approval.created_at.month]} " + "#{approval.created_at.strftime("%Y")}" %></p>
           </div>
         </div>
-
         <p><%= approval.content %></p>
         <div class="approval-footer">
           <p>
@@ -60,7 +57,6 @@
           </p>
         </div>
       </div>
-
       <% end %>
     </div>
   </div>
