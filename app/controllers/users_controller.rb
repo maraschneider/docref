@@ -29,7 +29,9 @@ class UsersController < ApplicationController
   end
 
   def show
-
+    # @doctor = User.find(current_user.id)
+    @user = current_user
+    authorize @user
   end
 
   private
