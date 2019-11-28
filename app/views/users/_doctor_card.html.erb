@@ -1,19 +1,13 @@
-<% if @doctors_results.empty? %>
-<p><strong>No doctors found.</strong></p>
-<% else %>
-  <% @doctors_results.each do |doctor| %>
-    <div class="card-doc">
-      <div>
-        <h4><%=doctor.title%> <%=doctor.first_name%> <%=doctor.last_name%></h4>
-        <div class="pos-clinic-title"><%= doctor.position %> in <%=doctor.specialties.first.name.capitalize%> at <%= doctor.clinic.name %></div>
-        <% if doctor.clinic %>
-          <div><%= doctor.clinic.address%></div>
-        <% end %>
-      </div>
-      <div>
-      <%= image_tag "profile.png", alt: "profile_picture", class:"avatar-square" %>
-      <a class= "btn-outline" href="#">Profile</a>
-      </div>
-    </div>
-  <% end %>
-<% end %>
+<div class="card-doc">
+  <div>
+    <h4><%=doctor.title%> <%=doctor.first_name%> <%=doctor.last_name%></h4>
+    <div class="pos-clinic-title"><%= doctor.position %> in <%=doctor.specialties.first.name.capitalize%> at <%= doctor.clinic.name %></div>
+    <% if doctor.clinic %>
+      <div><%= doctor.clinic.address%></div>
+    <% end %>
+  </div>
+  <div>
+  <%= image_tag "profile.png", alt: "profile_picture", class:"avatar-square" %>
+  <a class= "btn-outline" href="#">Profile</a>
+  </div>
+</div>
