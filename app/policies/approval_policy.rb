@@ -4,12 +4,12 @@ class ApprovalPolicy < ApplicationPolicy
       scope.all
     end
 
-    def show?
-      true
-    end
+    # def show?
+    #   true
+    # end
 
     def create?
-      user
+      true
     end
 
     def update?
