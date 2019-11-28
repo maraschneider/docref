@@ -1,14 +1,22 @@
 <!-- Do not delete the outer div!!! -->
 
+<!-- move this stuff to the approval view when pulled -->
 <div>
-
   <div class="search-container" id="search-approvals">
-    <input class="input-field" type="text" placeholder="Search recommendations">
-    <a class= "btn-mint approval-search-btn" href="#">Search</a>
+  <%= form_tag approvals_path, method: :get do %>
+    <%= text_field_tag :search,
+      params[:search],
+      class: "input-field",
+      placeholder: "Search recommendations"
+    %>
+    <%= submit_tag "Search", class: "btn-mint approval-search-btn" %>
+  <% end %>
   </div>
 
-  <% @approvals.each do |approval| %>
-
+  <% if @approvals.empty? %>
+    <p>No recommendations found.</p>
+  <% else %>
+    <% @approvals.each do |approval| %>
     <div class="card-approval">
       <div class="approval-header">
         <h4><%= approval.headline %></h4>
@@ -30,9 +38,8 @@
         </p>
       </div>
     </div>
-
+    <% end %>
   <% end %>
-
 </div>
 
 

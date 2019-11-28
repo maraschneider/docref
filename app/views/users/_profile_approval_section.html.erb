@@ -1,6 +1,14 @@
 <div class="approval-section">
   <div class="approvals-filters">
-    Placeholder for Filters
+    <%= form_tag doctor_path, method: :get do %>
+    <%= select_tag :field,
+      options_from_collection_for_select(
+      Fields.joins(:approval).where(user: user), "name", "name",
+      params[:field]),
+      multiple: true,
+      select: params[:fields],
+      class: "js-example-basic-multiple btn-outline"
+    %>
   </div>
   <div>
     <%= render 'users/profile_approvalcards_list' %>
