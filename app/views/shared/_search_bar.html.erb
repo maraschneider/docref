@@ -5,11 +5,14 @@
       class: "input-field",
       placeholder: "cardiologist"
     %>
-    <%= text_field_tag :location,
-      params[:location],
-      class: "input-field",
-      placeholder: "Berlin"
-    %>
+    <div class="location_input">
+      <%= search_field_tag :location,
+        params[:location],
+        class: "input-field address-input",
+        id: "address-input",
+        placeholder: "Berlin Mitte"
+      %>
+    </div>
     <%= submit_tag "Search", class: "btn-mint" %>
   <% end %>
 </div>

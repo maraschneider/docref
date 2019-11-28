@@ -25,3 +25,12 @@
   object-fit: cover;
   border-radius: 0px;
 }
+
+// Doctor Profile Page:
+
+.avatar-square-profile {
+  width: $profile-banner-height;
+  height: $profile-banner-height;
+  object-fit: cover;
+  border-radius: 8px 0 0 8px;
+}
