@@ -3,7 +3,7 @@
     <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "docreflogo.png" %>
     <% end %>
-    <p>DocRef</p>
+    <div id="text-logo">DocRef</div>
   </div>
 
 
@@ -15,17 +15,17 @@
   <div class="navbar-menu light-gray-style">
     <% if user_signed_in? %>
       <ul>
-        <li><a href="<% link_to doctors_path %>">Find Doctors</a></li>
+        <li><%= link_to "Find Doctors", doctors_path %></li>
         <li><a href="#">Option #2</a></li>
         <li><a href="#">Option #3</a></li>
         <li><a href="#">Option #4</a></li>
       </ul>
     <% else %>
       <ul>
-        <li><a href="<% link_to doctors_path %>">Find Doctors</a></li>
+        <li><%= link_to "Find Doctors", doctors_path %></li>
         <li><a href="#">Option #2</a></li>
         <li><a href="#">Option #3</a></li>
-        <li><a href="#">Sign up</a></li>
+        <li><%= link_to "Sign up", new_user_registration_path %></li>
       </ul>
     <% end %>
   </div>

@@ -1,6 +1,6 @@
 body {
   font-family: $body-font;
-  color: $dark-grey;
+  color: $dark-gray;
   background-color: white;
 
   h1, h2, h3, h4 {
@@ -14,4 +14,18 @@ body {
 
 .text_light_grey {
   color: $light-gray;
+
+.text_black {
+  color: black;
+  line-height: 50px;
+}
+
+.text_black:hover {
+  color: $light-gray;
+  text-decoration: none;
+}
+
+#text-logo {
+ font-size: 24px;
+ line-height: 50px;
 }
