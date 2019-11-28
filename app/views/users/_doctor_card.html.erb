@@ -1,7 +1,7 @@
-<% if @doctors_results.empty? %>
+<% if @doctors.empty? %>
 <p>No doctors found.</p>
 <% else %>
-  <% @doctors_results.each do |doctor| %>
+  <% @doctors.each do |doctor| %>
     <div class="card-doc">
       <div>
         <h4><%=doctor.title%> <%=doctor.first_name%> <%=doctor.last_name%></h4>
