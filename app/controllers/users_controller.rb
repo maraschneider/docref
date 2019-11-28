@@ -6,12 +6,14 @@ class UsersController < ApplicationController
 
     if params[:specialty_or_field].present?
       search_by_specialty_or_field(params[:specialty_or_field])
+    elsif params[:specialty].present? || params[:field].present?
+      specialty_result = search_by_specialty(params[:specialty]) if params[:specialty].present?
+      field_result = search_by_field(params[:field]) if params[:field].present?
+      @doctors = [specialty_result, field_result].uniq.flatten
+
     else
       @doctors
     end
-
-    #search_by_approval_fields(@field, @doctors)
-    #search_by_user_fields(@field, @doctors)
 
     @doctors = doctors_by_spec_and_location(@doctors)
     @markers = get_info_for_map_markers(@doctors)
@@ -24,44 +26,27 @@ class UsersController < ApplicationController
   private
 
   def search_by_specialty(search_input)
-    @doctors = @doctors.joins(:specialties).where(specialties: {name: search_input})
+    Specialty.where(name: search_input).map {|p| p.users }.uniq
   end
 
   def search_by_field(search_input)
-    @doctors = @doctors.joins(:fields).where(fields: {name: search_input})
+    Field.joins(:approvals).where(name: search_input).map {|p| p.users }.uniq
   end
 
   def search_by_specialty_or_field(search_input)
     @doctors = search_by_specialty(search_input)
     if @doctors == []
+      @doctors = policy_scope(User)
       @doctors = search_by_field(search_input)
     end
     @doctors
   end
 
-  def search_by_user_fields(search_input, results)
-    UserField.all.each do |user_field|
-      next if user_field.field != search_input.first
-      next if results.include?(user_field.user)
-      results << user_field.user
-    end
-    return results
-  end
-
-  def search_by_approval_fields(search_input, results)
-    ApprovalField.all.each do |approval_field|
-      next if approval_field.field != search_input.first
-      next if results.include?(approval_field.approval.receiver)
-      results << approval_field.approval.receiver
-    end
-    return results
-  end
-
   def doctors_by_spec_and_location(docs_with_search_speciality)
     if params[:location].present?
       @doctors_nearby = search_location
-      @doctors_result = docs_with_search_speciality.select { |doc| @doctors_nearby.include?(doc) }
-      return @doctors_result
+      @doctors = docs_with_search_speciality.select { |doc| @doctors_nearby.include?(doc) }
+      return @doctors
     else
       return docs_with_search_speciality
     end

@@ -1,17 +1,21 @@
 <div class="filter-bar">
   <%= form_tag doctors_path, method: :get do %>
 
-    <%= select_tag :specialty_or_field,
+    <%= select_tag :specialty,
       options_from_collection_for_select(
       Specialty.all, "name", "name",
-      params[:specialty_or_field]),
+      params[:specialty]),
       multiple: true,
+      select: params[:specialty],
       class: "js-example-basic-multiple btn-outline"
     %>
 
-    <%= select_tag "field", options_from_collection_for_select(
-      Field.all, "name", "name"),
+    <%= select_tag :field,
+      options_from_collection_for_select(
+      Field.all, "name", "name",
+      params[:field]),
       multiple: true,
+      select: params[:field],
       class: "js-example-basic-multiple btn-outline"
     %>
 
