@@ -23,24 +23,6 @@
   height: auto;
 }
 
-.doctor-tabs li {
-  display: inline;
-  padding-right: $md;
-}
-
-.doctor-tabs {
-  padding: 0;
-}
-
-.profile-tab {
-  color: $mint;
-}
-
-.profile-tab:hover {
-  color: $mint;
-  text-decoration: none;
-}
-
 // Profile Content Section (Contact, About Me etc)
 
 .doctor-content-row {
@@ -53,6 +35,14 @@
 .contact-list {
   list-style: none;
   padding: 0;
+}
+
+#myspecialisation li {
+  line-height: 1;
+}
+
+.consultation-times {
+  margin-bottom: $lg;
 }
 
 

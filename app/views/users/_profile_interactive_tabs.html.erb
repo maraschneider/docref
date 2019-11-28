@@ -1,24 +1,28 @@
 <div>
 
+<!-- Tab buttons -->
+
   <ul class="nav nav-tabs">
 
     <li class="nav-item">
-      <a class="nav-link active" href="#aboutme" role="tab" data-toggle="tab">About me</a>
+      <a class="nav-link profile-tab active" href="#aboutme" role="tab" data-toggle="tab">About me</a>
     </li>
 
     <li class="nav-item">
-      <a class="nav-link" href="#myspecialisation" role="tab" data-toggle="tab">My specialisation</a>
+      <a class="nav-link profile-tab" href="#myspecialisation" role="tab" data-toggle="tab">My specialisation</a>
     </li>
 
     <li class="nav-item">
-      <a class="nav-link" href="#ourhospital" role="tab" data-toggle="tab">Our hospital</a>
+      <a class="nav-link profile-tab" href="#ourhospital" role="tab" data-toggle="tab">Our hospital</a>
     </li>
 
     <li class="nav-item">
-      <a class="nav-link" href="#consultationhours" role="tab" data-toggle="tab">Consultation hours</a>
+      <a class="nav-link profile-tab" href="#consultationhours" role="tab" data-toggle="tab">Consultation hours</a>
     </li>
 
   </ul>
+
+<!-- Content for tabs below -->
 
   <div class="tab-content">
 
@@ -42,21 +46,12 @@
     </div>
 
     <div role='tabpanel' class= "tab-pane fade" id="consultationhours">
-      <div><%= @doctor.clinic.consultation_times %></div>
+      <div class="consultation-times"><%= @doctor.clinic.consultation_times %></div>
       <div><%= link_to "Check availability on DoctoLib", "https://www.doctolib.de/", class: "btn-mint" %></div>
     </div>
   </div>
 
 
-</div>
-
-<div>
-  <ul class="doctor-tabs">
-    <li> <%= link_to "About Me", "a", class:"profile-tab" %></li>
-    <li> <%= link_to "My specialisation", "a", class:"profile-tab" %></li>
-    <li> <%= link_to "Our hospital", "a", class:"profile-tab" %></li>
-    <li> <%= link_to "Consultation hours", "a", class:"profile-tab" %></li>
-  </ul>
 </div>
 
 

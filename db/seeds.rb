@@ -40,7 +40,7 @@ clinic_1 = Clinic.create(
   phone_number: '030 1234 456789',
   email: 'service@charite.de',
   clinic_picture: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1035&q=80",
-  description: "Charité is one of the largest university hospitals in Europe. All of our clinical care, research and teaching is delivered by physicians and researchers of the highest international standard. Charité proudly lays claim to more than half of all German Nobel Prize winners in Physiology or Medicine, including Emil von Behring, Robert Koch, and Paul Ehrlich. Charité is internationally renowned for its excellence in teaching and training.  Charité – Universitätsmedizin Berlin represents a single medical faculty, which serves both Humboldt Universtität zu Berlin and Freie Universität Berlin.  Charité extends over four campuses, and has close to 100 different Departments and Institutes, which make up a total of 17 different CharitéCenters.  Having marked its 300-year anniversary in 2010, Charité is now one of the largest employers in Berlin, employing 14,576 staff (or 18,010 if including its subsidiaries), and with a total annual turnover of €1.8 billion.",
+  description: "Charité is one of the largest university hospitals in Europe. All of our clinical care, research and teaching is delivered by physicians and researchers of the highest international standard. Charité proudly lays claim to more than half of all German Nobel Prize winners in Physiology or Medicine, including Emil von Behring, Robert Koch, and Paul Ehrlich. Charité is internationally renowned for its excellence in teaching and training.",
   address: "Chariteplatz 1, 10117 Berlin",
   consultation_times: "Mo - Fr: 10am - 5pm")
 
