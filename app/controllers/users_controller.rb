@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show, :dashboard]
   before_action :set_doctor, only: [:show]
+
   # before_filter check if html, js etc
   def index
     @doctors = policy_scope(User)
@@ -30,10 +31,16 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
     @approvals = Approval.all.select { |approval| approval.receiver_id == @doctor.id }
     # months required to show "Nov" instead of '11' on approval cards
     @months = Date::ABBR_MONTHNAMES
+  end
+
+  def dashboard
+    @doctor = current_user
+    @approvals = Approval.all.select { |approval| approval.receiver_id == @doctor.id }
+    @months = Date::ABBR_MONTHNAMES
+    @user = current_user
     authorize @user
   end
 

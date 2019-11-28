@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get 'doctors', to: 'users#index'
   get 'doctors/:id', to: 'users#show', as: :doctor
+  get 'dashboard', to: 'users#dashboard', as: :dashboard
 end
