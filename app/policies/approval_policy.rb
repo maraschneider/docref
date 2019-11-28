@@ -3,27 +3,31 @@ class ApprovalPolicy < ApplicationPolicy
     def resolve
       scope.all
     end
+  end
 
-    # def show?
-    #   true
-    # end
+  def show?
+    true
+  end
 
-    def create?
-      true
-    end
+  def new?
+    true
+  end
 
-    def update?
-      is_user?
-    end
+  def create?
+    true
+  end
 
-    def delete?
-      is_user?
-    end
+  def update?
+    is_user?
+  end
 
-    private
+  def delete?
+    is_user?
+  end
 
-    def is_user?
-      record.user == user
-    end
+  private
+
+  def is_user?
+    record.user == user
   end
 end
