@@ -1,66 +1,10 @@
 <div class="page-container">
-
-  <div class="profile-banner">
-    <div>
-      <%= image_tag @doctor.profile_picture, id: "profile-pic", class: "avatar-square-profile" %>
-    </div>
-    <div class="doctor-titles">
-      <div class="doctor-name">
-        <h1>
-          <%= @doctor.title + " "%>
-            <strong>
-              <%= @doctor.first_name + " " + @doctor.last_name%>
-            </strong>
-        </h1>
-      </div>
-      <div class="doctor-position">
-        <h5>
-          <%= @doctor.position + " in " + @doctor.specialties.first[:name] + " at " + @doctor.clinic.name %>
-        </h5>
-      </div>
-    </div>
-    <div>
-      <%= link_to "Back", doctors_path, class: "btn-mint" %>
-    </div>
-  </div>
-
-  <div class="doctor-tabs-row">
-    <div>
-      <p><strong><%= @doctor.clinic.name %></strong></p>
-    </div>
-    <div>
-      <ul class="doctor-tabs">
-        <li>About Me</li>
-        <li>My specialisation</li>
-        <li>Our hospital</li>
-        <li>Consultation hours</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="doctor-content-row">
-    <ul class="contact-list">
-      <li><%= @doctor.clinic.phone_number%></li>
-      <li><%= @doctor.clinic.email%></li>
-      <li><%= @doctor.clinic.website%></li>
-    </ul>
-    <div class="doctor-content"> <%= @doctor.bio %></div>
-  </div>
-
+  <%= render 'users/profile_banner' %>
+  <%= render 'users/profile_tabs' %>
+  <%= render 'users/profile_content' %>
   <%= link_to "Back", doctors_path, class: "btn-mint" %>
-
-  <div class="recommendation-row">
-    <div class="recommendation-filters">
-      <!-- Filters here -->
-    </div>
-    <div class="profile-recommendations">
-      <%= render 'users/profile_recommendations' %>
-    </div>
-  </div>
-
+  <%= render 'users/profile_approval_section' %>
 </div>
-
-
 
 
 <%= render 'shared/temp' %>

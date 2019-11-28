@@ -36,7 +36,7 @@ class UsersController < ApplicationController
 
   def show
     @approvals = Approval.all.select { |approval| approval.receiver_id == @doctor.id }
-    # @fields = Field.all.select { |field| field.approval == @doctor.approval }
+    @months = Date::ABBR_MONTHNAMES
   end
 
   private
