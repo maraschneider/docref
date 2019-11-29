@@ -2,22 +2,34 @@
   <div>
     <%= image_tag @doctor.profile_picture, id: "profile-pic", class: "avatar-square-profile" %>
   </div>
-  <div class="doctor-titles">
-    <div class="doctor-name">
-      <h1>
-        <%= @doctor.title + " "%>
-          <!-- <strong> -->
-            <%= @doctor.first_name + " " + @doctor.last_name%>
-          <!-- </strong> -->
-      </h1>
+  <div class="d-flex justify-content-between align-items-center">
+    <div class="doctor-titles">
+      <div class="doctor-name">
+        <h1>
+          <%= @doctor.title + " "%>
+            <!-- <strong> -->
+              <%= @doctor.first_name + " " + @doctor.last_name%>
+            <!-- </strong> -->
+        </h1>
+      </div>
+      <div class="doctor-position">
+        <h5>
+          <%= @doctor.position + " in " + @doctor.specialties.first[:name] + " at " + @doctor.clinic.name %>
+        </h5>
+      </div>
     </div>
-    <div class="doctor-position">
-      <h5>
-        <%= @doctor.position + " in " + @doctor.specialties.first[:name] + " at " + @doctor.clinic.name %>
-      </h5>
+
+    <div class="dropdown">
+      <a id="options-btn" class="btn btn-mint dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Options
+      </a>
+
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <a class="dropdown-item" href="#">Contact via DocRef</a>
+        <a class="dropdown-item" href=<%="https://www.jameda.de/arztsuche/?new_search=1&namen=" + "#{@doctor.first_name}" + "%20" + "#{@doctor.last_name}" + "&address=" + "#{@doctor.clinic.address}"%>>View on Jameda.de</a>
+        <a class="dropdown-item" href="#">Something else here</a>
+      </div>
     </div>
-  </div>
-  <div>
-    <%= link_to "Back", doctors_path, class: "btn-mint" %>
+
   </div>
 </div>
