@@ -1,5 +1,6 @@
 class ApprovalsController < ApplicationController
   before_action :set_receiver, only: [:new, :create]
+
   def new
     @approval = Approval.new(receiver: @receiver, giver: current_user)
     authorize @approval
@@ -36,7 +37,10 @@ class ApprovalsController < ApplicationController
   end
 
   def approval_params
-    params.require(:approval).permit(:content, :fields, :headline)
-
+    params.require(:approval).permit(
+      :content,
+      :headline,
+      approval_fields_attributes: [:field_id]
+     )
   end
 end
