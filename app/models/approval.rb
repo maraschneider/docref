@@ -4,4 +4,6 @@ class Approval < ApplicationRecord
   belongs_to :receiver, class_name: "User"
   has_many :approval_fields
   has_many :fields, through: :approval_fields
+
+  accepts_nested_attributes_for :approval_fields
 end

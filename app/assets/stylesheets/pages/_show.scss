@@ -1,8 +1,21 @@
+// Profile Navigation Buttons above Banner
+
+.profile-nav-btn-section {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-gap: 16px;
+  align-items: center;
+  margin-bottom: $md;
+}
+
+.nav-arrows {
+}
+
 // Profile Banner Section
 
 .profile-banner {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 1fr 3fr;
   grid-gap: 16px;
   height: $profile-banner-height;
   background-color: $light-mint;
@@ -10,8 +23,18 @@
   margin-bottom: $md;
 }
 
+.profile-banner.referral {
+  grid-template-columns: 1fr 3fr 1fr;
+  height: $profile-banner-height-text;
+  background-color: white;
+}
+
 .doctor-titles {
   margin-right: 0;
+}
+
+#options-btn {
+  margin-right: 32px;
 }
 
 // Profile Tabs Section
@@ -21,6 +44,10 @@
   grid-template-columns: 1fr 3fr;
   grid-gap: 16px;
   height: auto;
+}
+
+#profile-nav-btn {
+  padding: 2px 16px;
 }
 
 // Profile Content Section (Contact, About Me etc)
@@ -45,7 +72,6 @@
   margin-bottom: $lg;
 }
 
-
 // Profile Recommendation Section
 
 .approval-section {
@@ -56,7 +82,8 @@
 }
 
 .approvals-filters {
-  border: green dotted 3px;
+  position: sticky;
+  border-radius: $rad;
 }
 
 #search-approvals {
@@ -69,6 +96,12 @@
 .approval-search-btn {
   margin: 0;
   align-items: flex-start;
+}
+
+.gray-line {
+  border-bottom: solid $mint 1px;
+  width: 160px;
+  margin-bottom: 12px;
 }
 
 // NEW CSS to refactor into ONE grid

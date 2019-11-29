@@ -5,13 +5,13 @@
     </div>
     <div id="search-image">
       <div id="landing-search">
-        <p>Trustworthy recommendations  by doctors  for your condition.</p>
-        <div id="two-field-search-container">
-          <%= form_tag doctors_path, method: :get do %>
+        <h5>Trustworthy recommendations  by doctors  for your condition.</h5>
+        <div>
+          <%= form_tag doctors_path, method: :get, class: "two-field-search-container" do %>
             <%= text_field_tag :specialty_or_field,
               params[:specialty_or_field],
-              class: "input-field",
-              placeholder: "cardiologist"
+              class: "input-field m-0",
+              placeholder: "Cardiologist for Heart Failure"
             %>
             <%= text_field_tag :location,
               params[:location],
