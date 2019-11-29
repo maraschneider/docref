@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   resources :doctors, controller: :users, only: [:index, :show] do
     resources :approvals, only: [:new, :create]
   end
-
+  get 'dashboard', to: 'users#dashboard', as: :dashboard
 end

@@ -1,8 +1,21 @@
+// Profile Navigation Buttons above Banner
+
+.profile-nav-btn-section {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-gap: 16px;
+  align-items: center;
+  margin-bottom: $md;
+}
+
+.nav-arrows {
+}
+
 // Profile Banner Section
 
 .profile-banner {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 1fr 3fr;
   grid-gap: 16px;
   height: $profile-banner-height;
   background-color: $light-mint;
@@ -10,8 +23,18 @@
   margin-bottom: $md;
 }
 
+.profile-banner.referral {
+  grid-template-columns: 1fr 3fr 1fr;
+  height: $profile-banner-height-text;
+  background-color: white;
+}
+
 .doctor-titles {
   margin-right: 0;
+}
+
+#options-btn {
+  margin-right: 32px;
 }
 
 // Profile Tabs Section
@@ -23,22 +46,8 @@
   height: auto;
 }
 
-.doctor-tabs li {
-  display: inline;
-  padding-right: $md;
-}
-
-.doctor-tabs {
-  padding: 0;
-}
-
-.profile-tab {
-  color: $mint;
-}
-
-.profile-tab:hover {
-  color: $mint;
-  text-decoration: none;
+#profile-nav-btn {
+  padding: 2px 16px;
 }
 
 // Profile Content Section (Contact, About Me etc)
@@ -55,6 +64,13 @@
   padding: 0;
 }
 
+#myspecialisation li {
+  line-height: 1;
+}
+
+.consultation-times {
+  margin-bottom: $lg;
+}
 
 // Profile Recommendation Section
 
@@ -66,7 +82,8 @@
 }
 
 .approvals-filters {
-  border: green dotted 3px;
+  position: sticky;
+  border-radius: $rad;
 }
 
 #search-approvals {
@@ -80,4 +97,19 @@
   margin: 0;
   align-items: flex-start;
 }
+
+.gray-line {
+  border-bottom: solid $light-gray 1px;
+  width: 200px;
+  margin-bottom: 12px;
+}
+
+// NEW CSS to refactor into ONE grid
+
+// .profile-grid {
+//   display: grid;
+//   grid-template-columns: 1fr 3fr;
+//   grid-gap: 16px;
+//   grid-template-rows:
+// }
 

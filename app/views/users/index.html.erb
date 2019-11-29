@@ -1,11 +1,11 @@
 <div class="page-container">
   <div class="search-map-container">
     <div>
-      <%= render 'shared/search_bar' %>
-      <% if @doctors_results.empty? %>
+      <%= render 'users/filter_bar' %>
+      <% if @doctors.empty? %>
         <p><strong>No doctors found.</strong></p>
       <% else %>
-        <%= render partial: 'users/doctor_card', collection: @doctors_results, as: :doctor %>
+        <%= render partial: 'users/doctor_card', collection: @doctors, as: :doctor %>
       <% end %>
     </div>
     <div

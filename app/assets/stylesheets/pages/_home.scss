@@ -9,15 +9,26 @@
 }
 
 #search-image {
-  display: flex;
+  //display: flex;
+  //justify-content: space-between;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
 }
 
 #landing-search {
-  width: 40%;
+  width: 60%;
+  position: absolute;
+  z-index: 2;
+  top: 0;
 }
 
 #landing-image img{
-  width: 600px;
+  width: 800px;
+  right: 0;
+  z-index: 1;
+  position: absolute;
 }
 
 #info-user {

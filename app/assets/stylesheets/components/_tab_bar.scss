@@ -1,0 +1,30 @@
+// See slack for HTML code
+
+.nav-tabs {
+  border: 0;
+}
+
+.nav-link.profile-tab {
+  padding-top: 0 !important;
+  margin-bottom: $lg !important;
+  border: 0 !important;
+}
+
+
+
+.nav-link {
+  color: $mint;
+    &:hover {
+      text-decoration: none;
+      color: $mint;
+      border: 0 !important;
+    }
+}
+
+.nav-link.active {
+  color: $mint !important;
+  background-color: white !important;
+  border-color: white !important;
+  border-bottom: solid $mint 2px !important;
+}
+

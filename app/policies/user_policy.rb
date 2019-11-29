@@ -9,6 +9,10 @@ class UserPolicy < ApplicationPolicy
     true
   end
 
+  def dashboard?
+    true
+  end
+
   def search?
     true
   end

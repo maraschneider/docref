@@ -34,3 +34,10 @@
   object-fit: cover;
   border-radius: 8px 0 0 8px;
 }
+
+.hospital-pic-square {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  padding-left: $lg;
+}

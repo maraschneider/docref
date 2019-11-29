@@ -1,0 +1,57 @@
+<div>
+
+<!-- Tab buttons -->
+
+  <ul class="nav nav-tabs">
+
+    <li class="nav-item">
+      <a class="nav-link profile-tab active" href="#aboutme" role="tab" data-toggle="tab">About me</a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link profile-tab" href="#myspecialisation" role="tab" data-toggle="tab">My specialization</a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link profile-tab" href="#ourhospital" role="tab" data-toggle="tab">Our hospital</a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link profile-tab" href="#consultationhours" role="tab" data-toggle="tab">Consultation hours</a>
+    </li>
+
+  </ul>
+
+<!-- Content for tabs below -->
+
+  <div class="tab-content">
+
+    <div role='tabpanel' class= "tab-pane active fade show" id="aboutme">
+      <%= @doctor.bio %>
+    </div>
+
+    <div role='tabpanel' class= "tab-pane fade" id="myspecialisation">
+      <% @doctor.fields.each do |field| %>
+        <ul>
+          <li><%= field.name %></li>
+        </ul>
+      <% end %>
+    </div>
+
+    <div role='tabpanel' class= "tab-pane fade" id="ourhospital">
+      <div class="d-flex">
+        <div><%= @doctor.clinic.description %></div>
+        <div><%= image_tag @doctor.clinic.clinic_picture, class: 'hospital-pic-square' %></div>
+      </div>
+    </div>
+
+    <div role='tabpanel' class= "tab-pane fade" id="consultationhours">
+      <div class="consultation-times"><%= @doctor.clinic.consultation_times %></div>
+      <div><%= link_to "Check availability on DoctoLib", "https://www.doctolib.de/", class: "btn-mint" %></div>
+    </div>
+  </div>
+
+
+</div>
+
+
