@@ -87,28 +87,36 @@
   border-radius: $rad;
   background-color: $light-mint;
   display: grid;
-  grid-template-columns: 3fr 104px;
-  grid-template-rows: 104px 50px;
-  grid-gap: $lg;
-  padding: $lg;
+  grid-template-columns: 3fr 100px;
+  grid-column-gap: $xl;
+  grid-row-gap: $xs;
+  padding: $md;
   margin: $lg 0;
   width: 100%;
-  align-content: space-around;
   justify-content: space-between;
+  align-items: start;
 
   .btn-outline {
-  padding: $sm $md;
-  margin: 0 auto;
-  align-self: end;
-  text-align: center;
-  align-content: center;
-  width: 100%;
-  }
-}
+    display: inline-block;
+    padding: $xs $md;
+    margin: $md 0 0 0;
+    align-self: end;
+    text-align: center;
+    align-content: center;
+    width: 100%;
+    }
 
-.desc-doc {
-  align-self: end;
-  margin-bottom: 0;
-  /*overflow: hidden;
-  text-overflow: ellipsis;*/
+    .left-btn-position {
+      justify-self: end;
+    }
+
+    .btn-narrow {
+      width: 160px;
+
+    }
+
+  .pos-clinic-title {
+    color: $purple;
+    padding: $sm 0;
+  }
 }
