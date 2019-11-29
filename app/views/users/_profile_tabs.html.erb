@@ -3,11 +3,6 @@
     <p><strong><%= @doctor.clinic.name %></strong></p>
   </div>
   <div>
-    <ul class="doctor-tabs">
-      <li> <%= link_to "About Me", "a", class:"profile-tab" %></li>
-      <li> <%= link_to "My specialisation", "a", class:"profile-tab" %></li>
-      <li> <%= link_to "Our hospital", "a", class:"profile-tab" %></li>
-      <li> <%= link_to "Consultation hours", "a", class:"profile-tab" %></li>
-    </ul>
+    <%= render "users/profile_interactive_tabs" %>
   </div>
 </div>

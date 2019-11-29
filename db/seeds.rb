@@ -40,8 +40,9 @@ clinic_1 = Clinic.create(
   phone_number: '030 1234 456789',
   email: 'service@charite.de',
   clinic_picture: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1035&q=80",
-  description: "Charité is one of the largest university hospitals in Europe. All of our clinical care, research and teaching is delivered by physicians and researchers of the highest international standard. Charité proudly lays claim to more than half of all German Nobel Prize winners in Physiology or Medicine, including Emil von Behring, Robert Koch, and Paul Ehrlich. Charité is internationally renowned for its excellence in teaching and training.  Charité – Universitätsmedizin Berlin represents a single medical faculty, which serves both Humboldt Universtität zu Berlin and Freie Universität Berlin.  Charité extends over four campuses, and has close to 100 different Departments and Institutes, which make up a total of 17 different CharitéCenters.  Having marked its 300-year anniversary in 2010, Charité is now one of the largest employers in Berlin, employing 14,576 staff (or 18,010 if including its subsidiaries), and with a total annual turnover of €1.8 billion.",
-  address: "Chariteplatz 1, 10117 Berlin")
+  description: "Charité is one of the largest university hospitals in Europe. All of our clinical care, research and teaching is delivered by physicians and researchers of the highest international standard. Charité proudly lays claim to more than half of all German Nobel Prize winners in Physiology or Medicine, including Emil von Behring, Robert Koch, and Paul Ehrlich. Charité is internationally renowned for its excellence in teaching and training.",
+  address: "Chariteplatz 1, 10117 Berlin",
+  consultation_times: "Mo - Fr: 10am - 5pm")
 
 clinic_2 = Clinic.create(
   name:'Bundeswehrkrankenhaus Berlin',
@@ -50,7 +51,8 @@ clinic_2 = Clinic.create(
   email: 'info@bundeswehrkrankenhaus.de',
   clinic_picture: "https://unsplash.com/photos/NYuj7FRFlPU",
   description: "The Joint Medical Service (German: Zentraler Sanitätsdienst der Bundeswehr) is a part of the Bundeswehr, the armed forces of Germany and serves all three armed services (Army, Navy and Air Force). However, members of the central medical corps remain members of their respective military branches. Only a few specialized medical units such as the medical care for divers and aircraft crews are not incorporated in the Joint Medical Service. Prior to 2002 each military branch had its own medical service. The services were then largely merged, forming the Joint Medical Service.",
-  address: "Scharnhorststraße 13, 10115 Berlin")
+  address: "Scharnhorststraße 13, 10115 Berlin",
+  consultation_times: "Mo - Fr: 10am - 5pm")
 
 clinic_3 = Clinic.create(
   name:'Unfallkrankenhaus Berlin (UKB)',
@@ -59,7 +61,8 @@ clinic_3 = Clinic.create(
   email: 'service@ukb.de',
   clinic_picture: "https://images.unsplash.com/photo-1533042789716-e9a9c97cf4ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80",
   description: "Das Unfallkrankenhaus Berlin (UKB) ist eine berufsgenossenschaftliche Unfallklinik im Berliner Ortsteil Biesdorf des Bezirks Marzahn-Hellersdorf, die 1997 gegründet wurde. Vorrangig dient es der Behandlung von Unfallverletzten und Notfallpatienten aus dem Raum Berlin-Brandenburg sowie von Schwerbrandverletzten aus ganz Deutschland.[1] Das Haupthaus ist ein Neubau, aber die meisten historischen Gebäude des Wilhelm-Griesinger-Krankenhauses wurden dem UKB zugeschlagen. Somit geht die Geschichte bis zum Ende des 19. Jahrhunderts zurück.",
-  address: "Warener Str. 7, 12683 Berlin")
+  address: "Warener Str. 7, 12683 Berlin",
+  consultation_times: "Mo - Fr: 10am - 5pm")
 
 user_1 = User.create(
   email: "doctor1@example.com",
