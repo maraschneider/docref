@@ -1,5 +1,5 @@
 class ApprovalsController < ApplicationController
-  before_action :get_receiver, only: [:new, :create]
+  before_action :set_receiver, only: [:new, :create]
   def new
     @approval = Approval.new(receiver: @receiver, giver: current_user)
     authorize @approval
@@ -31,10 +31,9 @@ class ApprovalsController < ApplicationController
 
   private
 
-  def get_receiver
+  def set_receiver
     @receiver = User.find(params[:doctor_id])
   end
-
 
   def approval_params
     params.require(:approval).permit(:content, :fields, :headline)
