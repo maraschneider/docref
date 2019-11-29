@@ -1,30 +1,34 @@
 <div>
   <ul class="nav nav-tabs">
     <li class="nav-item">
-      <a class="nav-link active" href="#received" role="tab" data-toggle="tab">Received Recommendations</a>
+      <a class="nav-link profile-tab active" href="#received" role="tab" data-toggle="tab">Received Recommendations</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#given" role="tab" data-toggle="tab">Given Recommendations</a>
+      <a class="nav-link profile-tab" href="#given" role="tab" data-toggle="tab">Given Recommendations</a>
     </li>
   </ul>
   <div class="tab-content">
     <div role='tabpanel' class= "tab-pane active fade show" id="received">
 
-      <h4>Your latest recommendations by other doctors</h4>
+      <h4 style="font-size: 20px">Your latest recommendations by other doctors</h4>
       <% @re_approvals.each do |approval| %>
-      <div class="card-approval">
-        <div>
-          <% approval.fields.each do |field|  %>
-          <div><%= field.name %></div>
-          <% end %>
-          <div>
-            <%= @user.title %>
+      <div style= "box-shadow: 10px 10px 30px rgba(180, 178, 178, 0.25); padding: 20px; margin-bottom: 20px;">
+
+      <div class="approval-header">
             <div>
               <p><%= "#{approval.created_at.strftime("%d")}" + " #{@months[approval.created_at.month]} " + "#{approval.created_at.strftime("%Y")}" %></p>
             </div>
+        <div class="tag-container">
+          <% approval.fields.each do |field|  %>
+          <div class="tag-outline" style="height: 32px;">
+            <%= field.name %>
           </div>
-        </div>
-        <p><%= approval.content %></p>
+          <% end %>
+        <div>
+
+      </div>
+
+
         <div>
           <p>
             Verified doctor in
@@ -32,6 +36,10 @@
             <%= recommender.specialties.first[:name]%>
           </p>
         </div>
+            <%= @user.title %>
+          </div>
+        </div>
+        <p><%= approval.content %></p>
       </div>
       <% end %>
     </div>
