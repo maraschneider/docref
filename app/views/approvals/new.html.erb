@@ -1,0 +1,27 @@
+<div class="page-container">
+  <div class="recommendee-container">
+    <h4>Write a recommendation </h4>
+    <p>The recommendee: </p>
+    <%= render partial: 'users/doctor_card', object: @receiver, as: :doctor %>
+  </div>
+  <div class="approval-form">
+    <%= simple_form_for @approval, url: doctor_approvals_path(@receiver) do |f| %>
+      <%= f.input :headline, placeholder: "Title of your recommendation"%>
+      <div class="form-group">
+        <label class="control-label check_boxes optional">Fields</label>
+        <input type="hidden" name="approval[field_ids][]" value="">
+        <div class="field-choices">
+          <% @receiver.specialties.first.fields.each do |field| %>
+            <div class="field-choice">
+              <input type="checkbox" class="hidden" value="<%= field.id %>" name="approval[field_ids][]" id="approval_field_ids_<%= field.id %>">
+                <%= field.name %>
+            </div>
+          <% end %>
+         </div>
+      </div>
+      <%= f.input :content, as: :text, placeholder: "Why do you recommend this doctor?"%>
+      <%= f.submit "Recommend", class: "btn-mint"  %>
+    <% end %>
+  </div>
+</div>
+

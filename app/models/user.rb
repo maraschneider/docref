@@ -17,4 +17,16 @@ class User < ApplicationRecord
   #  using: {
   #    tsearch: { prefix: true }
   #  }
+
+  def full_name
+    "#{self.first_name.capitalize} #{self.last_name.capitalize}"
+  end
+
+  def full_name_with_title
+    "#{self.title.capitalize} #{self.first_name.capitalize} #{self.last_name.capitalize}"
+  end
+
+  def position_specialty_clinic
+    "#{self.position.capitalize} in #{self.specialties.first.name.capitalize} at #{self.clinic.name.capitalize}"
+  end
 end

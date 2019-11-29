@@ -1,0 +1,51 @@
+
+.recommendee-container {
+  margin: $lg auto;
+  width: 70%;
+
+  .card-doc {
+    margin: 0;
+  }
+}
+
+.approval-form {
+  margin: 0 auto;
+  width: 70%;
+  padding: $lg;
+  border: 1px solid $mint;
+  border-radius: $rad;
+}
+
+.field-choices {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.field-choice {
+  background: $light-mint;
+  padding: $md;
+  border-radius: $rad;
+  opacity: .4;
+  flex: 0 0 30%;
+  text-align: center;
+  margin: $sm 0;
+  &:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+  &.active {
+  background: $mint;
+  color: white;
+  opacity: 1;
+  }
+
+  label {
+    margin: 0;
+  }
+}

@@ -2,7 +2,11 @@
   <div class="search-map-container">
     <div>
       <%= render 'users/filter_bar' %>
-      <%= render 'users/doctor_card' %>
+      <% if @doctors.empty? %>
+        <p><strong>No doctors found.</strong></p>
+      <% else %>
+        <%= render partial: 'users/doctor_card', collection: @doctors, as: :doctor %>
+      <% end %>
     </div>
     <div
       id="map"

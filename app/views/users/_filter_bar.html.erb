@@ -18,11 +18,13 @@
       select: params[:field],
       class: "js-example-basic-multiple btn-outline"
     %>
+    <h5>Location</h5>
+    <div class="address">
     <%= text_field_tag :location,
       params[:location],
-      class: "input-field",
-      placeholder: "Berlin"
+      class: "input-field address-input"
     %>
+    </div>
     <%= submit_tag "Search", class: "btn-mint" %>
   <% end %>
 </div>
