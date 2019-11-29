@@ -23,7 +23,7 @@ class User < ApplicationRecord
   end
 
   def full_name_with_title
-    "#{self.title.capitalize} #{self.first_name.capitalize} #{self.last_name.capitalize}"
+    "#{self.title} #{self.first_name.capitalize} #{self.last_name.capitalize}"
   end
 
   def position_specialty_clinic
