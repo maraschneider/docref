@@ -8,7 +8,7 @@
     </li>
   </ul>
   <div class="tab-content">
-    <div role='tabpanel' class= "tab-pane active" id="received">
+    <div role='tabpanel' class= "tab-pane active fade show" id="received">
 
       <h4>Your latest recommendations by other doctors</h4>
       <% @re_approvals.each do |approval| %>
@@ -36,7 +36,7 @@
       <% end %>
     </div>
 
-    <div role='tabpanel' class= "tab-pane" id="given">
+    <div role='tabpanel' class= "tab-pane fade" id="given">
       <h4>Recommendations of doctors written by you</h4>
       <% @gi_approvals.each do |approval| %>
       <div class="card-approval">
