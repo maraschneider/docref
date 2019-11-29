@@ -1,7 +1,7 @@
 <div class="card-doc">
   <div>
-    <h4><%=doctor.title%> <%=doctor.first_name%> <%=doctor.last_name%></h4>
-    <div class="pos-clinic-title"><%= doctor.position %> in <%=doctor.specialties.first.name.capitalize%> at <%= doctor.clinic.name %></div>
+    <h4><%=doctor.full_name_with_title%></h4>
+    <div class="pos-clinic-title"><%= doctor.position_specialty_clinic %></div>
     <% if doctor.clinic %>
       <div><%= doctor.clinic.address%></div>
     <% end %>
