@@ -5,7 +5,7 @@
     <%= render partial: 'users/doctor_card', object: @receiver, as: :doctor %>
   </div>
   <div class="approval-form">
-    <%= simple_form_for(doctor_approvals_path(@receiver)) do |f| %>
+    <%= simple_form_for @approval, url: doctor_approvals_path(@receiver) do |f| %>
       <%= f.input :headline, placeholder: "Title of your recommendation"%>
       <div class="form-group">
         <label class="control-label check_boxes optional">Fields</label>
@@ -19,9 +19,8 @@
           <% end %>
          </div>
       </div>
-      <%#= f.input :field, as: :check_boxes, collection: @doctor.specialties.first.fields, class: "category-choice" %>
       <%= f.input :content, as: :text, placeholder: "Why do you recommend this doctor?"%>
-      <%= f.submit "Save", class: "btn-mint"  %>
+      <%= f.submit "Recommend", class: "btn-mint"  %>
     <% end %>
   </div>
 </div>
