@@ -1,7 +1,6 @@
 class ApprovalsController < ApplicationController
-
+  before_action :get_receiver, only: [:new, :create]
   def new
-    @doctor = User.find(params[:doctor_id])
     @approval = Approval.new(receiver: @receiver, giver: current_user)
     authorize @approval
   end
@@ -9,8 +8,13 @@ class ApprovalsController < ApplicationController
   def create
     @approval = Approval.new(approval_params)
     @approval.giver = current_user
-    @approval.receiver = User.find(params[:doctor_id])
+    @approval.receiver = @receiver
     authorize @approval
+    if @approval.save
+      redirect_to doctor_path(@receiver)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -26,6 +30,11 @@ class ApprovalsController < ApplicationController
   end
 
   private
+
+  def get_receiver
+    @receiver = User.find(params[:doctor_id])
+  end
+
 
   def approval_params
     params.require(:approval).permit(:content, :fields, :headline)
