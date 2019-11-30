@@ -18,6 +18,8 @@ class User < ApplicationRecord
   #    tsearch: { prefix: true }
   #  }
 
+  mount_uploader :profile_picture, ProfilePictureUploader
+
   def full_name
     "#{self.first_name.capitalize} #{self.last_name.capitalize}"
   end
