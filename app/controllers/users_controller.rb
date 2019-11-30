@@ -87,7 +87,18 @@ class UsersController < ApplicationController
   end
 
   def search_approvals_by_field(search_input)
-    Approval.joins(:fields).where(receiver: @doctor).where(fields: {name: search_input}).uniq
+    counts = Hash.new(0)
+    @approvals = []
+    search_input.each do |input|
+      results = Approval.joins(:fields).where(receiver: @doctor).where(fields: {name: input}).uniq
+      results.each do |result|
+        counts[result] += 1
+      end
+    end
+    counts.each do |key, value|
+      @approvals << key if value == search_input.count
+    end
+    @approvals
   end
 
   def set_doctor
