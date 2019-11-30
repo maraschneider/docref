@@ -52,7 +52,7 @@
 
           <div style="width: 160px; text-align: center;">
             <% recommendee = User.find { |user| approval.receiver_id == user.id } %>
-            <%= image_tag recommendee.profile_picture, id: "profile-pic", class: "avatar-square-profile"  %>
+            <%= cl_image_tag recommendee.profile_picture, height: 300, width: 300, crop: :fill, id: "profile-pic", class: "avatar-square-profile"  %>
             <p style="margin: 5px 0px 0px 0px;">
               <%= recommendee.title %> <%= recommendee.first_name %> <%= recommendee.last_name %>
             </p>
