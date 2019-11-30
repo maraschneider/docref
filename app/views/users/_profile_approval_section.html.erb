@@ -2,14 +2,16 @@
   <div class="approvals-filters">
 
     <%= form_tag doctor_path, method: :get do %>
-    <%= select_tag :field,
-      options_from_collection_for_select(
-      Fields.joins(:approval).where(user: user), "name", "name",
-      params[:field]),
-      multiple: true,
-      select: params[:fields],
-      class: "js-example-basic-multiple btn-outline"
-    %>
+      <%= select_tag :approval_field,
+        options_from_collection_for_select(
+        Field.joins(:approvals).where(approvals: {receiver: @doctor}), "name", "name",
+        params[:approval_field]),
+        multiple: true,
+        select: params[:approval_field],
+        class: "js-example-basic-multiple btn-outline"
+      %>
+      <%= submit_tag "Search", class: "btn-mint" %>
+    <% end %>
 
     <ul class="contact-list">
       <li>

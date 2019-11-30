@@ -6,4 +6,11 @@ class Approval < ApplicationRecord
   has_many :fields, through: :approval_fields
 
   accepts_nested_attributes_for :approval_fields
+
+  include PgSearch::Model
+  pg_search_scope :search_by_field,
+    against: :name,
+    using: {
+      tsearch: { prefix: true }
+    }
 end

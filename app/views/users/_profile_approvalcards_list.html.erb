@@ -3,7 +3,7 @@
 <!-- move this stuff to the approval view when pulled -->
 <div>
   <div class="search-container" id="search-approvals">
-  <%= form_tag approvals_path, method: :get do %>
+  <%= form_tag doctor_path, method: :get do %>
     <%= text_field_tag :search,
       params[:search],
       class: "input-field",

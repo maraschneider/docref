@@ -21,9 +21,13 @@ class UsersController < ApplicationController
   end
 
   def show
-    @approvals = Approval.all.select { |approval| approval.receiver_id == @doctor.id }
-    # months required to show "Nov" instead of '11' on approval cards
-    @months = Date::ABBR_MONTHNAMES
+    if params[:approval_field].present?
+      @approvals = Approval.all.select { |approval| approval.receiver_id == @doctor.id }
+    else
+      @approvals = Approval.all.select { |approval| approval.receiver_id == @doctor.id }
+      # months required to show "Nov" instead of '11' on approval cards
+      @months = Date::ABBR_MONTHNAMES
+    end
   end
 
   def dashboard
