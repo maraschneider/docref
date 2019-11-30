@@ -22,12 +22,13 @@ class UsersController < ApplicationController
 
   def show
     if params[:approval_field].present?
-      @approvals = Approval.all.select { |approval| approval.receiver_id == @doctor.id }
+      @approvals = search_approvals_by_field(params[:approval_field])
     else
       @approvals = Approval.all.select { |approval| approval.receiver_id == @doctor.id }
-      # months required to show "Nov" instead of '11' on approval cards
-      @months = Date::ABBR_MONTHNAMES
     end
+    # months required to show "Nov" instead of '11' on approval cards
+    @months = Date::ABBR_MONTHNAMES
+    @approvals
   end
 
   def dashboard
@@ -83,6 +84,10 @@ class UsersController < ApplicationController
         image_url: helpers.asset_url('pin-mint.png')
       }
     end
+  end
+
+  def search_approvals_by_field(search_input)
+    Approval.joins(:fields).where(receiver: @doctor).where(fields: {name: search_input}).uniq
   end
 
   def set_doctor

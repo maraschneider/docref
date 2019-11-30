@@ -7,7 +7,7 @@
         Field.joins(:approvals).where(approvals: {receiver: @doctor}), "name", "name",
         params[:approval_field]),
         multiple: true,
-        select: params[:approval_field],
+        #select: params[:approval_field],
         class: "js-example-basic-multiple btn-outline"
       %>
       <%= submit_tag "Search", class: "btn-mint" %>
