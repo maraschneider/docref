@@ -1,6 +1,6 @@
 <div class="profile-banner">
   <div>
-    <%= image_tag @doctor.profile_picture, id: "profile-pic", class: "avatar-square-profile" %>
+    <%= cl_image_tag @doctor.profile_picture, height: 300, width: 300, crop: :fill, id: "profile-pic", class: "avatar-square-profile" %>
   </div>
   <div class="d-flex justify-content-between align-items-center">
     <div class="doctor-titles">
