@@ -1,21 +1,8 @@
 <div class="approval-section">
   <div class="approvals-filters">
-
-    <%= form_tag doctor_path, method: :get do %>
-      <%= select_tag :approval_field,
-        options_from_collection_for_select(
-        Field.joins(:approvals).where(approvals: {receiver: @doctor}), "name", "name",
-        params[:approval_field]),
-        multiple: true,
-        #select: params[:approval_field],
-        class: "js-example-basic-multiple btn-outline"
-      %>
-      <%= submit_tag "Search", class: "btn-mint" %>
-    <% end %>
-
     <ul class="contact-list">
       <li>
-        <h5>Filters
+        <h5>Field
           <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill= "rgb(111, 188, 180)" viewBox="0 0 48 48">
             <g class="nc-icon-wrapper" fill="$mint">
               <path d="M14.83 30.83L24 21.66l9.17 9.17L36 28 24 16 12 28z"/>
@@ -24,6 +11,19 @@
         </h5>
       </li>
       <li>
+
+    <%= form_tag doctor_path, method: :get do %>
+        <%= select_tag :approval_field,
+            options_from_collection_for_select(
+            Field.joins(:approvals).where(approvals: {receiver: @doctor}).uniq, "name", "name",
+            params[:approval_field]),
+            multiple: true,
+            class: "js-example-basic-multiple btn-outline",
+            id: "tag-filter"
+        %>
+        <%= submit_tag "Search", class: "btn-mint" %>
+    <% end %>
+
       <li>
         <div class="gray-line"></div>
       </li>
