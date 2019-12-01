@@ -1,9 +1,8 @@
 <!-- Do not delete the outer div!!! -->
 
-<!-- move this stuff to the approval view when pulled -->
 <div>
   <div class="search-container" id="search-approvals">
-  <%= form_tag doctor_path, method: :get do %>
+  <%= form_tag(doctor_path, method: :get, remote: true) do %>
     <%= text_field_tag :keyword_search,
       params[:keyword_search],
       class: "input-field",
@@ -13,6 +12,7 @@
   <% end %>
   </div>
 
+<div id="search-results">
   <% if @approvals.empty? %>
     <p>No recommendations found.</p>
   <% else %>
@@ -40,6 +40,7 @@
     </div>
     <% end %>
   <% end %>
+</div>
 </div>
 
 

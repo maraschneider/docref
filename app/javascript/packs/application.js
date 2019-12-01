@@ -14,4 +14,4 @@ initMapbox();
 initSelect2();
 initAutocomplete();
 setActiveClassToFieldChoice();
-toggleTagsOnApprovalWhenFilter();
+//toggleTagsOnApprovalWhenFilter();

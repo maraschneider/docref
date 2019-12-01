@@ -12,7 +12,7 @@
       </li>
       <li>
 
-    <%= form_tag doctor_path, method: :get do %>
+    <%= form_tag(doctor_path, method: :get, remote: true) do %>
         <%= select_tag :approval_field,
             options_from_collection_for_select(
             Field.joins(:approvals).where(approvals: {receiver: @doctor}).uniq, "name", "name",
@@ -21,6 +21,7 @@
             class: "js-example-basic-multiple btn-outline",
             id: "tag-filter"
         %>
+
       <!-- </li>
         <div class="gray-line m-3"></div>
       <li> -->
@@ -32,7 +33,6 @@
           </svg> -->
         </h5>
       </li>
-
       <%= submit_tag "Search", class: "btn-mint" %>
     <% end %>
     </ul>
