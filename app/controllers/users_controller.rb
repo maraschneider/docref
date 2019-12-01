@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     if params[:approval_field].present?
       @approvals = search_approvals_by_field(params[:approval_field])
     elsif params[:keyword_search].present?
-      @approvals = Approval.search_approvals_by_keyword(params[:keyword_search])
+      @approvals = Approval.where(receiver: @doctor).search_approvals_by_keyword(params[:keyword_search])
     else
       @approvals = Approval.all.select { |approval| approval.receiver_id == @doctor.id }
     end
