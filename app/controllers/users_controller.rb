@@ -42,7 +42,33 @@ class UsersController < ApplicationController
   end
 
   def search_by_field(search_input)
-    Field.joins(:approvals).where(name: search_input).map {|p| p.users }.flatten.uniq
+    counts = Hash.new(0)
+    @doctors = []
+    search_input.each do |input|
+      results = Field.joins(:approvals).where(name: input).map {|p| p.users }.flatten.uniq
+      results.each do |result|
+        counts[result] += 1
+      end
+      counts.each do |key, value|
+        @doctors << key if value == search_input.count
+      end
+    end
+    @doctors
+  end
+
+  def search_approvals_by_field(search_input)
+    counts = Hash.new(0)
+    @approvals = []
+    search_input.each do |input|
+      results = Approval.joins(:fields).where(receiver: @doctor).where(fields: {name: input}).uniq
+      results.each do |result|
+        counts[result] += 1
+      end
+    end
+    counts.each do |key, value|
+      @approvals << key if value == search_input.count
+    end
+    @approvals
   end
 
   def search_by_specialty_or_field(search_input)
