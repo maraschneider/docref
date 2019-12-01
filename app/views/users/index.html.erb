@@ -1,13 +1,14 @@
 <div class="page-container">
+  <%= render 'users/filter_bar' %>
   <div class="search-map-container">
     <div>
-      <%= render 'users/filter_bar' %>
       <% if @doctors.empty? %>
         <p><strong>No doctors found.</strong></p>
       <% else %>
         <p><strong><%= @doctors.count %><%= @doctors.count > 1 ? " doctors" : " doctor" %> found
           <%= " in " + params[:location] if params[:location].present? %>
-          <%= " for " + params[:specialty].first if params[:specialty].present? %><strong></p>
+          <%= " for " + params[:specialty].first if params[:specialty].present? %>
+          <%= ", " + params[:specialty].second if params[:specialty].second.present? %></strong></p>
         <%= render partial: 'users/doctor_card', collection: @doctors, as: :doctor %>
       <% end %>
     </div>
