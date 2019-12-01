@@ -11,6 +11,12 @@ class Approval < ApplicationRecord
   pg_search_scope :search_by_field,
     against: :name,
     using: {
-      tsearch: { prefix: true }
+      tsearch: { prefix: true, dictionary: "english" }
+    }
+
+  pg_search_scope :search_approvals_by_keyword,
+    against: [:headline, :content],
+    using: {
+      tsearch: { prefix: true, dictionary: "english" }
     }
 end

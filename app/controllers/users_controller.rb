@@ -23,6 +23,8 @@ class UsersController < ApplicationController
   def show
     if params[:approval_field].present?
       @approvals = search_approvals_by_field(params[:approval_field])
+    elsif params[:keyword_search].present?
+      @approvals = Approval.search_approvals_by_keyword(params[:keyword_search])
     else
       @approvals = Approval.all.select { |approval| approval.receiver_id == @doctor.id }
     end
@@ -100,6 +102,10 @@ class UsersController < ApplicationController
     end
     @approvals
   end
+
+  #def search_approvals_by_keyword(search_input)
+  #  Approval.joins(:fields).where(reciever: @doctor).where(name: search_input).map {|p| p.users }.flatten.uniq
+  #end
 
   def set_doctor
     @doctor = User.find(params[:id])
