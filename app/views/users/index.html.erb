@@ -5,6 +5,9 @@
       <% if @doctors.empty? %>
         <p><strong>No doctors found.</strong></p>
       <% else %>
+        <p><strong><%= @doctors.count %><%= @doctors.count > 1 ? " doctors" : " doctor" %> found
+          <%= " in " + params[:location] if params[:location].present? %>
+          <%= " for " + params[:specialty].first if params[:specialty].present? %><strong></p>
         <%= render partial: 'users/doctor_card', collection: @doctors, as: :doctor %>
       <% end %>
     </div>
