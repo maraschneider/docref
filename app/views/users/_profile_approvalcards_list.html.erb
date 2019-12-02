@@ -1,24 +1,22 @@
 <!-- Do not delete the outer div!!! -->
 
-<div>
-
-  <div class="search-container" id="search-approvals">
-    <input class="input-field" type="text" placeholder="Search recommendations">
-    <a class= "btn-mint approval-search-btn" href="#">Search</a>
-  </div>
-
-  <% @approvals.each do |approval| %>
-
+<div id="search-results">
+  <% if @approvals.empty? %>
+    <br>
+    <p>No recommendations found.</p>
+  <% else %>
+    <% @approvals.each do |approval| %>
     <div class="card-approval">
       <div class="approval-header">
-        <h4><%= approval.headline %></h4>
+        <h4><%= '"' + approval.headline + '"' %></h4>
           <div class="card-approval-date">
             <p><%= "#{approval.created_at.strftime("%d")}" + " #{@months[approval.created_at.month]} " + "#{approval.created_at.strftime("%Y")}" %></p>
           </div>
       </div>
       <div class="tag-container">
+        <p class="info">Recommended for</p>
         <% approval.fields.each do |field|  %>
-          <div class="tag-outline"><%= field.name %></div>
+          <div class="tag-outline tag"><%= field.name %></div>
         <% end %>
       </div>
         <p><%= approval.content %></p>
@@ -30,10 +28,10 @@
         </p>
       </div>
     </div>
-
+    <% end %>
   <% end %>
-
 </div>
+
 
 
 
