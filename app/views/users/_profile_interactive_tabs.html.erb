@@ -9,15 +9,15 @@
     </li>
 
     <li class="nav-item">
-      <a class="nav-link profile-tab" href="#myspecialisation" role="tab" data-toggle="tab">My specialization</a>
+      <a class="nav-link profile-tab" href="#myspecialisation" role="tab" data-toggle="tab">Specialization</a>
     </li>
 
     <li class="nav-item">
-      <a class="nav-link profile-tab" href="#ourhospital" role="tab" data-toggle="tab">Our hospital</a>
+      <a class="nav-link profile-tab" href="#ourhospital" role="tab" data-toggle="tab">Our clinic</a>
     </li>
 
     <li class="nav-item">
-      <a class="nav-link profile-tab" href="#consultationhours" role="tab" data-toggle="tab">Consultation hours</a>
+      <a class="nav-link profile-tab" href="#consultationhours" role="tab" data-toggle="tab">Contact</a>
     </li>
 
   </ul>
@@ -39,9 +39,9 @@
     </div>
 
     <div role='tabpanel' class= "tab-pane fade" id="ourhospital">
-      <div class="d-flex">
+      <div>
         <div><%= @doctor.clinic.description %></div>
-        <div><%= image_tag @doctor.clinic.clinic_picture, class: 'hospital-pic-square' %></div>
+        <div><%= cl_image_tag @doctor.clinic.clinic_picture, crop: :fill, class: "hospital-pic" %></div>
       </div>
     </div>
 

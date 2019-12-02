@@ -7,79 +7,12 @@
       <a class="nav-link profile-tab" href="#given" role="tab" data-toggle="tab">Given Recommendations</a>
     </li>
   </ul>
-
   <div class="tab-content">
     <div role='tabpanel' class= "tab-pane active fade show" id="received">
-      <h4 style="font-size: 20px">Your latest recommendations by other doctors</h4>
-      <% @re_approvals.each do |approval| %>
-      <div class="card-approval">
-        <div class="approval-header">
-            <h4><%= approval.headline %></h4>
-          <div  class="card-approval-date" style="text-align: right;">
-            <p style="margin: 0px;">
-              <%= "#{approval.created_at.strftime("%d")}" + " #{@months[approval.created_at.month]} " + "#{approval.created_at.strftime("%Y")}" %>
-            </p>
-          </div>
-        </div>
-        <div class="tag-container">
-          <% approval.fields.each do |field|  %>
-          <div class="tag-outline" style="height: 34px;">
-            <%= field.name %>
-          </div>
-          <% end %>
-        </div>
-        <div >
-          <p>
-            <%= approval.content %>
-          </p>
-          <p class="approval-footer">
-            Verified doctor in
-            <% recommender = User.find { |user| approval.giver_id == user.id } %>
-            <%= recommender.specialties.first[:name]%>
-          </p>
-        </div>
-      </div>
-      <% end %>
+      <%= render 'users/dashboard/dashboard_received_reviews' %>
     </div>
-
     <div role='tabpanel' class= "tab-pane fade" id="given">
-      <h4 style="font-size: 20px">Recommendations of doctors written by you</h4>
-      <% @gi_approvals.each do |approval| %>
-
-      <div class="card-approval">
-
-        <div class="profile-banner referral">
-
-          <div style="width: 160px; text-align: center;">
-            <% recommendee = User.find { |user| approval.receiver_id == user.id } %>
-            <%= image_tag recommendee.profile_picture, id: "profile-pic", class: "avatar-square-profile"  %>
-            <p style="margin: 5px 0px 0px 0px;">
-              <%= recommendee.title %> <%= recommendee.first_name %> <%= recommendee.last_name %>
-            </p>
-          </div>
-
-          <div style="padding: 10px;">
-            <div class="approval-header">
-              <h4><%= approval.headline %></h4>
-              <div class="card-approval-date">
-                <p><%= "#{approval.created_at.strftime("%d")}" + " #{@months[approval.created_at.month]} " + "#{approval.created_at.strftime("%Y")}" %></p>
-              </div>
-            </div>
-            <p><%= approval.content %></p>
-          </div>
-
-          <div class="vertical-buttons-center">
-            <ul>
-              <li><%= submit_tag "Edit", class: "btn-mint" %></li>
-              <li><%= submit_tag "Delete", class: "btn-mint" %></li>
-            </ul>
-          </div>
-
-        </div>
-
-      </div>
-      <% end %>
+      <%= render 'users/dashboard/dashboard_given_reviews' %>
     </div>
-
   </div>
 </div>

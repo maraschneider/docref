@@ -1,0 +1,63 @@
+.dashboard_header {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-gap: $md;
+  height: $profile-banner-height;
+  background-color: $light-mint;
+  align-items: center;
+  margin-bottom: $md;
+  border-radius: $rad;
+}
+
+.dashboard_header-text {
+  margin-left: $lg;
+}
+
+.dashboard-header-image {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.dashboard-body-layout {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  grid-gap: $md;
+}
+
+.dashboard-received {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  grid-gap: $md;
+}
+
+.dashboard-given {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-gap: $md;
+  height: $profile-banner-height-text;
+  background-color: white;
+  align-items: center;
+  margin-bottom: $md;
+  border-radius: $rad;
+}
+
+.dashboard-profile-summary {
+  margin: 0 auto;
+  padding: $lg;
+  text-align: center;
+  width: 100%;
+  border-radius: 3px;
+  border: solid 1px $light-gray;
+    a {
+    text-decoration: none !important;
+      &:hover {
+        color: $purple !important;
+      }
+    }
+}
+
+.dashboard-profile-summary-data {
+  margin-top: $lg;
+  border-top: $light-gray;
+}
+
