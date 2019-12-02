@@ -5,7 +5,8 @@
   border-radius: 50%;
 }
 .avatar-large {
-  width: 56px;
+  width: 75px;
+  height: 75px;
   border-radius: 50%;
 }
 .avatar-bordered {
@@ -42,4 +43,12 @@
   height: 300px;
   object-fit: cover;
   padding-top: $lg;
+}
+
+.hospital-pic-square-banner {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  padding-left: $lg;
+  border-radius: $rad;
 }

@@ -1,3 +1,4 @@
-<div style="height: 160px; line-height: 142px; background: #E3F5F4; font-size: 40px; padding: 10px 40px; margin-bottom: 16px; border-radius: 3px;">
-Hello <%= @user.title %> <%= @user.first_name %> <%= @user.last_name %>
+<div class="dashboard_header">
+<h2 class="dashboard_header-text">Hello <%= current_user.title %> <%= current_user.first_name %> <%= current_user.last_name %></h2>
+<%= cl_image_tag current_user.clinic.clinic_picture, crop: :contain, class: "dashboard-header-image" %>
 </div>
