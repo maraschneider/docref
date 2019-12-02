@@ -20,7 +20,6 @@
   height: $profile-banner-height;
   background-color: $light-mint;
   align-items: center;
-  margin-bottom: $md;
   border-radius: $rad;
 }
 
@@ -102,6 +101,11 @@
   border-bottom: solid $mint 1px;
   width: 160px;
   margin-bottom: 12px;
+}
+
+.info {
+  color: $light-gray;
+  align-items: center;
 }
 
 // NEW CSS to refactor into ONE grid
