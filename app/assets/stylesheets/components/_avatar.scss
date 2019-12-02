@@ -37,9 +37,9 @@
   border-radius: $rad;
 }
 
-.hospital-pic-square {
-  width: 300px;
+.hospital-pic {
+  width: 100%;
   height: 300px;
   object-fit: cover;
-  padding-left: $lg;
+  padding-top: $lg;
 }
