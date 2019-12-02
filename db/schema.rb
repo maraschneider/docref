@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_26_135355) do
+ActiveRecord::Schema.define(version: 2019_12_02_102113) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 2019_11_26_135355) do
     t.bigint "receiver_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "anonymous", default: true
     t.index ["giver_id"], name: "index_approvals_on_giver_id"
     t.index ["receiver_id"], name: "index_approvals_on_receiver_id"
     t.index ["specialty_id"], name: "index_approvals_on_specialty_id"
