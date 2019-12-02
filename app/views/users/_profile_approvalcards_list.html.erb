@@ -1,17 +1,5 @@
 <!-- Do not delete the outer div!!! -->
 
-<div>
-  <div class="search-container" id="search-approvals">
-  <%= form_tag(doctor_path, method: :get, remote: true) do %>
-    <%= text_field_tag :keyword_search,
-      params[:keyword_search],
-      class: "input-field",
-      placeholder: "Search recommendations"
-    %>
-    <%= submit_tag "Search", class: "btn-mint approval-search-btn" %>
-  <% end %>
-  </div>
-
 <div id="search-results">
   <% if @approvals.empty? %>
     <p>No recommendations found.</p>
@@ -41,7 +29,7 @@
     <% end %>
   <% end %>
 </div>
-</div>
+
 
 
 
