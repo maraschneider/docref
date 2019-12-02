@@ -1,16 +1,18 @@
 
 .recommendee-container {
   margin: $lg auto;
-  width: 70%;
+  width: 60%;
 
   .card-doc {
     margin: 0;
+    padding: $lg;
   }
+
 }
 
 .approval-form {
   margin: 0 auto;
-  width: 70%;
+  width: 60%;
   padding: $lg;
   border: 1px solid $mint;
   border-radius: $rad;
@@ -21,6 +23,14 @@
   justify-content: space-between;
   flex-wrap: wrap;
   margin: 20px 0;
+}
+
+.approval_explanation {
+  font-weight: lighter;
+  font-size: 20px;
+  margin-bottom: $md;
+  color: $gray;
+
 }
 
 .field-choice {
