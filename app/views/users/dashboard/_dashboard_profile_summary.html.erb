@@ -1,0 +1,67 @@
+<div class="dashboard-profile-summary">
+  <% if current_user.profile_picture != nil %>
+  <%= cl_image_tag @doctor.profile_picture, class: "avatar-bordered" %>
+  <% end %>
+  <br /><%= link_to "Edit", "#", class: "text_mint" %>
+
+  <% porcentage = 0 %>
+  <% if current_user.first_name != nil %>
+  <% porcentage += 15 %>
+  <% end %>
+
+  <% if current_user.last_name != nil %>
+  <% porcentage += 15 %>
+  <% end %>
+
+  <% if current_user.email != nil %>
+  <% porcentage += 14 %>
+  <% end %>
+
+  <% if current_user.profile_picture != nil %>
+  <% porcentage += 14 %>
+  <% end %>
+
+  <% if current_user.bio != nil %>
+  <% porcentage += 14 %>
+  <% end %>
+
+  <% if current_user.position != nil %>
+  <% porcentage += 14 %>
+  <% end %>
+
+  <% if current_user.title != nil %>
+  <% porcentage += 14 %>
+  <% end %>
+
+  <div class="dashboard-profile-summary-data">
+    <%= current_user.title + " " + current_user.first_name + " " + current_user.last_name%>
+    <div class="progress" style="width: 50%; margin: 0 auto; margin-top: 15px;">
+      <div class="progress-bar" role="progressbar" style="background: rgb(79, 71, 186); width: <%= porcentage %>%" aria-valuenow="<%= porcentage %>" aria-valuemin="0" aria-valuemax="100"><%= porcentage %>%</div>
+    </div>
+    <div class="dashboard-profile-summary-data" style="text-align: left;">
+      <p><strong>Title:</strong>
+        <% if current_user.title != nil %>
+        <%= current_user.title %>
+        <% else %>
+        <%= "No title." %>
+        <% end %>
+      </p>
+      <p><strong>Position:</strong>
+        <% if current_user.position != nil %>
+        <%= current_user.position %>
+        <% else %>
+        <%= "No position." %>
+        <% end %>
+      </p>
+      <p><strong>Bio:</strong>
+        <% if current_user.bio != nil %>
+        <%= current_user.bio %>
+        <% else %>
+        <%= "No bio." %>
+        <% end %>
+      </p>
+    </div>
+    <%= link_to "Edit Profile", "#", class: "text_mint" %>
+  </div>
+
+</div>
