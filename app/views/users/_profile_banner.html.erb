@@ -1,35 +1,42 @@
-<div class="profile-banner">
+<div class="profile-banner d-flex">
   <div>
     <%= cl_image_tag @doctor.profile_picture, height: 300, width: 300, crop: :fill, id: "profile-pic", class: "avatar-square-profile" %>
   </div>
-  <div class="d-flex justify-content-between align-items-center">
-    <div class="doctor-titles">
-      <div class="doctor-name">
-        <h1>
-          <%= @doctor.title + " "%>
-            <!-- <strong> -->
-              <%= @doctor.first_name + " " + @doctor.last_name%>
-            <!-- </strong> -->
-        </h1>
-      </div>
-      <div class="doctor-position">
-        <h5>
-          <%= @doctor.position + " in " + @doctor.specialties.first[:name] + " at " + @doctor.clinic.name %>
-        </h5>
-      </div>
+
+  <div style="flex-grow: 1; padding: 16px;">
+
+    <div class="doctor-name">
+      <h1>
+        <%= @doctor.title + " "%>
+          <!-- <strong> -->
+            <%= @doctor.first_name + " " + @doctor.last_name%>
+          <!-- </strong> -->
+      </h1>
     </div>
 
-    <div class="dropdown">
-      <a id="options-btn" class="btn btn-mint dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Options
-      </a>
+    <div class="doctor-position">
+      <h5><%= @doctor.position + " in " + @doctor.specialties.first[:name] + " at " + @doctor.clinic.name %></h5>
+    </div>
 
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-        <a class="dropdown-item" href="#">Contact via DocRef</a>
-        <a class="dropdown-item" href=<%="https://www.jameda.de/arztsuche/?new_search=1&namen=" + "#{@doctor.first_name}" + "%20" + "#{@doctor.last_name}" + "&address=" + "#{@doctor.clinic.address}"%>>View on Jameda.de</a>
-        <a class="dropdown-item" href="#">Something else here</a>
-      </div>
+    <div class="contact-list">
+      <%= @doctor.clinic.website%>
+      • <%= @doctor.clinic.email%>
+      • <%= @doctor.clinic.phone_number%>
+      </ul>
     </div>
 
   </div>
+
+  <div class="dropdown">
+    <a id="options-btn" class="btn btn-mint dropdown-toggle btn-slim" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Options
+    </a>
+
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+      <a class="dropdown-item" href="#">Contact via DocRef</a>
+      <a class="dropdown-item" href=<%="https://www.jameda.de/arztsuche/?new_search=1&namen=" + "#{@doctor.first_name}" + "%20" + "#{@doctor.last_name}" + "&address=" + "#{@doctor.clinic.address}"%>>View on Jameda.de</a>
+      <a class="dropdown-item" href="#">Something else here</a>
+    </div>
+  </div>
+
 </div>
