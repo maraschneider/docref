@@ -64,6 +64,7 @@
   border-radius: $lg;
   border: 1px solid $mint;
   text-align: center;
+  font-size: 14px;
 }
 
 .approval-header {
@@ -72,14 +73,9 @@
   height: 32px;
 }
 
-.approval-footer {
-  text-align: right;
+.card-verification {
   color: $light-gray;
-  margin-bottom: 0;
-}
-
-.card-approval-date {
-  color: $light-gray;
+  font-size: 14px;
 }
 
 /*Doctor card for search results in index action*/
