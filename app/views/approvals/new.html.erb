@@ -6,8 +6,10 @@
   </div>
   <div class="approval-form">
     <%= simple_form_for @approval, url: doctor_approvals_path(@receiver) do |f| %>
-      <div class="approval_explanation">Thank you! By writing a trusted doctor recommendation you will help patients to find the right doctor for their condition.</div>
-      <%= f.input :headline, placeholder: "Title of your recommendation"%>
+      <!-- <div class="approval_explanation">Thank you! By writing a trusted doctor recommendation you will help patients to find the right doctor for their condition.</div> -->
+      <%= f.input :headline, placeholder: "Title of your recommendation", class: "approval-headline"%>
+      <%= f.label "Fields", :field_ids %>
+      <p class="info-text">Please select up to 5 fields you recommend <%= @receiver.full_name_with_title %> for.</p>
       <div class="field-choices">
         <%= f.collection_check_boxes :field_ids,
                                       @receiver.specialties.first.fields,
