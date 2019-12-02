@@ -20,6 +20,18 @@
          </div>
       </div>
       <%= f.input :content, as: :text, placeholder: "Why do you recommend this doctor?"%>
+      <!-- <label class="switch">
+        <%#= f.input :anonymous, as: :check_boxes, class: ""%>
+        <span class="slider"></span>
+      </label>
+
+      <div class="slider-container">
+        <label> Reveal personal information?</label>
+        <label class="switch">
+          <input type="checkbox" class="hidden" value="<%= @approval.anonymous %>" id="<%= @approval.anonymous %>" >
+          <span class="slider"></span>
+        </label>
+      </div> -->
       <%= f.submit "Recommend", class: "btn-mint"  %>
     <% end %>
   </div>
