@@ -1,0 +1,7 @@
+function renderOnlySearchResults(innerHTML) {
+  const searchResults = document.getElementById('search-results');
+  console.log(searchResults)
+  searchResults.innerHTML = innerHTML
+
+}
+renderOnlySearchResults("<%= j render 'profile_approvalcards_list' %>");

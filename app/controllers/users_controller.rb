@@ -21,9 +21,25 @@ class UsersController < ApplicationController
   end
 
   def show
-    @approvals = Approval.all.select { |approval| approval.receiver_id == @doctor.id }
+    if params[:keyword_search].present? && params[:approval_field].present?
+      keyword_results = Approval.where(receiver: @doctor).search_approvals_by_keyword(params[:keyword_search])
+      field_results = search_approvals_by_field(params[:approval_field])
+      @approvals = [keyword_results, field_results].flatten
+      # binding.pry
+      @approvals = @approvals.select { |i| @approvals.count(i) > 1 }.uniq
+    elsif params[:keyword_search].present?
+      @approvals = Approval.where(receiver: @doctor).search_approvals_by_keyword(params[:keyword_search])
+    elsif params[:approval_field].present?
+      @approvals = search_approvals_by_field(params[:approval_field])
+    else
+      @approvals = Approval.all.select { |approval| approval.receiver_id == @doctor.id }
+    end
     # months required to show "Nov" instead of '11' on approval cards
     @months = Date::ABBR_MONTHNAMES
+    respond_to do |format|
+      format.html { render 'users/show' }
+      format.js
+    end
   end
 
   def dashboard
@@ -106,6 +122,25 @@ class UsersController < ApplicationController
       }
     end
   end
+
+  def search_approvals_by_field(search_input)
+    counts = Hash.new(0)
+    @approvals = []
+    search_input.each do |input|
+      results = Approval.joins(:fields).where(receiver: @doctor).where(fields: {name: input}).uniq
+      results.each do |result|
+        counts[result] += 1
+      end
+    end
+    counts.each do |key, value|
+      @approvals << key if value == search_input.count
+    end
+    @approvals
+  end
+
+  #def search_approvals_by_keyword(search_input)
+  #  Approval.joins(:fields).where(reciever: @doctor).where(name: search_input).map {|p| p.users }.flatten.uniq
+  #end
 
   def set_doctor
     @doctor = User.find(params[:id])

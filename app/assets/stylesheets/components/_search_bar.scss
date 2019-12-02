@@ -15,7 +15,7 @@
   grid-template-columns: 1fr 1fr 100px;
   grid-gap: $sm;
   width: 100%;
-  height: 16vh;
+  height: 8vh;
   margin: $lg 0;
   padding: $sm 0;
   align-items: center;
@@ -28,6 +28,7 @@
   margin-right: $sm;
   border-radius: $rad;
   border: 1px solid $mint;
+  width: 100%;
 }
 
 .address {
@@ -37,6 +38,14 @@
 
 .select2-container {
   width: 100% !important;
+}
+
+.select2-container--default .select2-selection--multiple {
+    background-color: white;
+    border: 1px solid $mint !important;
+    border-radius: 4px;
+    cursor: text;
+    height: 43px;
 }
 
 .location_input {
