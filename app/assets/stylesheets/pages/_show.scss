@@ -20,7 +20,6 @@
   height: $profile-banner-height;
   background-color: $light-mint;
   align-items: center;
-  margin-bottom: $md;
   border-radius: $rad;
 }
 
@@ -34,17 +33,12 @@
   margin-right: 0;
 }
 
-#options-btn {
-  margin-right: 32px;
-  margin-bottom: 0;
-}
-
 // Profile Tabs Section
 
 .doctor-tabs-row {
   display: grid;
   grid-template-columns: 2fr 3fr;
-  grid-gap: 16px;
+  grid-gap: 32px;
   height: auto;
 }
 
@@ -63,8 +57,10 @@
 
 .contact-list {
   list-style: none;
-  padding: 0;
+  padding: $lg;
+  margin-bottom: 0;
   color: $light-gray;
+  text-align: right;
 }
 
 #myspecialisation li {
@@ -87,7 +83,6 @@
 .approvals-filters {
   position: sticky;
   border-radius: $rad;
-  padding-top: 33px;
 }
 
 #search-approvals {
@@ -106,6 +101,11 @@
   border-bottom: solid $mint 1px;
   width: 160px;
   margin-bottom: 12px;
+}
+
+.info {
+  color: $light-gray;
+  align-items: center;
 }
 
 // NEW CSS to refactor into ONE grid
