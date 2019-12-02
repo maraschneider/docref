@@ -5,7 +5,35 @@
   </div>
 
   <div>
-    <%= render 'users/profile_approvalcards_list' %>
+    <div>
+    <%= form_tag(doctor_path, method: :get, remote: true, class: "two-field-search-container my-0 py-0") do %>
+      <div> <!-- id="search-approvals"> -->
+      <h5>Keyword</h5>
+      <%= text_field_tag :keyword_search,
+        params[:keyword_search],
+        class: "input-field",
+        placeholder: "Search recommendations"
+      %>
+      </div>
+      <div>
+      <h5>Field</h5>
+      <%= select_tag :approval_field,
+        options_from_collection_for_select(
+        Field.joins(:approvals).where(approvals: {receiver: @doctor}).uniq, "name", "name",
+        params[:approval_field]),
+        multiple: true,
+        class: "js-example-basic-multiple btn-outline",
+        id: "tag-filter"
+      %>
+      </div>
+      <div>
+      <%= submit_tag "Search", class: "btn-mint filter-btn" %>
+      </div>
+    <% end %>
   </div>
 
+  <div>
+    <%= render 'users/profile_approvalcards_list' %>
+  </div>
+  </div>
 </div>
