@@ -26,7 +26,7 @@
     <div class="vertical-buttons-center">
       <ul>
         <li><%= submit_tag "Edit", class: "btn-mint" %></li>
-        <li><%= submit_tag "Delete", class: "btn-mint" %></li>
+        <li><%= link_to "Delete", approval_path(approval), method: :delete, data: {confirm: "Are you sure?"}, class: "btn-mint"%></li>
       </ul>
     </div>
 
