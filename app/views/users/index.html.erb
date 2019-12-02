@@ -14,8 +14,12 @@
           <% end %>
           <% if params[:field].present? %>
             : <strong>
-            <% params[:field].each do |field| %>
-              <%= field == params[:field].last ? field : field + ", "%>
+            <% if params[:field].is_a? Array %>
+              <% params[:field].each do |field| %>
+                <%= field == params[:field].last ? field : field + ", "%>
+              <% end %>
+            <% else %>
+              <%= params[:field] %>
             <% end %>
             </strong>
           <% end %>

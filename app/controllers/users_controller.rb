@@ -58,18 +58,21 @@ class UsersController < ApplicationController
   end
 
   def search_by_field(search_input)
-    counts = Hash.new(0)
-    @doctors = []
-    search_input.each do |input|
-      results = Field.joins(:approvals).where(name: input).map {|p| p.users }.flatten.uniq
-      results.each do |result|
-        counts[result] += 1
+    if search_input.is_a? Array
+      counts = Hash.new(0)
+      @doctors = []
+      search_input.each do |input|
+        results = Field.joins(:approvals).where(name: input).map {|p| p.users }.flatten.uniq
+        results.each do |result|
+          counts[result] += 1
+        end
+        counts.each do |key, value|
+          @doctors << key if value == search_input.count
+        end
       end
-      counts.each do |key, value|
-        @doctors << key if value == search_input.count
-      end
+    else
+      @doctors = Field.joins(:approvals).where(name: search_input).map {|p| p.users }.flatten.uniq
     end
-    @doctors
   end
 
   def search_approvals_by_field(search_input)
@@ -92,6 +95,9 @@ class UsersController < ApplicationController
     if @doctors == []
       @doctors = policy_scope(User)
       @doctors = search_by_field(search_input)
+      params[:field] = search_input
+    else
+      params[:specialty] = search_input
     end
     @doctors
   end
