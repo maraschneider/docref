@@ -1,18 +1,11 @@
 <div class="doctor-tabs-row">
 
   <div>
-
-    <ul class="contact-list">
-      <li><strong><%= @doctor.clinic.name %></strong></li>
-      <li><%= @doctor.clinic.phone_number%></li>
-      <li><%= @doctor.clinic.email%></li>
-      <li><%= @doctor.clinic.website%></li>
-    </ul>
-
+    <%= render "users/profile_interactive_tabs" %>
   </div>
 
   <div>
-    <%= render "users/profile_interactive_tabs" %>
+    <%= render 'users/profile_approvalcards_list' %>
   </div>
 
 </div>
