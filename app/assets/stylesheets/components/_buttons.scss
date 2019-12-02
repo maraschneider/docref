@@ -7,8 +7,12 @@
   padding: $sm $lg;
   text-decoration: none;
   transition: background 0.3s ease;
-
 }
+
+.filter-btn {
+     margin-top: 31px;
+     margin-bottom: 0;
+  }
 
 .btn-mint:hover {
   background-color: white;
