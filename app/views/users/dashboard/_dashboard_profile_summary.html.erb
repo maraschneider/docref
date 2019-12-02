@@ -1,6 +1,6 @@
 <div class="dashboard-profile-summary">
   <% if current_user.profile_picture != nil %>
-  <%= cl_image_tag @doctor.profile_picture, class: "avatar-bordered" %>
+  <%= cl_image_tag @doctor.profile_picture, class: "avatar-square" %>
   <% end %>
   <br /><%= link_to "Edit", "#", class: "text_mint" %>
 
@@ -35,7 +35,7 @@
   <% porcentage += 14 %>
   <% end %>
 
-  <% if porcentage = 30 %>
+  <% if porcentage <= 30 %>
   <% progress_color = "$red" %>
   <% end %>
 
@@ -53,7 +53,7 @@
 
   <div class="dashboard-profile-summary-data">
     <%= current_user.title + " " + current_user.first_name + " " + current_user.last_name%>
-    <div class="progress" style="height: 30px; width: 50%; margin: 0 auto; margin-top: 15px;">
+    <div class="progress" style="height: 30px; width: 50%; margin: 0 auto; margin-top: 15px; font-size: 0.95rem;">
       <div class="progress-bar" role="progressbar" style="background: <%= progress_color %>; width: <%= porcentage %>%" aria-valuenow="<%= porcentage %>" aria-valuemin="0" aria-valuemax="100">Profile completion: <%= porcentage %>%</div>
     </div>
     <div class="dashboard-profile-summary-data" style="text-align: left;">

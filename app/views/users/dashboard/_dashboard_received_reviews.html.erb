@@ -17,15 +17,11 @@
       </p>
     </div>
     <div >
-      <div class="text-light-gray text-right">
-        <p style="margin: 0px;">
-        </p>
-        <% approval.fields.each do |field|  %>
-        <div class="tag-outline" style="height: 34px;">
-          <%= field.name %>
-        </div>
-        <% end %>
+      <% approval.fields.each do |field|  %>
+      <div class="tag-outline" style="height: 34px;">
+        <%= field.name %>
       </div>
+      <% end %>
     </div>
   </div>
 </div>

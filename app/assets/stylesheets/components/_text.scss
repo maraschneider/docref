@@ -12,6 +12,10 @@ body {
   color: $mint !important;
 }
 
+.active a:hover { // overrides bootstrap style for the user_name_link on navbar
+  color: $purple !important;
+}
+
 .text-light-gray {
   color: $light-gray;
 }

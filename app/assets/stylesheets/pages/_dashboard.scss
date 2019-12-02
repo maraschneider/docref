@@ -31,17 +31,23 @@
 
 .dashboard-given {
   display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-columns: 2fr 4fr 1fr;
   grid-gap: $md;
   height: $profile-banner-height-text;
   background-color: white;
   align-items: center;
-  margin-bottom: $md;
   border-radius: $rad;
-}
+    a {
+      text-decoration: none !important;
+      color: $mint;
+        &:hover {
+          color: $purple !important;
+        }
+      }
+  }
 
 .dashboard-profile-summary {
-  margin: 62px auto;
+  margin: 62px auto 0;
   padding: $lg;
   text-align: center;
   width: 100%;
@@ -56,7 +62,7 @@
 }
 
 .dashboard-profile-summary-data {
-  margin-top: $lg;
+  margin-top: $sm;
   border-top: $light-gray;
 }
 
