@@ -18,6 +18,10 @@ class UsersController < ApplicationController
 
     @doctors = doctors_by_spec_and_location(@doctors)
     @markers = get_info_for_map_markers(@doctors)
+    #respond_to do |format|
+    #  format.html { render 'users/index' }
+    #  format.js
+    #end
   end
 
   def show
@@ -54,7 +58,7 @@ class UsersController < ApplicationController
   private
 
   def search_by_specialty(search_input)
-    Specialty.where(name: search_input).map {|p| p.users }.flatten.uniq
+    Specialty.where('lower(name) = ?', search_input.downcase).map {|p| p.users }.flatten.uniq
   end
 
   def search_by_field(search_input)
@@ -62,7 +66,7 @@ class UsersController < ApplicationController
       counts = Hash.new(0)
       @doctors = []
       search_input.each do |input|
-        results = Field.joins(:approvals).where(name: input).map {|p| p.users }.flatten.uniq
+        results = Field.joins(:approvals).where('lower(name) = ?', input.downcase).map {|p| p.users }.flatten.uniq
         results.each do |result|
           counts[result] += 1
         end
@@ -71,7 +75,7 @@ class UsersController < ApplicationController
         end
       end
     else
-      @doctors = Field.joins(:approvals).where(name: search_input).map {|p| p.users }.flatten.uniq
+      @doctors = Field.joins(:approvals).where('lower(name) = ?', search_input.downcase).map {|p| p.users }.flatten.uniq
     end
   end
 
@@ -79,7 +83,7 @@ class UsersController < ApplicationController
     counts = Hash.new(0)
     @approvals = []
     search_input.each do |input|
-      results = Approval.joins(:fields).where(receiver: @doctor).where(fields: {name: input}).uniq
+      results = Approval.joins(:fields).where(receiver: @doctor).where(fields: {name: input}).uniq # how do we prevent SQL injections?
       results.each do |result|
         counts[result] += 1
       end
@@ -143,10 +147,6 @@ class UsersController < ApplicationController
     end
     @approvals
   end
-
-  #def search_approvals_by_keyword(search_input)
-  #  Approval.joins(:fields).where(reciever: @doctor).where(name: search_input).map {|p| p.users }.flatten.uniq
-  #end
 
   def set_doctor
     @doctor = User.find(params[:id])

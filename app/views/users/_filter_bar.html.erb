@@ -7,8 +7,8 @@
       Specialty.all, "name", "name",
       params[:specialty]),
       #multiple: true,
-      #select: params[:specialty],
-      class: "js-example-basic-single"
+      class: "js-example-basic-single",
+      id: "specialty"
     %>
     </div>
     <div>
@@ -19,7 +19,8 @@
       params[:field]),
       multiple: true,
       select: params[:field],
-      class: "js-example-basic-multiple btn-outline"
+      class: "js-example-basic-multiple btn-outline",
+      id: "field"
     %>
     </div>
     <div class="address">

@@ -1,0 +1,17 @@
+document.addEventListener("turbolinks:load", function(){
+  var specialty = document.getElementById("specialty");
+  var field = document.getElementById("field");
+
+  specialty.addEventListener("change", function(){
+    Rails.ajax({
+      url: "/field?specialty=" + specialty.value,
+      type: "GET"
+    })
+  })
+})
+
+while (field.firstChild) field.removeChild(field.firstChild);
+
+<% @fields.each do |s| %>
+  field.options[field.options.length] = new Option('<%= s[1] %>', '<%= s[0] %>')
+<% end %>
