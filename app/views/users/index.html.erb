@@ -1,4 +1,4 @@
-<div class="page-container">
+<div class="page-container" id="index-page">
   <%= render 'users/filter_bar' %>
   <div class="search-map-container">
     <div>
@@ -10,10 +10,10 @@
             in <strong> <%= params[:location] %></strong>
           <% end %>
           <% if params[:specialty].present? %>
-            for <strong><%= params[:specialty].first %></strong>
+            for <strong><%= params[:specialty] %></strong>
           <% end %>
           <% if params[:field].present? %>
-            in <strong>
+            : <strong>
             <% params[:field].each do |field| %>
               <%= field == params[:field].last ? field : field + ", "%>
             <% end %>
