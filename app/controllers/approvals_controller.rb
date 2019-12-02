@@ -1,5 +1,6 @@
 class ApprovalsController < ApplicationController
   before_action :set_receiver, only: [:new, :create]
+  before_action :set_approval, only: [:edit, :update, :destroy]
 
   def new
     @approval = Approval.new(receiver: @receiver, giver: current_user)
@@ -35,6 +36,12 @@ class ApprovalsController < ApplicationController
 
   def set_receiver
     @receiver = User.find(params[:doctor_id])
+  end
+
+  def set_approval
+      @approval = Approval.find(params[:id])
+      authorize @approval
+
   end
 
   def approval_params
