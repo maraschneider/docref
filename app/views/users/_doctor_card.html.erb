@@ -12,7 +12,10 @@
   <div>
     <% if current_user %>
       <div class="left-btn-position">
-        <%= link_to "Recommend", new_doctor_approval_path(doctor), class: "btn-outline btn-narrow" %>
+        <%= link_to "Recommend",
+            new_doctor_approval_path(doctor),
+            class: "btn-outline btn-narrow hidden"
+        %>
       </div>
     <% end %>
   </div>
