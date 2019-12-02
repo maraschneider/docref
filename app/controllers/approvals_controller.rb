@@ -21,7 +21,6 @@ class ApprovalsController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
@@ -29,7 +28,8 @@ class ApprovalsController < ApplicationController
   end
 
   def destroy
-
+    @approval.destroy
+    redirect_to dashboard_path(current_user)
   end
 
   private
