@@ -23,42 +23,39 @@
   margin: 20px 0;
 }
 
-.hidden {
-  display: none;
-}
-
 .field-choice {
-  align-items: center;
-  background: $light-mint;
-  border-radius: $rad;
-  display: flex;
-  height: 80px;
-  justify-content: space-around;
-  padding: $md;
-  line-height: 1;
-  opacity: .7;
   flex: 0 0 30%;
-  text-align: center;
-  margin: $sm 0;
-  &:hover {
+
+  input {
+    display: none;
+  }
+
+  input ~ label {
+    background: $light-mint;
+    border-radius: $rad;
+    height: 80px;
+    line-height: 1;
+    opacity: .7;
+    padding: $md;
+    text-align: center;
+    width: 100%;
+
+  }
+
+  input:hover ~ label {
+    opacity: 0.5;
+    background: $mint;
+
+  }
+
+  input:checked ~ label {
+    font-weight: 800;
+    background: $mint;
+    color: white;
     opacity: 1;
-    cursor: pointer;
-  }
-  &.active {
-  background: $mint;
-  color: white;
-  opacity: 1;
-  }
-
-  label {
-    margin: 0;
   }
 }
 
-
-label {
-  margin-right: $md;
-}
 
 .switch {
   position: relative;
