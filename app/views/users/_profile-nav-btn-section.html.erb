@@ -1,7 +1,7 @@
 <div class="profile-nav-btn-section">
 
   <div>
-    <%= link_to "Back", doctors_path, class: "btn-outline btn-slim"%>
+    <%= link_to "Back", doctors_path, class: "btn-outline btn-slim", style:"margin-left: 0;"%>
   </div>
 
 
@@ -19,7 +19,7 @@
         <a class="dropdown-item" href=<%="https://www.jameda.de/arztsuche/?new_search=1&namen=" + "#{@doctor.first_name}" + "%20" + "#{@doctor.last_name}" + "&address=" + "#{@doctor.clinic.address}"%>>View on Jameda.de</a>
         <a class="dropdown-item" href="#">Something else here</a>
       </div>
-  </div>
+    </div>
     </div>
   </div>
 
