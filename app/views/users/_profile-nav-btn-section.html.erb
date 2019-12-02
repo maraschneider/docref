@@ -9,7 +9,17 @@
     <div>
     </div>
     <div>
-      <!-- button here? -->
+      <div class="dropdown">
+        <a class="btn btn-mint dropdown-toggle btn-slim" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin: 0">
+        Options
+        </a>
+
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <a class="dropdown-item" href="#">Contact via DocRef</a>
+        <a class="dropdown-item" href=<%="https://www.jameda.de/arztsuche/?new_search=1&namen=" + "#{@doctor.first_name}" + "%20" + "#{@doctor.last_name}" + "&address=" + "#{@doctor.clinic.address}"%>>View on Jameda.de</a>
+        <a class="dropdown-item" href="#">Something else here</a>
+      </div>
+  </div>
     </div>
   </div>
 

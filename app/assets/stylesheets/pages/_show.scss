@@ -34,17 +34,12 @@
   margin-right: 0;
 }
 
-#options-btn {
-  margin-right: 32px;
-  margin-bottom: 0;
-}
-
 // Profile Tabs Section
 
 .doctor-tabs-row {
   display: grid;
   grid-template-columns: 2fr 3fr;
-  grid-gap: 16px;
+  grid-gap: 32px;
   height: auto;
 }
 
@@ -63,8 +58,10 @@
 
 .contact-list {
   list-style: none;
-  padding: 0;
+  padding: $lg;
+  margin-bottom: 0;
   color: $light-gray;
+  text-align: right;
 }
 
 #myspecialisation li {

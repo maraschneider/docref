@@ -23,8 +23,9 @@
 
 .nav-link.active {
   color: $mint !important;
-  background-color: white !important;
+  background-color: $light-mint !important;
   border-color: white !important;
-  border-bottom: solid $mint 2px !important;
+  // border: solid $mint 1px !important;
+  border-radius: 0 0 4px 4px;
 }
 
