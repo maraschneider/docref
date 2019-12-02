@@ -9,6 +9,6 @@ class Field < ApplicationRecord
   pg_search_scope :search_by_field,
     against: :name,
     using: {
-      tsearch: { prefix: true }
+      tsearch: { prefix: true, dictionary: "english" }
     }
 end
