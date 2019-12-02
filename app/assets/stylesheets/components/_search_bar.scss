@@ -61,6 +61,10 @@
     color: white;
 }
 
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    display: none;
+}
+
 .location_input {
     margin-right: $sm;
     flex-grow: 1;
