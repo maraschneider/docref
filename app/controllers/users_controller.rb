@@ -30,8 +30,10 @@ class UsersController < ApplicationController
     end
     # months required to show "Nov" instead of '11' on approval cards
     @months = Date::ABBR_MONTHNAMES
-    respond_to :html, :js
-    #@approvals
+    respond_to do |format|
+      format.html { render 'users/show' }
+      format.js
+    end
   end
 
   def dashboard
