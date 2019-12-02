@@ -3,12 +3,22 @@
   <div class="search-map-container">
     <div>
       <% if @doctors.empty? %>
-        <p><strong>No doctors found.</strong></p>
+        <p><strong>No doctors match your search criteria.</strong></p>
       <% else %>
-        <p><strong><%= @doctors.count %><%= @doctors.count > 1 ? " doctors" : " doctor" %> found
-          <%= " in " + params[:location] if params[:location].present? %>
-          <%= " for " + params[:specialty].first if params[:specialty].present? %>
-          <%= ", " + params[:specialty].second if params[:specialty].second.present? %></strong></p>
+        <p><%= @doctors.count %><%= @doctors.count > 1 ? " doctors" : " doctor" %> found
+          <% if params[:location].present? %>
+            in <strong> <%= params[:location] %></strong>
+          <% end %>
+          <% if params[:specialty].present? %>
+            for <strong><%= params[:specialty].first %></strong>
+          <% end %>
+          <% if params[:field].present? %>
+            in <strong>
+            <% params[:field].each do |field| %>
+              <%= field == params[:field].last ? field : field + ", "%>
+            <% end %>
+            </strong>
+          <% end %>
         <%= render partial: 'users/doctor_card', collection: @doctors, as: :doctor %>
       <% end %>
     </div>
