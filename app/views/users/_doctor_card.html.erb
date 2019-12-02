@@ -1,9 +1,9 @@
 <div class="card-doc">
   <div>
     <h4><%=doctor.full_name_with_title%></h4>
-    <div class="pos-clinic-title"><%= doctor.position_specialty_clinic %></div>
+    <div class="additional_info"><%= doctor.position_specialty_clinic %></div>
     <% if doctor.clinic %>
-      <div><%= doctor.clinic.address%></div>
+      <div class="additional_info"><%= doctor.clinic.address%></div>
     <% end %>
   </div>
   <div>
@@ -12,7 +12,10 @@
   <div>
     <% if current_user %>
       <div class="left-btn-position">
-        <%= link_to "Recommend", new_doctor_approval_path(doctor), class: "btn-outline btn-narrow" %>
+        <%= link_to "Recommend",
+            new_doctor_approval_path(doctor),
+            class: "btn-outline btn-narrow hidden"
+        %>
       </div>
     <% end %>
   </div>
