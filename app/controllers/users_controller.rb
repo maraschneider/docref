@@ -21,11 +21,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    if params[:keyword_search].present? && params[:approvals_field].present?
+    if params[:keyword_search].present? && params[:approval_field].present?
       keyword_results = Approval.where(receiver: @doctor).search_approvals_by_keyword(params[:keyword_search])
       field_results = search_approvals_by_field(params[:approval_field])
       @approvals = [keyword_results, field_results].flatten
-      @approvals = @approvals.map { |i| i if (@approvals.map { |j| j if j == i }.length > 1) }.uniq
+      # binding.pry
+      @approvals = @approvals.select { |i| @approvals.count(i) > 1 }.uniq
     elsif params[:keyword_search].present?
       @approvals = Approval.where(receiver: @doctor).search_approvals_by_keyword(params[:keyword_search])
     elsif params[:approval_field].present?
