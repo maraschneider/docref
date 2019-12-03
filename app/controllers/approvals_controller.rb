@@ -8,9 +8,10 @@ class ApprovalsController < ApplicationController
 
   def create
     @approval = Approval.new(approval_params)
+    authorize @approval
     @approval.giver = current_user
     @approval.receiver = @receiver
-    authorize @approval
+    @approval.specialty = @receiver.specialties.first
     if @approval.save
       redirect_to doctor_path(@receiver)
     else
@@ -37,10 +38,6 @@ class ApprovalsController < ApplicationController
   end
 
   def approval_params
-    params.require(:approval).permit(
-      :content,
-      :headline,
-      approval_fields_attributes: [:field_id]
-     )
+    params.require(:approval).permit(:content, :headline, :anonymous, field_ids: [])
   end
 end

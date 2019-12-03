@@ -63,6 +63,7 @@
   padding: $xs $md;
   border-radius: $lg;
   border: 1px solid $mint;
+  text-align: center;
 }
 
 .approval-header {
@@ -115,8 +116,7 @@
 
     }
 
-  .pos-clinic-title {
-    color: $purple;
-    padding: $sm 0;
+  .additional_info {
+    color: $medium-gray;
   }
 }

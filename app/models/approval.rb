@@ -5,8 +5,6 @@ class Approval < ApplicationRecord
   has_many :approval_fields
   has_many :fields, through: :approval_fields
 
-  accepts_nested_attributes_for :approval_fields
-
   include PgSearch::Model
   pg_search_scope :search_approvals_by_keyword,
     against: [:headline, :content],
