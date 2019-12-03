@@ -1,5 +1,5 @@
 class ApprovalsController < ApplicationController
-  before_action :set_receiver, only: [:new, :create]
+  before_action :set_receiver, only: [:new, :create, :edit, :update]
   before_action :set_approval, only: [:edit, :update, :destroy]
 
   def new
@@ -24,7 +24,11 @@ class ApprovalsController < ApplicationController
   end
 
   def update
-
+    @approval.update(approval_params)
+    if @approval.save
+      redirect_to dashboard_path(current_user)
+    else
+      render :edit
   end
 
   def destroy
