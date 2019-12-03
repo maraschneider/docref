@@ -17,7 +17,7 @@ class UsersController < ApplicationController
       @doctors
     end
 
-    @markers = get_info_for_map_markers(@doctors)
+    @markers = get_info_for_map_markers(@doctors) if @doctors != []
   end
 
   def show
