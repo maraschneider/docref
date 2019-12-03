@@ -18,7 +18,7 @@
       params[:field]),
       multiple: true,
       select: params[:field],
-      class: "js-example-basic-multiple btn-outline",
+      class: "js-example-basic-multiple",
       id: "field"
     %>
     </div>
@@ -29,7 +29,7 @@
       class: "input-field"
     %>
     </div>
-    <div class="address">
+    <div class="address mb-1">
     <%= text_field_tag :location,
       params[:location],
       placeholder: "Location",
