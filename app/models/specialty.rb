@@ -7,6 +7,6 @@ class Specialty < ApplicationRecord
   pg_search_scope :search_by_specialty,
     against: :name,
     using: {
-      tsearch: { prefix: true }
+      tsearch: { prefix: true, dictionary: "english" }
     }
 end

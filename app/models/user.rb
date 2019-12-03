@@ -10,13 +10,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  #pg_search_scope :search_by_location,
-  #  associated_against: {
-  #    clinics: :address
-  #  },
-  #  using: {
-  #    tsearch: { prefix: true }
-  #  }
+  include PgSearch::Model
+  pg_search_scope :search_by_name,
+    against: [:first_name, :last_name],
+    using: {
+      tsearch: { prefix: true }
+    }
 
   mount_uploader :profile_picture, ProfilePictureUploader
 

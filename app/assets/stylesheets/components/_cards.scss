@@ -51,7 +51,7 @@
   background-color: $mint;
   color: white;
   margin-right: $sm;
-  padding: $xs $md;
+  padding: $xs $sm;
   border-radius: $lg;
 }
 
@@ -60,63 +60,43 @@
   color: $mint;
   margin: $sm;
   margin-left: 0;
-  padding: $xs $md;
+  padding: 2px $sm;
   border-radius: $lg;
   border: 1px solid $mint;
   text-align: center;
+  font-size: 14px;
 }
 
 .approval-header {
-  display: flex;
-  justify-content: space-between;
-  height: 32px;
+  align-items: flex-end;
+    h4 {margin-bottom: $md;
+    }
 }
 
-.approval-footer {
+.card-subtitle {
+  color: $light-gray;
+  font-size: 14px;
+    p {margin-bottom: 0;
+    }
+}
+
+.recommender-info {
+  color: $light-gray;
+  font-size: 14px;
+  flex-grow: 1;
+    p {
+      margin-bottom: 0;
+      text-align: right;
+      margin-right: $sm;
+    }
+}
+
+.card-date {
+  color: $light-gray;
+  font-size: 14px;
   text-align: right;
-  color: $light-gray;
-  margin-bottom: 0;
+  margin-top: 0;
+  margin-bottom: $sm;
 }
 
-.card-approval-date {
-  color: $light-gray;
-}
 
-/*Doctor card for search results in index action*/
-
-.card-doc {
-  border-radius: $rad;
-  background-color: $light-mint;
-  display: grid;
-  grid-template-columns: 3fr 100px;
-  grid-column-gap: $xl;
-  grid-row-gap: $xs;
-  padding: $md;
-  margin: $lg 0;
-  width: 100%;
-  justify-content: space-between;
-  align-items: start;
-
-  .btn-outline {
-    display: inline-block;
-    padding: $xs $md;
-    margin: $md 0 0 0;
-    align-self: end;
-    text-align: center;
-    align-content: center;
-    width: 100%;
-    }
-
-    .left-btn-position {
-      justify-self: end;
-    }
-
-    .btn-narrow {
-      width: 160px;
-
-    }
-
-  .additional_info {
-    color: $medium-gray;
-  }
-}
