@@ -6,6 +6,7 @@
       options_from_collection_for_select(
       Specialty.all, "name", "name",
       params[:specialty]),
+      include_blank: true,
       #multiple: true,
       class: "js-example-basic-single",
       id: "specialty"

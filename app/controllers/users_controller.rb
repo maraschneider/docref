@@ -87,10 +87,9 @@ class UsersController < ApplicationController
     search_doctor_by_specialty(search_input)
     if @doctors == []
       @doctors = search_doctor_by_field(search_input)
-      params[:field] = @field.name # wrong name!
+      params[:field] = @field.first.name # wrong name!
     else
-      params[:specialty] = @specialty.name
-      raise
+      params[:specialty] = @specialty.first.name
     end
   end
 
