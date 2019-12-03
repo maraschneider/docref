@@ -1,0 +1,116 @@
+<div class="dashboard-profile-summary">
+  <% percentage_c = 0 %>
+  <% progress_color_c = "$light-gray" %>
+<!-- This calculates the percentage_c depending the amount of data saved in the profile -->
+  <% if current_user.clinic.name != nil %>
+  <% percentage_c += 11 %>
+  <% end %>
+
+  <% if current_user.profile_picture != nil %>
+  <% percentage_c += 12 %>
+  <% end %>
+
+  <% if current_user.clinic.address != nil %>
+  <% percentage_c += 12 %>
+  <% end %>
+
+  <% if current_user.clinic.phone_number != nil %>
+  <% percentage_c += 13 %>
+  <% end %>
+
+  <% if current_user.clinic.website != nil %>
+  <% percentage_c += 13 %>
+  <% end %>
+
+  <% if current_user.clinic.email != nil %>
+  <% percentage_c += 13 %>
+  <% end %>
+
+  <% if current_user.clinic.consultation_times != nil %>
+  <% percentage_c += 13 %>
+  <% end %>
+
+  <% if current_user.clinic.description != nil %>
+  <% percentage_c += 13 %>
+  <% end %>
+<!-- This calculates the color of the progress bar's background depending on the percentge -->
+  <% if percentage_c <= 26 %>
+  <% progress_color_c = "$red" %>
+  <% end %>
+
+  <% if percentage_c > 26 %>
+  <% progress_color_c = "$orange" %>
+  <% end %>
+
+  <% if percentage_c >= 75 %>
+  <% progress_color_c = "$yellow" %>
+  <% end %>
+
+  <% if percentage_c = 100 %>
+  <% progress_color_c = "#6fbcb4" %>
+  <% end %>
+
+  <h4>Clinic information</h4>
+  <div class="progress" style="height: 25px; width: 50%; margin: 0 auto; margin-top: 15px; font-size: 0.95rem;">
+    <div class="progress-bar" role="progressbar" style="background: <%= progress_color_c %>; width: <%= percentage_c %>%" aria-valuenow="<%= percentage_c %>" aria-valuemin="0" aria-valuemax="100">Completion: <%= percentage_c %>%</div>
+  </div>
+  <div style="padding-top: 36px;">
+  <% if current_user.profile_picture != nil %>
+  <%= cl_image_tag current_user.clinic.clinic_picture, class: "avatar-square" %>
+  <% end %>
+  </div>
+    <div class="dashboard-profile-summary-data">
+      <p><strong>Name:</strong>
+        <% if current_user.clinic.name != nil %>
+        <%= current_user.clinic.name %>
+        <% else %>
+        <%= "No name provided." %>
+        <% end %>
+      </p>
+      <p><strong>Address:</strong>
+        <% if current_user.clinic.address != nil %>
+        <%= current_user.clinic.address %>
+        <% else %>
+        <%= "No address provided." %>
+        <% end %>
+      </p>
+      <p><strong>Phone:</strong>
+        <% if current_user.clinic.phone_number != nil %>
+        <%= current_user.clinic.phone_number %>
+        <% else %>
+        <%= "No phone provided." %>
+        <% end %>
+      </p>
+      <p><strong>Website:</strong>
+        <% if current_user.clinic.website != nil %>
+        <%= current_user.clinic.website %>
+        <% else %>
+        <%= "No website provided." %>
+        <% end %>
+      </p>
+      <p><strong>Email:</strong>
+        <% if current_user.clinic.email != nil %>
+        <%= current_user.clinic.email %>
+        <% else %>
+        <%= "No email provided." %>
+        <% end %>
+      </p>
+      <p><strong>Consultation Times:</strong>
+        <% if current_user.clinic.consultation_times != nil %>
+        <%= current_user.clinic.consultation_times %>
+        <% else %>
+        <%= "No consultation times provided." %>
+        <% end %>
+      </p>
+      <p><strong>Description:</strong>
+        <% if current_user.clinic.description != nil %>
+        <%= current_user.clinic.description %>
+        <% else %>
+        <%= "No description provided." %>
+        <% end %>
+      </p>
+    </div>
+    <%= link_to "Edit Profile", "#", class: "btn-mint" %>
+</div>
+
+

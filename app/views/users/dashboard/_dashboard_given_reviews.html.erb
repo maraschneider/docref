@@ -1,4 +1,3 @@
-<h5>Recommendations written by you</h5>
 <% @gi_approvals.each do |approval| %>
 
 <div class="card-approval">
@@ -7,19 +6,15 @@
 
     <div style="width: 160px; text-align: center;">
       <% recommendee = User.find { |user| approval.receiver_id == user.id } %>
-      <%= cl_image_tag recommendee.profile_picture, height: 300, width: 300, crop: :contain, id: "profile-pic", class: "avatar-square-profile"  %>
+      <%= link_to cl_image_tag(recommendee.profile_picture), doctor_path(recommendee), class: "avatar-square" %>
       <p style="margin: 5px 0px 0px 0px;">
-        <%= recommendee.title %> <%= recommendee.first_name %> <%= recommendee.last_name %>
+        <%= link_to "#{recommendee.title} #{recommendee.first_name} #{recommendee.last_name}", doctor_path(recommendee) %>
       </p>
     </div>
 
-    <div style="padding: 10px;">
-      <div class="approval-header">
-        <h4><%= approval.headline %></h4>
-        <div class="card-approval-date">
-          <p><%= "#{approval.created_at.strftime("%d")}" + " #{@months[approval.created_at.month]} " + "#{approval.created_at.strftime("%Y")}" %></p>
-        </div>
-      </div>
+    <div>
+      <h4><%= approval.headline %></h4>
+      <p class="text-light-gray text-small">On <%= "#{approval.created_at.strftime("%d")}" + " #{@months[approval.created_at.month]} " + "#{approval.created_at.strftime("%Y")}" %></p>
       <p><%= approval.content %></p>
     </div>
 
