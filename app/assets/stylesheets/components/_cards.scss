@@ -30,6 +30,10 @@
 
 // Recommendation card
 
+.card-approval:first-child {
+  margin-top: 0;
+}
+
 .card-approval {
   padding: $lg;
   padding-bottom: $sm;
