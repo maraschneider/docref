@@ -1,62 +1,64 @@
 <div class="dashboard-profile-summary">
-  <% if current_user.profile_picture != nil %>
-  <%= cl_image_tag @doctor.profile_picture, class: "avatar-square" %>
-  <% end %>
-  <br /><%= link_to "Edit", "#", class: "text_mint" %>
-
-  <% porcentage = 0 %>
+  <% percentage = 0 %>
   <% progress_color = "$light-gray" %>
-
+<!-- This calculates the percentage depending the amount of data saved in the profile -->
   <% if current_user.first_name != nil %>
-  <% porcentage += 15 %>
+  <% percentage += 15 %>
   <% end %>
 
   <% if current_user.last_name != nil %>
-  <% porcentage += 15 %>
+  <% percentage += 15 %>
   <% end %>
 
   <% if current_user.email != nil %>
-  <% porcentage += 14 %>
+  <% percentage += 14 %>
   <% end %>
 
   <% if current_user.profile_picture != nil %>
-  <% porcentage += 14 %>
+  <% percentage += 14 %>
   <% end %>
 
   <% if current_user.bio != nil %>
-  <% porcentage += 14 %>
+  <% percentage += 14 %>
   <% end %>
 
   <% if current_user.position != nil %>
-  <% porcentage += 14 %>
+  <% percentage += 14 %>
   <% end %>
 
   <% if current_user.title != nil %>
-  <% porcentage += 14 %>
+  <% percentage += 14 %>
   <% end %>
-
-  <% if porcentage <= 30 %>
+<!-- This calculates the color of the progress bar's background depending on the percentge -->
+  <% if percentage <= 30 %>
   <% progress_color = "$red" %>
   <% end %>
 
-  <% if porcentage > 30 %>
+  <% if percentage > 30 %>
   <% progress_color = "$orange" %>
   <% end %>
 
-  <% if porcentage > 58 %>
+  <% if percentage >= 58 %>
   <% progress_color = "$yellow" %>
   <% end %>
 
-  <% if porcentage = 100 %>
+  <% if percentage = 100 %>
   <% progress_color = "#6fbcb4" %>
   <% end %>
 
-  <div class="dashboard-profile-summary-data">
-    <%= current_user.title + " " + current_user.first_name + " " + current_user.last_name%>
-    <div class="progress" style="height: 30px; width: 50%; margin: 0 auto; margin-top: 15px; font-size: 0.95rem;">
-      <div class="progress-bar" role="progressbar" style="background: <%= progress_color %>; width: <%= porcentage %>%" aria-valuenow="<%= porcentage %>" aria-valuemin="0" aria-valuemax="100">Profile completion: <%= porcentage %>%</div>
-    </div>
-    <div class="dashboard-profile-summary-data" style="text-align: left;">
+  <h4>Personal information</h4>
+  <div class="progress" style="height: 25px; width: 50%; margin: 0 auto; margin-top: 15px; font-size: 0.95rem;">
+    <div class="progress-bar" role="progressbar" style="background: <%= progress_color %>; width: <%= percentage %>%" aria-valuenow="<%= percentage %>" aria-valuemin="0" aria-valuemax="100">Completion: <%= percentage %>%</div>
+  </div>
+  <div style="padding-top: 36px;">
+  <% if current_user.profile_picture != nil %>
+  <%= cl_image_tag @doctor.profile_picture, class: "avatar-square" %>
+  <% end %>
+  </div>
+    <div class="dashboard-profile-summary-data">
+      <p><strong>Name:</strong>
+        <%=current_user.first_name + " " + current_user.last_name%>
+      </p>
       <p><strong>Title:</strong>
         <% if current_user.title != nil %>
         <%= current_user.title %>
@@ -86,7 +88,7 @@
         <% end %>
       </p>
     </div>
-    <%= link_to "Edit Profile", "#", class: "text_mint" %>
-  </div>
-
+    <%= link_to "Edit Profile", "#", class: "btn-mint" %>
 </div>
+
+

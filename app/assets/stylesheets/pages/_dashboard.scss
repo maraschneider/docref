@@ -41,28 +41,34 @@
       text-decoration: none !important;
       color: $mint;
         &:hover {
-          color: $purple !important;
+          color: $medium-gray !important;
         }
       }
   }
 
 .dashboard-profile-summary {
-  margin: 62px auto 0;
+  margin: 0 auto 0;
   padding: $lg;
   text-align: center;
   width: 100%;
+  height: fit-content;
   border-radius: 3px;
   border: solid 1px $mint;
-    a {
-    text-decoration: none !important;
-      &:hover {
-        color: $purple !important;
+  a {
+        &:hover {
+          color: $mint !important;
+        }
       }
-    }
 }
 
 .dashboard-profile-summary-data {
-  margin-top: $sm;
-  border-top: $light-gray;
+  text-align: left;
+  margin-top: $lg;
+  margin-bottom: $xl;
 }
 
+.dashboard-profile-summary-card {
+  padding: $lg;
+  text-align: center;
+  width: 100%;
+  }
