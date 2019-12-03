@@ -1,15 +1,15 @@
 // See slack for HTML code
+// This is the tab bar on the doc profile and dashboard
 
 .nav-tabs {
   border: 0;
+  flex-wrap: nowrap !important;
 }
 
 .nav-link.profile-tab {
   margin-bottom: $lg !important;
   border: 0 !important;
 }
-
-
 
 .nav-link {
   color: $mint;
@@ -24,7 +24,6 @@
   color: $mint !important;
   background-color: $light-mint !important;
   border-color: white !important;
-  // border: solid $mint 1px !important;
-  border-radius: 0 0 8px 8px;
+  border-bottom: solid $mint 2px !important;
 }
 
