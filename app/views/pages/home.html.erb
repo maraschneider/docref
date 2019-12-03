@@ -10,15 +10,15 @@
           <%= form_tag doctors_path, method: :get, class: "two-field-search-container" do %>
             <%= text_field_tag :specialty_or_field,
               params[:specialty_or_field],
-              class: "input-field m-0",
+              class: "input-field input-lg m-0",
               placeholder: "Cardiologist for Heart Failure"
             %>
             <%= text_field_tag :location,
               params[:location],
-              class: "input-field address-input",
+              class: "input-field input-lg address-input",
               placeholder: "Berlin"
             %>
-            <%= submit_tag "Search", class: "btn-mint" %>
+            <%= submit_tag "Search", class: "btn-mint btn-large" %>
           <% end %>
         </div>
       </div>
