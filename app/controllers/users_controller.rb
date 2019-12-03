@@ -17,10 +17,6 @@ class UsersController < ApplicationController
     end
     @doctors = doctors_by_spec_and_location(@doctors)
     @markers = get_info_for_map_markers(@doctors)
-    #respond_to do |format|
-    #  format.html { render 'users/index' }
-    #  format.js
-    #end
   end
 
   def show
