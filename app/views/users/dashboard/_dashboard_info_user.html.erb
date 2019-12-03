@@ -55,10 +55,10 @@
   <%= cl_image_tag @doctor.profile_picture, class: "avatar-square" %>
   <% end %>
   </div>
-    <div class="dashboard-profile-summary-data">
+    <div class="dashboard-profile-summary-data" id="current-data">
       <p><strong>Name:</strong>
         <%=current_user.first_name + " " + current_user.last_name%>
-      </p>
+        </p>
       <p><strong>Title:</strong>
         <% if current_user.title != nil %>
         <%= current_user.title %>
@@ -88,7 +88,31 @@
         <% end %>
       </p>
     </div>
-    <%= link_to "Edit Profile", "#", class: "btn-mint" %>
+    <button id="edit-btn" class="btn-mint">Edit</button>
+    <%#= link_to "Edit Profile", "#", class: "btn-mint" %>
+    <% form_for @doctor, url: doctor_path(@doctor), id: "edit-form", class: "hide" do |f| %> <!-- , url: { action: "update" } -->
+              <!-- edit_doctor_path(current_user) -->
+      <strong>Name:</strong>
+      <%= text_field_tag :user_first_name,
+          value: @doctor.first_name
+          %>
+      <%= text_field_tag :user_last_name,
+          value: @doctor.last_name
+          %>
+      <strong>Title:</strong>
+      <%= text_field_tag :user_title,
+          value: @doctor.title
+          %>
+      <strong>Position:</strong>
+      <%= text_field_tag :user_position,
+          value: @doctor.position
+          %>
+      <strong>Bio:</strong>
+      <%= text_field_tag :user_bio,
+          value: @doctor.bio
+          %>
+      <%= submit_tag "Save", class: "btn-mint" %>
+    <% end %>
 </div>
 
 

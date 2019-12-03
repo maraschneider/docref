@@ -6,8 +6,8 @@ ApprovalField.destroy_all
 Approval.destroy_all
 Field.destroy_all
 Specialty.destroy_all
-Clinic.destroy_all
 User.destroy_all
+Clinic.destroy_all
 
 puts "Create test users, clinics, fields, specialties and approvals..."
 

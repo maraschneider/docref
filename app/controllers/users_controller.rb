@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show, :dashboard]
-  before_action :set_doctor, only: [:show]
+  before_action :set_doctor, only: [:show, :edit, :update]
 
   # before_filter check if html, js etc
   def index
@@ -49,6 +49,13 @@ class UsersController < ApplicationController
     @months = Date::ABBR_MONTHNAMES
     @user = current_user
     authorize @user
+  end
+
+  def edit
+  end
+
+  def update
+    @doctor.update(user_params)
   end
 
   private
@@ -125,5 +132,9 @@ class UsersController < ApplicationController
   def set_doctor
     @doctor = User.find(params[:id])
     authorize @doctor
+  end
+
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :title, :position, :bio)
   end
 end

@@ -13,9 +13,9 @@ const toggleTagsOnApprovalWhenFilter = () => {
 //  });
 //};
 
-  const tags = document.querySelectorAll(".tag");
+  const tags = document.querySelectorAll("tag");
   tags.forEach((tag) => {
-  const tagsChoice = document.getElementById('#tag-filter')
+  const tagsChoice = document.getElementById('tag-filter')
     tagsChoice.addEventListener('change', (event) => {
       tag.classList.toggle("active");
     });
