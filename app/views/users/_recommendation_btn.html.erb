@@ -1,0 +1,16 @@
+<div>
+  <% unless current_user == doctor || !current_user %>
+    <% @appr = Approval.where(receiver: doctor, giver: current_user) %>
+    <% if @appr.present? %>
+      <%= link_to "Update Recommendation",
+          edit_doctor_approval_path(doctor, @appr.first),
+          class: "btn-mint outline btn-wider hidden"
+      %>
+    <% else %>
+      <%= link_to "Add Recommendation",
+          new_doctor_approval_path(doctor),
+          class: "btn-mint outline btn-wider hidden"
+      %>
+    <% end %>
+  <% end %>
+</div>
