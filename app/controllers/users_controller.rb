@@ -43,7 +43,8 @@ class UsersController < ApplicationController
 
   def dashboard
     @doctor = current_user
-    @re_approvals = Approval.all.select { |approval| approval.receiver_id == @doctor.id }
+    # reusing mikes card generator
+    @approvals = Approval.all.select { |approval| approval.receiver_id == @doctor.id }
     @gi_approvals = Approval.all.select { |approval| approval.giver_id == @doctor.id }
     @months = Date::ABBR_MONTHNAMES
     @user = current_user

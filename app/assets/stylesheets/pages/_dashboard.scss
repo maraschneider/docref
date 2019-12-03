@@ -5,7 +5,6 @@
   height: $profile-banner-height;
   background-color: $light-mint;
   align-items: center;
-  margin-bottom: $md;
   border-radius: $rad;
 }
 
@@ -21,7 +20,7 @@
 .dashboard-body-layout {
   display: grid;
   grid-template-columns: 2fr 3fr;
-  grid-gap: $md;
+  grid-gap: $lg;
 }
 
 .dashboard-received {
@@ -32,33 +31,40 @@
 
 .dashboard-given {
   display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-columns: 2fr 4fr 1fr;
   grid-gap: $md;
   height: $profile-banner-height-text;
   background-color: white;
   align-items: center;
-  margin-bottom: $md;
   border-radius: $rad;
-}
+    a {
+      text-decoration: none !important;
+      color: $mint;
+        &:hover {
+          color: $medium-gray !important;
+        }
+      }
+  }
 
 .dashboard-profile-summary {
-  margin: 0 auto;
+  margin: 0 auto 0;
   padding: $lg;
   text-align: center;
   width: 100%;
+  height: fit-content;
   border-radius: 3px;
-  border: solid 1px $light-gray;
-    a {
-    text-decoration: none !important;
-      &:hover {
-        color: $purple !important;
+  border: solid 1px $mint;
+  a {
+        &:hover {
+          color: $mint !important;
+        }
       }
-    }
 }
 
 .dashboard-profile-summary-data {
+  text-align: left;
   margin-top: $lg;
-  border-top: $light-gray;
+  margin-bottom: $xl;
 }
 
 .vertical-buttons-center {
@@ -66,4 +72,3 @@
     width: 88px;
   }
 }
-

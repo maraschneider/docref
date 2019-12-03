@@ -1,4 +1,4 @@
 <div class="dashboard_header">
-<h2 class="dashboard_header-text">Hello <%= current_user.title %> <%= current_user.first_name %> <%= current_user.last_name %></h2>
+<h2 class="dashboard_header-text"><em>Hello</em> <%= current_user.title %> <%= current_user.first_name %> <%= current_user.last_name %></h2>
 <%= cl_image_tag current_user.clinic.clinic_picture, crop: :contain, class: "dashboard-header-image" %>
 </div>
