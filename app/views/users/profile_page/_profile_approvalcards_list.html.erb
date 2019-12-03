@@ -1,0 +1,8 @@
+<div id="search-results">
+  <% if @approvals.empty? %>
+    <br>
+    <p>No recommendations found.</p>
+  <% else %>
+    <%= render 'users/profile_page/approval_card/approval_card' %>
+  <% end %>
+</div>
