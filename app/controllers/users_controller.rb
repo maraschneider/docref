@@ -114,8 +114,10 @@ class UsersController < ApplicationController
   end
 
   def search_approvals_by_field(search_input)
+    @approvals = Approval.all
     search_input.each do |input|
-      @approvals = Approval.joins(:fields).where(receiver: @doctor).where(id: @approval).where(fields: {name: input}).uniq # how do we prevent SQL injections?
+      @approvals = Approval.joins(:fields).where(receiver: @doctor).where(id: @approvals).where(fields: {name: input}).uniq # how do we prevent SQL injections?
+      #binding.pry
     end
     @approvals
   end
