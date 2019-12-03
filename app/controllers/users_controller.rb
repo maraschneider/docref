@@ -17,7 +17,7 @@ class UsersController < ApplicationController
       @doctors
     end
 
-    @markers = get_info_for_map_markers(@doctors)
+    @markers = get_info_for_map_markers(@doctors) if @doctors != []
   end
 
   def show
@@ -115,32 +115,9 @@ class UsersController < ApplicationController
   end
 
   def search_approvals_by_field(search_input)
-    counts = Hash.new(0)
-    @approvals = []
+    @approvals = Approval.all
     search_input.each do |input|
-      results = Approval.joins(:fields).where(receiver: @doctor).where(fields: {name: input}).uniq # how do we prevent SQL injections?
-      results.each do |result|
-        counts[result] += 1
-      end
-    end
-    counts.each do |key, value|
-      @approvals << key if value == search_input.count
-    end
-    @approvals
-  end
-
-
-  def search_approvals_by_field(search_input)
-    counts = Hash.new(0)
-    @approvals = []
-    search_input.each do |input|
-      results = Approval.joins(:fields).where(receiver: @doctor).where(fields: {name: input}).uniq
-      results.each do |result|
-        counts[result] += 1
-      end
-    end
-    counts.each do |key, value|
-      @approvals << key if value == search_input.count
+      @approvals = Approval.joins(:fields).where(receiver: @doctor).where(id: @approvals).where(fields: {name: input}).uniq # how do we prevent SQL injections?
     end
     @approvals
   end
