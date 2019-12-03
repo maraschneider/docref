@@ -1,15 +1,3 @@
-.search-container {
-  display: grid;
-  grid-template-columns: 1fr 100px;
-  grid-gap: $sm;
-  width: 100%;
-  height: 16vh;
-  margin: $lg 0;
-  padding: $sm 0;
-  align-items: center;
-
-}
-
 .two-field-search-container {
   display: grid;
   grid-template-columns: 1fr 1fr 100px;
@@ -19,17 +7,20 @@
   margin: $lg 0;
   padding: $sm 0;
   align-items: center;
+
+  .input-field {
+    padding: $xs $md;
+    margin-right: $sm;
+    border-radius: $rad;
+    border: 1px solid $mint;
+    width: 100%;
+  }
+
+  .input-lg {
+    padding: $sm $lg;
+  }
 }
 
-.input-field {
-  flex-grow: 1;
-  box-sizing: border-box;
-  padding: $sm;
-  margin-right: $sm;
-  border-radius: $rad;
-  border: 1px solid $mint;
-  width: 100%;
-}
 
 .address {
   margin-top: $xs;
@@ -45,7 +36,7 @@
     border: 1px solid $mint !important;
     border-radius: 4px;
     cursor: text;
-    height: 43px;
+    // height: 43px;
 }
 
 .location_input {
