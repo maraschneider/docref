@@ -8,14 +8,14 @@ class UsersController < ApplicationController
 
     if params[:specialty_or_field].present?
       search_by_specialty_or_field(params[:specialty_or_field])
-    elsif params[:specialty].present? || params[:field].present?
-      specialty_result = search_doctor_by_specialty(params[:specialty]) if params[:specialty].present?
-      field_result = search_doctor_by_field(params[:field]) if params[:field].present?
-      @doctors = [specialty_result, field_result].flatten.uniq
+    elsif params[:specialty].present? || params[:field].present? || params[:name].present?
+      @doctors = search_doctor_by_specialty(params[:specialty]) if params[:specialty].present?
+      @doctors = search_doctor_by_field(params[:field]) if params[:field].present?
+      @doctors = User.search_by_name(params[:name]) if params[:name].present?
+      #@doctors = [specialty_result, field_result].flatten.uniq
     else
-      @doctors
+      #@doctors
     end
-
     @doctors = doctors_by_spec_and_location(@doctors)
     @markers = get_info_for_map_markers(@doctors)
     #respond_to do |format|
@@ -59,28 +59,33 @@ class UsersController < ApplicationController
 
   def search_doctor_by_specialty(search_input)
     # Specialty.where('lower(name) = ?', search_input.downcase).map {|p| p.users }.flatten.uniq
-    @specialty = Specialty.search_by_specialty(search_input)
+    @specialty = Specialty.joins(:users).where(users: @doctors).search_by_specialty(search_input)
     @doctors = @specialty.map { |p| p.users }.flatten.uniq
   end
 
   def search_doctor_by_field(search_input)
     if search_input.is_a? Array
-      counts = Hash.new(0)
-      @doctors = []
+      #counts = Hash.new(0)
+      #@doctors = []
       search_input.each do |input|
-        results = Field.joins(:approvals).where('lower(name) = ?', input.downcase).map {|p| p.users }.flatten.uniq
-        results.each do |result|
-          counts[result] += 1
-        end
-        counts.each do |key, value|
-          @doctors << key if value == search_input.count
-        end
+        @field = Field.joins(:approvals).where(approvals: { receiver: @doctors }).search_by_field(input)
+        @doctors = @field.map {|p| p.users }.flatten.uniq
+
+        #@field = Field.joins(:approvals).where('lower(name) = ?', input.downcase)
+        #results.each do |result|
+        #  counts[result] += 1
+        #end
+        #counts.each do |key, value|
+        #  @doctors << key if value == search_input.count
+        #end
+
       end
     else
       @field = Field.search_by_field(search_input)
       @doctors = @field.map { |p| p.users }.flatten.uniq
       # Field.joins(:approvals).where('lower(name) = ?', search_input.downcase).map {|p| p.users }.flatten.uniq
     end
+    @doctors
   end
 
   def search_by_specialty_or_field(search_input)

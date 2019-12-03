@@ -1,7 +1,6 @@
 <div>
   <%= form_tag doctors_path, method: :get, class: "filter-bar" do %>
     <div>
-    <h5>Specialty</h5>
     <%= select_tag :specialty,
       options_from_collection_for_select(
       Specialty.all, "name", "name",
@@ -13,7 +12,6 @@
     %>
     </div>
     <div>
-    <h5>Field</h5>
     <%= select_tag :field,
       options_from_collection_for_select(
       Field.all, "name", "name",
@@ -24,15 +22,21 @@
       id: "field"
     %>
     </div>
+    <div>
+    <%= text_field_tag :name,
+      params[:name],
+      placeholder: "Doctor name",
+      class: "input-field"
+    %>
+    </div>
     <div class="address">
-    <h5>Location</h5>
     <%= text_field_tag :location,
       params[:location],
       placeholder: "Location",
       class: "input-field address-input"
     %>
     </div>
-    <div style="margin-top: 35px">
+    <div>
     <%= submit_tag "Search", class: "btn-mint" %>
     </div>
   <% end %>

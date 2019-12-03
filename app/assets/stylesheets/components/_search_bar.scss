@@ -72,14 +72,11 @@
 
 .filter-bar {
   display: grid;
-  grid-template-columns: 25% 25% auto 150px;
+  grid-template-columns: 25% 25% 1fr 1fr 100px;
   grid-gap: $sm;
   width: 100%;
   height: 5vh;
   margin: 0;
   padding: $sm 0;
   align-items: center;
-  .btn-mint {
-    width: 150px;
-  }
 }
