@@ -36,10 +36,38 @@
     border: 1px solid $mint !important;
     border-radius: 4px;
     cursor: text;
-    // height: 38px;
+    height: 40px;
+}
+
+.select2-container--default .select2-selection--single {
+    background-color: #fff;
+    border: 1px solid $mint !important;
+    border-radius: 4px;
+    height: 40px !important;
+    padding: 5px;
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: $mint !important;
+    color: white;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    display: none;
 }
 
 .location_input {
     margin-right: $sm;
     flex-grow: 1;
+}
+
+.filter-bar {
+  display: grid;
+  grid-template-columns: 25% 25% 1fr 1fr 100px;
+  grid-gap: $sm;
+  width: 100%;
+  height: 0vh;
+  margin: 0;
+  padding: $sm 0;
+  align-items: center;
 }
