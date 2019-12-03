@@ -1,7 +1,8 @@
 import "bootstrap";
 
 import 'select2/dist/css/select2.css';
-import { initSelect2 } from '../plugins/init_select2';
+import { initSelect2Multi } from '../plugins/init_select2_multi';
+import { initSelect2Sing } from '../plugins/init_select2_sing';
 
 import 'mapbox-gl/dist/mapbox-gl.css';
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
@@ -11,7 +12,8 @@ import { setActiveClassToFieldChoice } from '../components/set_active_class_to_f
 //import { toggleTagsOnApprovalWhenFilter } from '../components/toggle_tags_on_approval_when_filter';
 
 initMapbox();
-initSelect2();
+initSelect2Multi();
+initSelect2Sing();
 initAutocomplete();
 setActiveClassToFieldChoice();
 //toggleTagsOnApprovalWhenFilter();

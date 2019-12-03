@@ -4,6 +4,11 @@
   top: 0;
   width: 100%;
   z-index: 999;
+
+  .btn-mint.outline {
+    margin: 0 $xs;
+    text-align: center;
+  }
 }
 
 .navbar-lewagon {
@@ -18,3 +23,4 @@
 .navbar-lewagon .navbar-brand img {
   width: 50px;
 }
+

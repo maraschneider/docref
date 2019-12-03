@@ -1,95 +1,37 @@
 .btn-mint {
-  background-color: $mint;
+  display: inline-block;
   border: 1px solid $mint;
+  box-sizing: border-box;
   border-radius: $rad;
-  color: white;
-  margin: $lg 0;
-  padding: $sm $lg;
+  padding: 6px $md;
   text-decoration: none;
   transition: background 0.3s ease;
-}
 
-.filter-btn {
+  background-color: $mint;
+  color: white;
 
+  &:hover {
+    background-color: white;
+    color: $mint;
+    text-decoration: none;
   }
+}
 
-.btn-mint:hover {
+.outline {
+  text-decoration: none;
   background-color: white;
   color: $mint;
-  text-decoration: none;
+
+  &:hover {
+    background-color: $mint;
+    color: white;
+    text-decoration: none;
+  }
 }
 
-.btn-purple {
-  background-color: $purple;
-  border: 1px solid $purple;
-  border-radius: $rad;
-  color: white;
-  margin: $lg 0;
+.btn-large {
   padding: $sm $lg;
-  text-decoration: none;
-  transition: background 0.3s ease;
-
 }
 
-.btn-purple:hover {
-  background-color: white;
-  color: $purple;
-  text-decoration: none;
-}
 
-.btn-light-purple {
-  background-color: $light-purple;
-  border: 1px solid $light-purple;
-  border-radius: $rad;
-  color: white;
-  margin: $lg 0;
-  padding: $sm $lg;
-  text-decoration: none;
-  transition: background 0.3s ease;
 
-}
-.btn-light-purple:hover {
-  background-color: white;
-  border: 1px solid $light-purple;
-  color: $light-purple;
-  text-decoration: none;
-}
-
-.btn-outline {
-  background-color: white;
-  border: 1px solid $mint;
-  color: $mint;
-  border-radius: $rad;
-  margin: $md $xs;
-  padding: $sm $lg;
-  text-decoration: none;
-  transition: background 0.3s ease;
-}
-
-.btn-outline:hover {
-  background-color: $mint;
-  color: white;
-  text-decoration: none;
-}
-
-.btn-slim {
-  padding: 2px 16px;
-}
-
-.btn-outline-purple {
-  background-color: white;
-  border: 1px solid $purple;
-  color: $purple;
-  border-radius: $rad;
-  margin: $lg 0;
-  padding: $sm $lg;
-  text-decoration: none;
-  transition: background 0.3s ease;
-
-}
-
-.btn-outline-purple:hover {
-  background-color: $purple;
-  color: white;
-  text-decoration: none;
-}
