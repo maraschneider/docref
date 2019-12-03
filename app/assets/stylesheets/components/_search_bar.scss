@@ -7,20 +7,20 @@
   padding: $sm 0;
   align-items: center;
 
-  .input-field {
-    box-sizing: border-box;
-    padding: 6px $md;
-    margin-right: $sm;
-    border-radius: $rad;
-    border: 1px solid $mint;
-    width: 100%;
-  }
-
-  .input-lg {
-    padding: $sm $lg;
-  }
 }
 
+.input-field {
+  box-sizing: border-box;
+  padding: 6px $md;
+  margin-right: $sm;
+  border-radius: $rad;
+  border: 1px solid $mint;
+  width: 100%;
+}
+
+.input-lg {
+  padding: $sm $lg;
+}
 
 .address {
   margin-top: $xs;
@@ -36,14 +36,14 @@
     border: 1px solid $mint !important;
     border-radius: 4px;
     cursor: text;
-    height: 40px;
+    height: 38px;
 }
 
 .select2-container--default .select2-selection--single {
     background-color: #fff;
     border: 1px solid $mint !important;
     border-radius: 4px;
-    height: 40px !important;
+    height: 38px !important;
     padding: 5px;
 }
 
@@ -55,10 +55,17 @@
 .select2-container--default .select2-selection--single .select2-selection__arrow {
     display: none;
 }
+.input-height-sm {
+  height: 38px;
 
+}
 .location_input {
     margin-right: $sm;
     flex-grow: 1;
+}
+
+.address-input {
+  box-sizing: border-box;
 }
 
 .filter-bar {
