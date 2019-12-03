@@ -8,7 +8,8 @@
   align-items: center;
 
   .input-field {
-    padding: $xs $md;
+    box-sizing: border-box;
+    padding: 6px $md;
     margin-right: $sm;
     border-radius: $rad;
     border: 1px solid $mint;
@@ -35,7 +36,7 @@
     border: 1px solid $mint !important;
     border-radius: 4px;
     cursor: text;
-    // height: 43px;
+    // height: 38px;
 }
 
 .location_input {
