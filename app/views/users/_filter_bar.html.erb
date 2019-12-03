@@ -7,7 +7,7 @@
       params[:specialty]),
       include_blank: true,
       #multiple: true,
-      class: "js-example-basic-single",
+      class: "js-example-basic-single input-field",
       id: "specialty"
     %>
     </div>
@@ -18,7 +18,7 @@
       params[:field]),
       multiple: true,
       select: params[:field],
-      class: "js-example-basic-multiple",
+      class: "js-example-basic-multiple input-field",
       id: "field"
     %>
     </div>
@@ -33,7 +33,7 @@
     <%= text_field_tag :location,
       params[:location],
       placeholder: "Location",
-      class: "input-field address-input"
+      class: "input-field address-input input-height-sm"
     %>
     </div>
     <div>

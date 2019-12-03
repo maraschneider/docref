@@ -82,41 +82,4 @@
   color: $light-gray;
 }
 
-/*Doctor card for search results in index action*/
 
-.card-doc {
-  border-radius: $rad;
-  background-color: $light-mint;
-  display: grid;
-  grid-template-columns: 3fr 100px;
-  grid-column-gap: $xl;
-  grid-row-gap: $xs;
-  padding: $md;
-  margin: $lg 0;
-  width: 100%;
-  justify-content: space-between;
-  align-items: start;
-
-  .btn-outline {
-    display: inline-block;
-    padding: $xs $md;
-    margin: $md 0 0 0;
-    align-self: end;
-    text-align: center;
-    align-content: center;
-    width: 100%;
-    }
-
-    .left-btn-position {
-      justify-self: end;
-    }
-
-    .btn-narrow {
-      width: 160px;
-
-    }
-
-  .additional_info {
-    color: $medium-gray;
-  }
-}

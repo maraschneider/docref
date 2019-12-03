@@ -10,7 +10,7 @@
 
   <div>
     <div>
-      <%= form_tag(doctor_path, method: :get, remote: true, class: "two-field-search-container my-0 py-0") do %>
+      <%= form_tag(doctor_path, method: :get, remote: true, class: "two-field-search-container") do %>
         <div> <!-- id="search-approvals"> -->
         <%= text_field_tag :keyword_search,
           params[:keyword_search],
@@ -24,12 +24,12 @@
           Field.joins(:approvals).where(approvals: {receiver: @doctor}).uniq, "name", "name",
           params[:approval_field]),
           multiple: true,
-          class: "js-example-basic-multiple btn-outline",
+          class: "input-field js-example-basic-multiple",
           id: "tag-filter"
         %>
         </div>
         <div>
-        <%= submit_tag "Search", class: "btn-mint filter-btn" %>
+        <%= submit_tag "Search", class: "btn-mint" %>
         </div>
       <% end %>
     </div>
