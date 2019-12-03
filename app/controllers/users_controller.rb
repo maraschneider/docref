@@ -117,40 +117,9 @@ class UsersController < ApplicationController
     @approvals = Approval.all
     search_input.each do |input|
       @approvals = Approval.joins(:fields).where(receiver: @doctor).where(id: @approvals).where(fields: {name: input}).uniq # how do we prevent SQL injections?
-      #binding.pry
     end
     @approvals
   end
-
-  def search_doctor_by_field(search_input)
-    if search_input.is_a? Array
-      search_input.each do |input|
-        @field = Field.joins(:approvals).where(approvals: { receiver: @doctors }).search_by_field(input)
-        @doctors = @field.map {|p| p.users }.flatten.uniq
-      end
-    else
-      @field = Field.search_by_field(search_input)
-      @doctors = @field.map { |p| p.users }.flatten.uniq
-      # Field.joins(:approvals).where('lower(name) = ?', search_input.downcase).map {|p| p.users }.flatten.uniq
-    end
-    @doctors
-  end
-
-  #old
-  #def search_approvals_by_field(search_input)
-  #  counts = Hash.new(0)
-  #  @approvals = []
-  #  search_input.each do |input|
-  #    results = Approval.joins(:fields).where(receiver: @doctor).where(fields: {name: input}).uniq
-  #    results.each do |result|
-  #      counts[result] += 1
-  #    end
-  #  end
-  #  counts.each do |key, value|
-  #    @approvals << key if value == search_input.count
-  #  end
-  #  @approvals
-  #end
 
   def set_doctor
     @doctor = User.find(params[:id])
