@@ -11,10 +11,9 @@ class UsersController < ApplicationController
     elsif params[:specialty].present? || params[:field].present? || params[:name].present?
       @doctors = search_doctor_by_specialty(params[:specialty]) if params[:specialty].present?
       @doctors = search_doctor_by_field(params[:field]) if params[:field].present?
-      @doctors = User.search_by_name(params[:name]) if params[:name].present?
-      #@doctors = [specialty_result, field_result].flatten.uniq
+      @doctors = search_doctor_by_name(params[:name]) if params[:name].present?
     else
-      #@doctors
+      @doctors
     end
     @doctors = doctors_by_spec_and_location(@doctors)
     @markers = get_info_for_map_markers(@doctors)
@@ -29,7 +28,6 @@ class UsersController < ApplicationController
       keyword_results = Approval.where(receiver: @doctor).search_approvals_by_keyword(params[:keyword_search])
       field_results = search_approvals_by_field(params[:approval_field])
       @approvals = [keyword_results, field_results].flatten
-      # binding.pry
       @approvals = @approvals.select { |i| @approvals.count(i) > 1 }.uniq
     elsif params[:keyword_search].present?
       @approvals = Approval.where(receiver: @doctor).search_approvals_by_keyword(params[:keyword_search])
@@ -65,20 +63,9 @@ class UsersController < ApplicationController
 
   def search_doctor_by_field(search_input)
     if search_input.is_a? Array
-      #counts = Hash.new(0)
-      #@doctors = []
       search_input.each do |input|
         @field = Field.joins(:approvals).where(approvals: { receiver: @doctors }).search_by_field(input)
         @doctors = @field.map {|p| p.users }.flatten.uniq
-
-        #@field = Field.joins(:approvals).where('lower(name) = ?', input.downcase)
-        #results.each do |result|
-        #  counts[result] += 1
-        #end
-        #counts.each do |key, value|
-        #  @doctors << key if value == search_input.count
-        #end
-
       end
     else
       @field = Field.search_by_field(search_input)
@@ -92,10 +79,14 @@ class UsersController < ApplicationController
     search_doctor_by_specialty(search_input)
     if @doctors == []
       @doctors = search_doctor_by_field(search_input)
-      params[:field] = @field.first.name # wrong name!
+      params[:field] = @field.first.name
     else
       params[:specialty] = @specialty.first.name
     end
+  end
+
+  def search_doctor_by_name(search_input)
+    @doctors = User.search_by_name(search_input).where(id: @doctors)
   end
 
   def search_approvals_by_field(search_input)
