@@ -1,6 +1,7 @@
 .btn-mint {
   display: inline-block;
   border: 1px solid $mint;
+  box-sizing: border-box;
   border-radius: $rad;
   padding: $xs $md;
   text-decoration: none;
