@@ -1,31 +1,44 @@
-<div class="filter-bar">
-  <%= form_tag doctors_path, method: :get do %>
-    <h5>Specialty</h5>
+<div>
+  <%= form_tag doctors_path, method: :get, class: "filter-bar" do %>
+    <div>
     <%= select_tag :specialty,
       options_from_collection_for_select(
       Specialty.all, "name", "name",
       params[:specialty]),
-      multiple: true,
-      select: params[:specialty],
-      class: "js-example-basic-multiple btn-outline"
+      include_blank: true,
+      #multiple: true,
+      class: "js-example-basic-single input-field",
+      id: "specialty"
     %>
-    <h5>Field</h5>
+    </div>
+    <div>
     <%= select_tag :field,
       options_from_collection_for_select(
       Field.all, "name", "name",
       params[:field]),
       multiple: true,
       select: params[:field],
-      class: "js-example-basic-multiple btn-outline"
-    %>
-    <h5>Location</h5>
-    <div class="address">
-    <%= text_field_tag :location,
-      params[:location],
-      class: "input-field address-input"
+      class: "js-example-basic-multiple input-field",
+      id: "field"
     %>
     </div>
+    <div>
+    <%= text_field_tag :name,
+      params[:name],
+      placeholder: "Doctor name",
+      class: "input-field"
+    %>
+    </div>
+    <div class="address mb-1">
+    <%= text_field_tag :location,
+      params[:location],
+      placeholder: "Location",
+      class: "input-field address-input input-height-sm"
+    %>
+    </div>
+    <div>
     <%= submit_tag "Search", class: "btn-mint" %>
+    </div>
   <% end %>
 </div>
 

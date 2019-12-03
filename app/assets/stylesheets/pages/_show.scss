@@ -1,5 +1,19 @@
 // Profile Navigation Buttons above Banner
+.profile {
 
+  .two-field-search-container {
+    margin: $md 0 0 0;
+  }
+  .card-approval:first-child {
+    margin-top: $md;
+  }
+
+  .btn-mint {
+    width: 104px;
+    text-align: center;
+
+  }
+}
 .profile-nav-btn-section {
   display: grid;
   grid-template-columns: 1fr 3fr;

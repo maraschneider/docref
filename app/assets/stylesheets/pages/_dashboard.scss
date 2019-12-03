@@ -67,8 +67,8 @@
   margin-bottom: $xl;
 }
 
-.dashboard-profile-summary-card {
-  padding: $lg;
-  text-align: center;
-  width: 100%;
+.vertical-buttons-center {
+  .btn-mint {
+    width: 88px;
   }
+}
