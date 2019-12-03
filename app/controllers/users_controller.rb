@@ -8,14 +8,15 @@ class UsersController < ApplicationController
 
     if params[:specialty_or_field].present?
       search_by_specialty_or_field(params[:specialty_or_field])
-    elsif params[:specialty].present? || params[:field].present? || params[:name].present?
+    elsif params[:specialty].present? || params[:field].present? || params[:name].present? || params[:location].present?
       @doctors = search_doctor_by_specialty(params[:specialty]) if params[:specialty].present?
       @doctors = search_doctor_by_field(params[:field]) if params[:field].present?
       @doctors = search_doctor_by_name(params[:name]) if params[:name].present?
+      @doctors = search_doctor_by_location if params[:location].present?
     else
       @doctors
     end
-    @doctors = doctors_by_spec_and_location(@doctors)
+
     @markers = get_info_for_map_markers(@doctors)
   end
 
@@ -85,28 +86,13 @@ class UsersController < ApplicationController
     @doctors = User.search_by_name(search_input).where(id: @doctors)
   end
 
-  def search_approvals_by_field(search_input)
-    counts = Hash.new(0)
-    @approvals = []
-    search_input.each do |input|
-      results = Approval.joins(:fields).where(receiver: @doctor).where(fields: {name: input}).uniq # how do we prevent SQL injections?
-      results.each do |result|
-        counts[result] += 1
-      end
-    end
-    counts.each do |key, value|
-      @approvals << key if value == search_input.count
-    end
-    @approvals
-  end
-
-  def doctors_by_spec_and_location(docs_with_search_speciality)
+  def search_doctor_by_location
     if params[:location].present?
       @doctors_nearby = search_location
-      @doctors = docs_with_search_speciality.select { |doc| @doctors_nearby.include?(doc) }
+      @doctors = @doctors.select { |doc| @doctors_nearby.include?(doc) }
       return @doctors
     else
-      return docs_with_search_speciality
+      return @doctors
     end
   end
 
@@ -126,6 +112,22 @@ class UsersController < ApplicationController
       }
     end
   end
+
+  def search_approvals_by_field(search_input)
+    counts = Hash.new(0)
+    @approvals = []
+    search_input.each do |input|
+      results = Approval.joins(:fields).where(receiver: @doctor).where(fields: {name: input}).uniq # how do we prevent SQL injections?
+      results.each do |result|
+        counts[result] += 1
+      end
+    end
+    counts.each do |key, value|
+      @approvals << key if value == search_input.count
+    end
+    @approvals
+  end
+
 
   def search_approvals_by_field(search_input)
     counts = Hash.new(0)
