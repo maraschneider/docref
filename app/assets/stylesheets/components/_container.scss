@@ -31,7 +31,11 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: $xl;
-  margin-top: 85px;
+  margin: $sm 0;
+
+ div.card-doc:first-child {
+  margin-top: 0;
+ }
 }
 
 .map-container {
