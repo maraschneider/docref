@@ -83,7 +83,13 @@
 
 }
 
-input.btn-mint {
+.anonymous-choice {
+  display: inline-flex;
+
+  .form-check-input.is-valid ~ .form-check-label {
+    color: $dark-gray;
+  }
+}
 
 .submit-btn-container {
   display: grid;
