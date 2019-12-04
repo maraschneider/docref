@@ -44,11 +44,13 @@
   <p>Remaining available referrals by specialty</p>
 
   <% Specialty.all.each do |specialty| %>
+  <div style="display: flex">
   <%= specialty.name.capitalize %>
   <div class="progress position-relative" style="height: 25px; width: 50%; margin: 15px auto; font-size: 0.95rem; color: <%= font_color_s %>;">
     <div class="progress-bar" role="progressbar" style="background: <%= progress_color_s %>; width: <%= specialty_count %>%" aria-valuenow="<%= specialty_count %>" aria-valuemin="0" aria-valuemax="100"></div>
     <div class="justify-content-center d-flex position-absolute w-100"><%= (specialty_count*specialty_allowed)/100 %> of <%= specialty_allowed %></div>
   </div>
+</div>
   <% end %>
 </div>
 

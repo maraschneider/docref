@@ -50,7 +50,7 @@
   </div>
   <div style="padding-top: 36px;">
   <% if current_user.profile_picture != nil %>
-  <%= cl_image_tag @doctor.profile_picture, class: "avatar-square" %>
+  <%= cl_image_tag current_user.profile_picture, class: "avatar-square" %>
   <% end %>
   </div>
     <div class="dashboard-profile-summary-data">
