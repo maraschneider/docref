@@ -1,6 +1,7 @@
 <div class="dashboard-profile-summary">
   <% percentage = 0 %>
-  <% progress_color = "$light-gray" %>
+  <% progress_color = "#42433e" %>
+  <% font_color = "#42433E" %>
 <!-- This calculates the percentage depending the amount of data saved in the profile -->
   <% if current_user.first_name != nil %>
   <% percentage += 15 %>
@@ -30,25 +31,22 @@
   <% percentage += 14 %>
   <% end %>
 <!-- This calculates the color of the progress bar's background depending on the percentge -->
-  <% if percentage <= 30 %>
-  <% progress_color = "$red" %>
-  <% end %>
-
-  <% if percentage > 30 %>
-  <% progress_color = "$orange" %>
-  <% end %>
-
-  <% if percentage >= 58 %>
-  <% progress_color = "$yellow" %>
-  <% end %>
-
-  <% if percentage = 100 %>
+  <% if percentage >= 0 && percentage <= 30 %>
+  <% progress_color = "#FD1015" %>
+  <% elsif percentage > 30 && percentage <= 60 %>
+  <% progress_color = "#E67E22" %>
+  <% elsif percentage > 60 && percentage <= 99 %>
+  <% progress_color = "#fff538" %>
+  <% else %>
+  <% percentage = 100 %>
   <% progress_color = "#6fbcb4" %>
+  <% font_color = "#FFFFFF" %>
   <% end %>
 
   <h4>Personal information</h4>
-  <div class="progress" style="height: 25px; width: 50%; margin: 0 auto; margin-top: 15px; font-size: 0.95rem;">
-    <div class="progress-bar" role="progressbar" style="background: <%= progress_color %>; width: <%= percentage %>%" aria-valuenow="<%= percentage %>" aria-valuemin="0" aria-valuemax="100">Completion: <%= percentage %>%</div>
+  <div class="progress position-relative" style="height: 25px; width: 50%; margin: 0 auto; margin-top: 15px; font-size: 0.95rem; color: <%= font_color %>;">
+    <div class="progress-bar" role="progressbar" style="background: <%= progress_color %>; width: <%= percentage %>%" aria-valuenow="<%= percentage %>" aria-valuemin="0" aria-valuemax="100"></div>
+    <div class="justify-content-center d-flex position-absolute w-100"><%= percentage %>% Completed</div>
   </div>
   <div style="padding-top: 36px;">
   <% if current_user.profile_picture != nil %>
