@@ -1,0 +1,94 @@
+<div class="dashboard-profile-summary">
+  <% percentage = 0 %>
+  <% progress_color = "$light-gray" %>
+<!-- This calculates the percentage depending the amount of data saved in the profile -->
+  <% if current_user.first_name != nil %>
+  <% percentage += 15 %>
+  <% end %>
+
+  <% if current_user.last_name != nil %>
+  <% percentage += 15 %>
+  <% end %>
+
+  <% if current_user.email != nil %>
+  <% percentage += 14 %>
+  <% end %>
+
+  <% if current_user.profile_picture != nil %>
+  <% percentage += 14 %>
+  <% end %>
+
+  <% if current_user.bio != nil %>
+  <% percentage += 14 %>
+  <% end %>
+
+  <% if current_user.position != nil %>
+  <% percentage += 14 %>
+  <% end %>
+
+  <% if current_user.title != nil %>
+  <% percentage += 14 %>
+  <% end %>
+<!-- This calculates the color of the progress bar's background depending on the percentge -->
+  <% if percentage <= 30 %>
+  <% progress_color = "$red" %>
+  <% end %>
+
+  <% if percentage > 30 %>
+  <% progress_color = "$orange" %>
+  <% end %>
+
+  <% if percentage >= 58 %>
+  <% progress_color = "$yellow" %>
+  <% end %>
+
+  <% if percentage = 100 %>
+  <% progress_color = "#6fbcb4" %>
+  <% end %>
+
+  <h4>Personal information</h4>
+  <div class="progress" style="height: 25px; width: 50%; margin: 0 auto; margin-top: 15px; font-size: 0.95rem;">
+    <div class="progress-bar" role="progressbar" style="background: <%= progress_color %>; width: <%= percentage %>%" aria-valuenow="<%= percentage %>" aria-valuemin="0" aria-valuemax="100">Completion: <%= percentage %>%</div>
+  </div>
+  <div style="padding-top: 36px;">
+  <% if current_user.profile_picture != nil %>
+  <%= cl_image_tag @doctor.profile_picture, class: "avatar-square" %>
+  <% end %>
+  </div>
+    <div class="dashboard-profile-summary-data">
+      <p><strong>Name:</strong>
+        <%=current_user.first_name + " " + current_user.last_name%>
+      </p>
+      <p><strong>Title:</strong>
+        <% if current_user.title != nil %>
+        <%= current_user.title %>
+        <% else %>
+        <%= "No title provided." %>
+        <% end %>
+      </p>
+      <p><strong>Position:</strong>
+        <% if current_user.position != nil %>
+        <%= current_user.position %>
+        <% else %>
+        <%= "No position provided." %>
+        <% end %>
+      </p>
+      <p><strong>Email:</strong>
+        <% if current_user.email != nil %>
+        <%= current_user.email %>
+        <% else %>
+        <%= "No email provided." %>
+        <% end %>
+      </p>
+      <p><strong>Bio:</strong>
+        <% if current_user.bio != nil %>
+        <%= current_user.bio %>
+        <% else %>
+        <%= "No bio provided." %>
+        <% end %>
+      </p>
+    </div>
+    <%= link_to "Edit Profile", "#", class: "btn-mint" %>
+</div>
+
+
