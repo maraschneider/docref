@@ -1,58 +1,56 @@
 <div class="dashboard-profile-summary">
-  <% percentage_c = 0 %>
-  <% progress_color_c = "$light-gray" %>
-<!-- This calculates the percentage_c depending the amount of data saved in the profile -->
+  <% percentage = 0 %>
+  <% progress_color = "#42433e" %>
+  <% font_color = "#42433E" %>
+<!-- This calculates the percentage depending the amount of data saved in the profile -->
   <% if current_user.clinic.name != nil %>
-  <% percentage_c += 11 %>
+  <% percentage += 11 %>
   <% end %>
 
   <% if current_user.profile_picture != nil %>
-  <% percentage_c += 12 %>
+  <% percentage += 12 %>
   <% end %>
 
   <% if current_user.clinic.address != nil %>
-  <% percentage_c += 12 %>
+  <% percentage += 12 %>
   <% end %>
 
   <% if current_user.clinic.phone_number != nil %>
-  <% percentage_c += 13 %>
+  <% percentage += 13 %>
   <% end %>
 
   <% if current_user.clinic.website != nil %>
-  <% percentage_c += 13 %>
+  <% percentage += 13 %>
   <% end %>
 
   <% if current_user.clinic.email != nil %>
-  <% percentage_c += 13 %>
+  <% percentage += 13 %>
   <% end %>
 
   <% if current_user.clinic.consultation_times != nil %>
-  <% percentage_c += 13 %>
+  <% percentage += 13 %>
   <% end %>
 
   <% if current_user.clinic.description != nil %>
-  <% percentage_c += 13 %>
+  <% percentage += 13 %>
   <% end %>
 <!-- This calculates the color of the progress bar's background depending on the percentge -->
-  <% if percentage_c <= 26 %>
-  <% progress_color_c = "$red" %>
-  <% end %>
-
-  <% if percentage_c > 26 %>
-  <% progress_color_c = "$orange" %>
-  <% end %>
-
-  <% if percentage_c >= 75 %>
-  <% progress_color_c = "$yellow" %>
-  <% end %>
-
-  <% if percentage_c = 100 %>
-  <% progress_color_c = "#6fbcb4" %>
+  <% if percentage >= 0 && percentage <= 30 %>
+  <% progress_color = "#FD1015" %>
+  <% elsif percentage > 30 && percentage <= 60 %>
+  <% progress_color = "#E67E22" %>
+  <% elsif percentage > 60 && percentage <= 99 %>
+  <% progress_color = "#fff538" %>
+  <% else %>
+  <% percentage = 100 %>
+  <% progress_color = "#6fbcb4" %>
+  <% font_color = "#FFFFFF" %>
   <% end %>
 
   <h4>Clinic information</h4>
-  <div class="progress" style="height: 25px; width: 50%; margin: 0 auto; margin-top: 15px; font-size: 0.95rem;">
-    <div class="progress-bar" role="progressbar" style="background: <%= progress_color_c %>; width: <%= percentage_c %>%" aria-valuenow="<%= percentage_c %>" aria-valuemin="0" aria-valuemax="100">Completion: <%= percentage_c %>%</div>
+  <div class="progress position-relative" style="height: 25px; width: 50%; margin: 0 auto; margin-top: 15px; font-size: 0.95rem; color: <%= font_color %>;">
+    <div class="progress-bar" role="progressbar" style="background: <%= progress_color %>; width: <%= percentage %>%" aria-valuenow="<%= percentage %>" aria-valuemin="0" aria-valuemax="100"></div>
+    <div class="justify-content-center d-flex position-absolute w-100"><%= percentage %>% Completed</div>
   </div>
   <div style="padding-top: 36px;">
   <% if current_user.profile_picture != nil %>
