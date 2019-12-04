@@ -21,7 +21,7 @@
              Verified doctor </p>
           </div>
           <div>
-            <p>in <% recommender = User.find { |user| approval.giver_id == user.id } %>
+            <p>in <% recommender = approval.giver %>
             <%= recommender.specialties.first[:name]%></p>
           </div>
         </div>
