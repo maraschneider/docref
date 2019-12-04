@@ -30,6 +30,10 @@
 
 // Recommendation card
 
+.card-approval:first-child {
+  margin-top: 0;
+}
+
 .card-approval {
   padding: $lg;
   padding-bottom: $sm;
@@ -97,6 +101,15 @@
   text-align: right;
   margin-top: 0;
   margin-bottom: $sm;
+}
+
+// For dashboard
+
+.approval-info-box {
+  background-color: $light-mint;
+  border-radius: $rad $rad 0 0;
+  padding: $md $lg;
+  height: 88px;
 }
 
 

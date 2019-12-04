@@ -1,30 +1,41 @@
-<% @gi_approvals.each do |approval| %>
+<!-- Reassigning @approvals here to get the GIVEN approvals-->
 
-<div class="card-approval">
+  <% @approvals = Approval.all.select { |approval| approval.giver_id == @doctor.id } %>
 
-  <div class="dashboard-given">
+<!-- Do not delete outer div -->
 
-    <div style="width: 160px; text-align: center;">
+<div>
+
+  <% @approvals.each do |approval| %>
+  <!-- Info box on top of recommendations -->
+    <div class="approval-info-box d-flex align-items-center">
+      <div>
       <% recommendee = User.find { |user| approval.receiver_id == user.id } %>
-      <%= link_to cl_image_tag(recommendee.profile_picture), doctor_path(recommendee), class: "avatar-square" %>
-      <p style="margin: 5px 0px 0px 0px;">
-        <%= link_to "#{recommendee.title} #{recommendee.first_name} #{recommendee.last_name}", doctor_path(recommendee) %>
-      </p>
+        <%= image_tag "profile.png", alt: "Doctor Avatar", class: "avatar-medium", style: "margin-right: 16px;" %>
+      </div>
+      <div>
+            <p style= "padding: 0 16px; margin-bottom: 0;">You recommended <strong> <%= link_to "#{recommendee.title} #{recommendee.first_name} #{recommendee.last_name}", doctor_path(recommendee), style: "text-decoration: none; color: rgb(66, 67, 62);" %> </strong> at <%= recommendee.clinic.name %></p>
+      </div>
+      <div>
+        <%= link_to image_tag("icons/pen.svg"), root_path, class: "btn-mint", style: "margin-left: 16px;" %>
+      </div>
+      <div>
+        <%= link_to image_tag("icons/trash.svg"), root_path, class: "btn-mint", style: "margin-left: 16px;" %>
+      </div>
     </div>
 
     <div>
-      <h4><%= approval.headline %></h4>
-      <p class="text-light-gray text-small">On <%= "#{approval.created_at.strftime("%d")}" + " #{@months[approval.created_at.month]} " + "#{approval.created_at.strftime("%Y")}" %></p>
-      <p><%= approval.content %></p>
+      <%= render partial: 'users/profile_page/approval_card/approval_card', locals: { approval: approval} %>
     </div>
 
-    <div class="vertical-buttons-center">
-        <li><%= submit_tag "Edit", class: "btn-mint" %></li>
-        <li><%= submit_tag "Delete", class: "btn-mint" %></li>
-      </ul>
-    </div>
+<!-- Approval tags and content -->
 
-  </div>
 
+  <% end %>
 </div>
-<% end %>
+
+
+
+
+    <!-- Replace Recommendee Avatar later -->
+    <!-- link_to cl_image_tag(recommendee.profile_picture), doctor_path(recommendee), class: "avatar-medium"  -->

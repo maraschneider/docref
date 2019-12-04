@@ -12,6 +12,7 @@
 }
 
 .nav-link {
+  white-space: nowrap;
   color: $mint;
     &:hover {
       text-decoration: none;

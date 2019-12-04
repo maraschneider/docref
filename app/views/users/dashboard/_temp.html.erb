@@ -1,0 +1,30 @@
+<% @gi_approvals.each do |approval| %>
+
+<div class="card-approval">
+
+  <div class="dashboard-given">
+
+    <div style="width: 160px; text-align: center;">
+      <% recommendee = User.find { |user| approval.receiver_id == user.id } %>
+      <%= link_to cl_image_tag(recommendee.profile_picture), doctor_path(recommendee), class: "avatar-square" %>
+      <p style="margin: 5px 0px 0px 0px;">
+        <%= link_to "#{recommendee.title} #{recommendee.first_name} #{recommendee.last_name}", doctor_path(recommendee) %>
+      </p>
+    </div>
+
+    <div>
+      <h4><%= approval.headline %></h4>
+      <p class="text-light-gray text-small">On <%= "#{approval.created_at.strftime("%d")}" + " #{@months[approval.created_at.month]} " + "#{approval.created_at.strftime("%Y")}" %></p>
+      <p><%= approval.content %></p>
+    </div>
+
+    <div class="vertical-buttons-center">
+        <li><%= submit_tag "Edit", class: "btn-mint" %></li>
+        <li><%= submit_tag "Delete", class: "btn-mint" %></li>
+      </ul>
+    </div>
+
+  </div>
+
+</div>
+<% end %>
