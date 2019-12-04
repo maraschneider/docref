@@ -8,7 +8,7 @@
   padding: 40px 0;
 }
 
-#search-image {
+#search-area {
   //display: flex;
   //justify-content: space-between;
   position: relative;
@@ -38,3 +38,39 @@
 #infor-footer {
 
 }
+
+// Mission Section
+
+#container-two {
+  width: 100vw;
+  margin: 75vh auto auto auto;
+  padding: 100px 200px;
+  background-color: rgba(230, 230, 230, 0.3);
+}
+
+#why-docref {
+  text-align: center;
+}
+
+.mission-card {
+  height: 600px;
+  width: 300px;
+  // border: solid black 1px;
+  padding: 30px;
+  margin: 50px 20px 50px 20px;
+  text-align: center;
+}
+
+.mission-icon {
+  padding: 10px 60px;
+}
+
+.mission-card-title {
+  font-weight: bold;
+  padding-bottom: $lg;
+}
+
+.mission-selling-point {
+  margin-top: 20px;
+}
+

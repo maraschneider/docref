@@ -4,6 +4,7 @@
 .nav-tabs {
   border: 0;
   flex-wrap: nowrap !important;
+  margin-top: $lg;
 }
 
 .nav-link.profile-tab {
@@ -23,7 +24,7 @@
 
 .nav-link.active {
   color: $mint !important;
-  background-color: $light-mint !important;
+  background-color: white !important;
   border-color: white !important;
   border-bottom: solid $mint 2px !important;
 }
