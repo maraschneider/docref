@@ -3,5 +3,6 @@
 </div>
 
 <div>
+  <% @approvals = Approval.all.select { |approval| approval.receiver_id == @doctor.id } %>
   <%= render 'users/profile_page/profile_approvalcards_list' %>
 </div>

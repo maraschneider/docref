@@ -7,11 +7,11 @@
     <% Field.all.each do |field| %>
     <% global_count += Approval.joins(:fields).where(receiver: current_user).where(fields: {id: field} ).count %>
     <% end %>
-    Total received recommendations: <%= global_count %>
+    Total received field recommendations in <%= @doctor.specialties.first[:name] %>: <%= global_count %>
   </div>
 
   <div class="dashboard-profile-summary" style="border: none; padding-bottom: 0;">
-    <h5>Recommendations by fields</h5>
+
 
     <% Field.all.each do |field| %>
     <% field_count = Approval.joins(:fields).where(receiver: current_user).where(fields: {id: field} ).count %>
