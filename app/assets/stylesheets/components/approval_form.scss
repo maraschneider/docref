@@ -1,6 +1,7 @@
 
 .recommendee-container {
   margin: $lg auto;
+  margin-bottom: $xl;
   width: 60%;
 
   .card-doc {
@@ -16,16 +17,23 @@
 .approval-form {
   margin: 0 auto;
   width: 60%;
-  padding: $lg;
-  border: 1px solid $mint;
+  // padding: $lg;
   border-radius: $rad;
+  // border: 1px solid $mint;
+  // background-color:rgba(230, 230, 230, 0.3);
+
+
+  input#approval_headline {
+    font-size: 20px;
+    // border: none;
+    border: 1px solid $mint;
+  }
 }
 
 .field-choices {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
-  margin: 20px 0;
+  margin-bottom: $lg;
 }
 
 .approval_explanation {
@@ -37,42 +45,47 @@
 }
 
 .field-choice {
-  flex: 0 0 30%;
-
   input {
     display: none;
   }
 
   input ~ label {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding: $md;
-    height: 80px;
-    width: 100%;
-    text-align: center;
-
-    background: $light-mint;
-    opacity: .7;
-    border-radius: $rad;
-    line-height: 1.2;
+  margin: $xs 0;
+  margin-right: $sm;
+  padding: 2px $sm;
+  border-radius: $lg;
+  border: 1px solid $mint;
+  font-size: 14px;
+  color: $mint;
+  border: 1px solid $mint;
+  background-color: white;
 
   }
 
   input:hover ~ label {
     opacity: 0.5;
     background: $mint;
+    color: white;
 
   }
 
   input:checked ~ label {
-    font-weight: 800;
     background: $mint;
     color: white;
     opacity: 1;
   }
 }
 
+#approval_content {
+  height: 10vh;
+  // border: none;
+  border: 1px solid $mint;
+
+}
+
+input.btn-mint {
+
+}
 
 .switch {
   position: relative;
