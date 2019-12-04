@@ -58,7 +58,7 @@ class UsersController < ApplicationController
   def update
     @user.update(user_params)
     if @user.save
-      render 'users/dashboard'
+      redirect_to dashboard_path(@user)
     end
   end
 

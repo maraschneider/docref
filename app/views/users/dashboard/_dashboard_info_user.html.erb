@@ -52,7 +52,7 @@
   </div>
   <div style="padding-top: 36px;">
   <% if current_user.profile_picture != nil %>
-  <%= cl_image_tag @doctor.profile_picture, class: "avatar-square" %>
+    <%= cl_image_tag current_user.profile_picture, class: "avatar-square" %>
   <% end %>
   </div>
     <div class="dashboard-profile-summary-data" id="current-data">
@@ -94,6 +94,9 @@
     <div id="edit-form" class="hide">
       <%= form_for @user, url: doctor_path(@user) do |f| %> <!-- , url: { action: "update" } -->
               <!-- edit_doctor_path(current_user) -->
+        <br><strong>Profile Picture</strong><br>
+        <%= f.file_field :profile_picture %>
+        <%= f.hidden_field :profile_picture_cache, as: :hidden %> <br>
         <strong>Name:</strong><br>
         <%= text_field_tag :first_name,
           params[:first_name] = @user.first_name,
