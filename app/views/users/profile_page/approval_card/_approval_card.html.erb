@@ -1,8 +1,4 @@
 <!-- Do not delete outer div -->
-
-<div>
-
-  <% @approvals.each do |approval| %>
     <div class="card-approval">
       <div class="approval-header d-flex justify-content-between">
   <!-- Header is a flex-box with three flex-items -->
@@ -45,7 +41,5 @@
       <div class="card-date">
         <%= "#{approval.created_at.strftime("%d")}" + " #{@months[approval.created_at.month]} " + "#{approval.created_at.strftime("%Y")}" %>
       </div>
-
     </div>
-  <% end %>
-</div>
+
