@@ -52,10 +52,11 @@
   }
 
   input ~ label {
+  font-size: 14px;
   color: $mint;
   margin-right: $sm;
   padding: $xs $md;
-  border-radius: $lg;
+  border-radius: $xl;
   border: 1px solid $mint;
   background-color: white;
 
