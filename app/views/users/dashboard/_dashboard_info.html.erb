@@ -1,24 +1,7 @@
 <div>
-  <ul class="nav nav-tabs">
-    <li class="nav-item">
-      <a class="nav-link profile-tab active" href="#quota" role="tab" data-toggle="tab">Quota Info</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link profile-tab" href="#user" role="tab" data-toggle="tab">Personal Info</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link profile-tab" href="#clinic" role="tab" data-toggle="tab">Clinic Info</a>
-    </li>
-  </ul>
-  <div class="tab-content">
-    <div role='tabpanel' class= "tab-pane active fade show" id="quota">
-      <%= render 'users/dashboard/dashboard_info_quota' %>
-    </div>
-    <div role='tabpanel' class= "tab-pane fade" id="user">
-      <%= render 'users/dashboard/dashboard_info_user' %>
-    </div>
-    <div role='tabpanel' class= "tab-pane fade" id="clinic">
-      <%= render 'users/dashboard/dashboard_info_clinic' %>
-    </div>
-  </div>
+  <%= render 'users/dashboard/dashboard_info_user' %>
+</div>
+
+<div>
+  <%= render 'users/dashboard/dashboard_info_clinic' %>
 </div>
