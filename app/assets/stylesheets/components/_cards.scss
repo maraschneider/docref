@@ -1,15 +1,17 @@
 .text-card-mint {
-  padding: $lg;
+  padding: $md $lg;
   margin: $md 0;
   background-color: $light-mint;
   border-radius: $rad;
+  font-weight: 600;
 }
 .text-card-purple {
-  padding: $lg;
-  margin: $md 0;
+  padding: $md $lg;
+  margin: $sm 0;
   background-color: $light-purple;
   border-radius: $rad;
   color: white;
+  font-weight: 600;
 }
 
 .text-card-outline-mint {
@@ -29,6 +31,10 @@
 }
 
 // Recommendation card
+
+.card-approval:first-child {
+  margin-top: 0;
+}
 
 .card-approval {
   padding: $lg;
@@ -97,6 +103,15 @@
   text-align: right;
   margin-top: 0;
   margin-bottom: $sm;
+}
+
+// For dashboard
+
+.approval-info-box {
+  background-color: $light-mint;
+  border-radius: $rad $rad 0 0;
+  padding: $md $lg;
+  height: 88px;
 }
 
 

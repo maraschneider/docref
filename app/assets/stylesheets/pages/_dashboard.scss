@@ -23,6 +23,12 @@
   grid-gap: $lg;
 }
 
+.dashboard-info-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: $lg;
+}
+
 .dashboard-received {
   display: grid;
   grid-template-columns: 3fr 2fr;
