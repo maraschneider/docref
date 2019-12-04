@@ -34,87 +34,100 @@ neurology_fields.each do |field|
   Field.create(name: field, specialty: neurology)
 end
 
-clinic_1 = Clinic.create(
+clinic_1 = Clinic.create!(
   name:'Charite Berlin Mitte',
   website:'www.charite.de',
   phone_number: '030 1234 456789',
   email: 'service@charite.de',
-  clinic_picture: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1035&q=80",
+  remote_clinic_picture_url: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1035&q=80',
   description: "Charité is one of the largest university hospitals in Europe. All of our clinical care, research and teaching is delivered by physicians and researchers of the highest international standard. Charité proudly lays claim to more than half of all German Nobel Prize winners in Physiology or Medicine, including Emil von Behring, Robert Koch, and Paul Ehrlich. Charité is internationally renowned for its excellence in teaching and training.",
   address: "Chariteplatz 1, 10117 Berlin",
   consultation_times: "Mo - Fr: 10am - 5pm")
+clinic_1[:clinic_picture] = "https://res.cloudinary.com/ddoiquevw/image/upload/v1575460052/oronkdxcgtk6zc7xetwh.jpg"
+clinic_1.save!
 
-clinic_2 = Clinic.create(
+clinic_2 = Clinic.create!(
   name:'Bundeswehrkrankenhaus Berlin',
   website:' www.bwkrankenhaus.de',
   phone_number: '030 28412289',
   email: 'info@bw-krankenhaus.de',
-  clinic_picture: "https://images.unsplash.com/photo-1495202337139-e865ed70fcd4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1655&q=80",
+  remote_clinic_picture_url: 'https://images.unsplash.com/photo-1495202337139-e865ed70fcd4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1655&q=80',
   description: "The Joint Medical Service (German: Zentraler Sanitätsdienst der Bundeswehr) is a part of the Bundeswehr, the armed forces of Germany and serves all three armed services (Army, Navy and Air Force). However, members of the central medical corps remain members of their respective military branches. Only a few specialized medical units such as the medical care for divers and aircraft crews are not incorporated in the Joint Medical Service. Prior to 2002 each military branch had its own medical service. The services were then largely merged, forming the Joint Medical Service.",
   address: "Scharnhorststraße 13, 10115 Berlin",
   consultation_times: "Mo - Fr: 10am - 5pm")
+clinic_2[:clinic_picture] = "https://res.cloudinary.com/ddoiquevw/image/upload/v1575466030/photo-1533042789716-e9a9c97cf4ee_bnpflj.jpg"
+clinic_2.save!
 
-clinic_3 = Clinic.create(
+clinic_3 = Clinic.create!(
   name:'Dr med Scheuer und Kollegen',
   website:'scheuer-und.kollegen',
   phone_number: '030 156810',
   email: 'sprechstunde@scheuer.de',
-  clinic_picture: "https://images.unsplash.com/photo-1533042789716-e9a9c97cf4ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80",
+  remote_clinic_picture_url: 'https://images.unsplash.com/photo-1533042789716-e9a9c97cf4ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80',
   description: "We are a private clinic with a nice view & competence",
   address: "Wilmersdorfer Str. 102, 10629 Berlin",
   consultation_times: "Mo - Fr: 10am - 5pm")
+clinic_3[:clinic_picture] = "https://res.cloudinary.com/ddoiquevw/image/upload/v1575459690/t4qn0oi2w3biasgkbptv.jpg"
+clinic_3.save!
 
-clinic_4 = Clinic.create(
+clinic_4 = Clinic.create!(
   name:'Unfallkrankenhaus Berlin (UKB)',
   website:'www.ukb.de',
   phone_number: '030 56810',
   email: 'service@ukb.de',
-  clinic_picture: "https://images.unsplash.com/photo-1533042789716-e9a9c97cf4ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80",
+  remote_clinic_picture_url: 'https://images.unsplash.com/photo-1533042789716-e9a9c97cf4ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80',
   description: "Das Unfallkrankenhaus Berlin (UKB) ist eine berufsgenossenschaftliche Unfallklinik im Berliner Ortsteil Biesdorf des Bezirks Marzahn-Hellersdorf, die 1997 gegründet wurde. Vorrangig dient es der Behandlung von Unfallverletzten und Notfallpatienten aus dem Raum Berlin-Brandenburg sowie von Schwerbrandverletzten aus ganz Deutschland.[1] Das Haupthaus ist ein Neubau, aber die meisten historischen Gebäude des Wilhelm-Griesinger-Krankenhauses wurden dem UKB zugeschlagen. Somit geht die Geschichte bis zum Ende des 19. Jahrhunderts zurück.",
   address: "Warener Str. 7, 12683 Berlin",
   consultation_times: "Mo - Fr: 10am - 5pm")
+clinic_4[:clinic_picture] = "https://res.cloudinary.com/ddoiquevw/image/upload/v1575466772/photo-1571582262838-7ce60ba9a052_i5tqbw.jpg"
+clinic_4.save!
 
-clinic_5 = Clinic.create(
+clinic_5 = Clinic.create!(
   name:'Campus Berlin-Bruch',
   website:'campus-bruch.berlin',
   phone_number: '030 56810',
   email: 'service@bruch.berlin',
-  clinic_picture: "https://images.unsplash.com/photo-1445527815219-ecbfec67492e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
+  remote_clinic_picture_url: 'https://images.unsplash.com/photo-1445527815219-ecbfec67492e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
   description: "Campus Berlin-Buch GmbH offers its clients on Campus Berlin-Buch a comprehensive infrastructure and service culture. The main task of Campus Berlin-Buch GmbH is to assist and support biotech companies – from start-ups to mature enterprises – in settling on the campus of the BiotechPark Berlin-Buch with access to the resources of the Innovation and Incubation Center.",
   address: "Rudi-Dutschke-Straße 26, 10969 Berlin",
   consultation_times: "Mo - Fr: 10am - 5pm")
+clinic_5[:clinic_picture] = "https://res.cloudinary.com/ddoiquevw/image/upload/v1575466885/photo-1476890065195-542990594501_mrulys.jpg"
+clinic_5.save!
 
-clinic_6 = Clinic.create(
+clinic_6 = Clinic.create!(
   name:'Universitätsklinikum Benjamin Franklin',
   website:'www.ukbf.de',
   phone_number: '030 56810',
   email: 'info@ukbf.de',
-  clinic_picture: "https://de.wikipedia.org/wiki/Universit%C3%A4tsklinikum_Benjamin_Franklin#/media/Datei:Freie_Universitaet_Berlin_-_Universitaetsklinikum_Benjamin-Franklin_der_Charite_-_Nordseite_1.jpg",
   description: "Das Universitätsklinikum Benjamin Franklin (UKBF) ist ein Klinikum der Vollversorgung. Seit 1998 gehört es zum Verbund der Charité. Zurück geht das Klinikum auf das 1968 eröffnete Klinikum Steglitz der Freien Universität Berlin.[1] Dieses lag im Berliner Ortsteil Lichterfelde des damaligen Bezirks Steglitz (seit 2001: Bezirk Steglitz-Zehlendorf).",
   address: "Hindenburgdamm 12",
   consultation_times: "Mo - Fr: 10am - 5pm")
+  clinic_6[:clinic_picture] = 'https://res.cloudinary.com/ddoiquevw/image/upload/v1575466982/photo-1476889155166-39ae3886a3ef_dwlmne.jpg'
+  clinic_6.save!
 
-clinic_7 = Clinic.create(
+clinic_7 = Clinic.create!(
   name:'Vivantes Klinikum Am Urban',
   website:'www.vivantes.de',
   phone_number: '030 56810',
   email: 'service@vivantes.de',
-  clinic_picture: "https://images.unsplash.com/photo-1533042789716-e9a9c97cf4ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80",
-  description: "Vivantes sieht sich längst nicht mehr nur als Krankenhausunternehmen. Unser Auftrag ist die gesundheitliche Daseinsvorsorge für alle Menschen in dieser Stadt, für die Kranken jeden Alters wie für die Gesunden. Kurz: Für Gesundheit in jeder Lebenslage. Lifestyle oder Lebensrettung, glückliche Geburt oder würdiges Sterben: Vivantes ist für Berlin da – für eine halbe Million Menschen Jahr für Jahr. Vivantes gehört zu Berlin. ",
+  description: "Vivantes sieht sich längst nicht mehr nur als Krankenhausunternehmen. Unser Auftrag ist die gesundheitliche Daseinsvorsorge für alle Menschen in dieser Stadt, für die Kranken jeden Alters wie für die Gesunden. Kurz: Für Gesundheit in jeder Lebenslage. Lifestyle oder Lebensrettung, glückliche Geburt oder würdiges Sterben: Vivantes ist für Berlin da – für eine halbe Million Menschen Jahr für Jahr. Vivantes gehört zu Berlin.",
   address: "Maybachufer 50, Berlin",
   consultation_times: "Mo - Fr: 10am - 5pm")
+clinic_7[:clinic_picture] = "https://res.cloudinary.com/ddoiquevw/image/upload/v1575460055/bmpbxfcikjejyv3xvkmt.jpg"
+clinic_7.save!
 
-user_1 = User.create(
+user_1 = User.create!(
   email: "doctor1@example.com",
   password: "123456",
   title: "Dr",
   first_name: "Gregory",
   last_name: "House",
   only_private_insurance: false,
-  profile_picture: "https://images.unsplash.com/photo-1544819616-8b86befe568c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
   bio: "For the last twenty years, I have been specializing in Cardiovascular Disease. I am practising at Charité Mitte and Virchow Campuses. In addition, I am involved in teaching our students as well as cardiovascular research on biomarkers.",
   position: "Chief doctor",
   clinic: clinic_1)
+user_1[:profile_picture] = "https://res.cloudinary.com/ddoiquevw/image/upload/v1575465930/photo-1544819616-8b86befe568c_qzthlq.jpg"
+user_1.save!
 
 user_2 = User.create(
   email: "doctor2@example.com",
@@ -123,71 +136,76 @@ user_2 = User.create(
   first_name: "Hans",
   last_name: "Meier",
   only_private_insurance: false,
-  profile_picture: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80",
   bio: "Prior to my medical career I have been serving in the Bundeswehr as a paramedic. I have now been working at the Bundeswehrkrankenhaus for about ten years. My research interests include telemedical diagnostics of oncological conditions.",
   position: "Consultant doctor",
   clinic: clinic_2)
+user_2[:profile_picture] = "https://res.cloudinary.com/ddoiquevw/image/upload/v1575465918/photo-1500648767791-00dcc994a43e_c60d6j.jpg"
+user_2.save!
 
-user_3 = User.create(
+user_3 = User.create!(
   email: "doctor3@example.com",
   password: "123456",
   title: "Dr",
   first_name: "Sabine",
   last_name: "Scheuer",
   only_private_insurance: true,
-  profile_picture: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
   bio: "I have recently joined the UKB as a resident doctor in neurology. My dissertation was titled 'What went wrong in my life and how did I end up here?' Please do not hesitate to contact me or our office if you have any questions.",
   position: "Resident doctor",
   clinic: clinic_3)
+user_3[:profile_picture] = "https://res.cloudinary.com/ddoiquevw/image/upload/v1575465897/photo-1559839734-2b71ea197ec2_hamr8f.jpg"
+user_3.save!
 
-user_4 = User.create(
+user_4 = User.create!(
   email: "doctor4@example.com",
   password: "123456",
   title: "",
   first_name: "Steffen",
   last_name: "Seibert",
   only_private_insurance: false,
-  profile_picture: "https://images.unsplash.com/photo-1528892952291-009c663ce843?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=296&q=80",
   bio: "I have recently joined the UKB as a resident doctor in neurology. My dissertation was titled 'What went wrong in my life and how did I end up here?' Please do not hesitate to contact me or our office if you have any questions.",
   position: "Resident doctor",
   clinic: clinic_4)
+user_4[:profile_picture] = "https://res.cloudinary.com/ddoiquevw/image/upload/v1575465881/photo-1528892952291-009c663ce843_uibbm3.jpg"
+user_4.save!
 
-user_5 = User.create(
+user_5 = User.create!(
   email: "doctor5@example.com",
   password: "123456",
   title: "Prof Dr",
   first_name: "Torben",
   last_name: "Teich",
   only_private_insurance: false,
-  profile_picture: "https://images.unsplash.com/photo-1550831107-1553da8c8464?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
   bio: "I have recently joined the UKB as a resident doctor in neurology. My dissertation was titled 'What went wrong in my life and how did I end up here?' Please do not hesitate to contact me or our office if you have any questions.",
   position: "Chief doctor",
   clinic: clinic_5)
+user_5[:profile_picture] = "https://res.cloudinary.com/ddoiquevw/image/upload/v1575465862/photo-1550831107-1553da8c8464_rf8v8q.jpg"
+user_5.save!
 
-user_6 = User.create(
+user_6 = User.create!(
   email: "doctor6@example.com",
   password: "123456",
   title: "Dr",
   first_name: "Kirsten",
   last_name: "Laube",
   only_private_insurance: false,
-  profile_picture: "https://images.unsplash.com/photo-1536064479547-7ee40b74b807?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
   bio: "I have recently joined the UKB as a resident doctor in neurology. My dissertation was titled 'What went wrong in my life and how did I end up here?' Please do not hesitate to contact me or our office if you have any questions.",
   position: "Assistent doctor",
   clinic: clinic_6)
+user_6[:profile_picture] = "https://res.cloudinary.com/ddoiquevw/image/upload/v1575465840/photo-1536064479547-7ee40b74b807_sd6vbm.jpg"
+user_6.save!
 
-user_7 = User.create(
+user_7 = User.create!(
   email: "doctor7@example.com",
   password: "123456",
   title: "Prof Dr Med",
   first_name: "Chang",
   last_name: "Lu Li",
   only_private_insurance: false,
-  profile_picture: "https://images.unsplash.com/photo-1567568315185-8738d14226ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
   bio: "I have recently joined the UKB as a resident doctor in neurology. My dissertation was titled 'What went wrong in my life and how did I end up here?' Please do not hesitate to contact me or our office if you have any questions.",
   position: "Chief doctor",
   clinic: clinic_7)
-
+user_7[:profile_picture] = "https://res.cloudinary.com/ddoiquevw/image/upload/v1575465817/photo-1567568315185-8738d14226ce_gferkc.jpg"
+user_7.save!
 
 UserSpecialty.create(user_id: 1, specialty_id: 1)
 UserSpecialty.create(user_id: 2, specialty_id: 2)
@@ -217,9 +235,9 @@ UserField.create(user_id: 5, field_id: 11)
 UserField.create(user_id: 5, field_id: 12)
 UserField.create(user_id: 5, field_id: 14)
 
-UserField.create(user_id: 7, field_id: 11)
-UserField.create(user_id: 7, field_id: 13)
-UserField.create(user_id: 7, field_id: 14)
+ UserField.create(user_id: 7, field_id: 11)
+ UserField.create(user_id: 7, field_id: 13)
+ UserField.create(user_id: 7, field_id: 14)
 
 approval1 = Approval.create(giver_id: 1, receiver_id: 2, specialty_id: 2, headline: "The one and only", content: "I have been working together with Dr Meier and I can highly recommend him based on his experience.")
 approval2 = Approval.create(giver_id: 1, receiver_id: 3, specialty_id: 3, headline: "Excellent physician", content: "As I have taught Steffen Seibert over several years, I can highly recommend this young physician for the neurological conditions specified.")
