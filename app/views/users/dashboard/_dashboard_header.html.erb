@@ -1,5 +1,8 @@
 <div class="dashboard_header">
-<h2 class="dashboard_header-text">Hello <%= current_user.title %> <%= current_user.first_name %> <%= current_user.last_name %></h2>
-<%= cl_image_tag(current_user.clinic.clinic_picture, :height => 160, :crop => "contain") %>
-
+<div class="dashboard_header-text">
+<h2 >Hello <%= current_user.title %> <%= current_user.first_name %> <%= current_user.last_name %></h2>
+</div>
+<div>
+<%= cl_image_tag(current_user.clinic.clinic_picture, height: 300, width: 300, crop: :fill, id: "profile-pic", class: "avatar-square-hospital") %>
+</div>
 </div>
