@@ -22,7 +22,7 @@ class UserPolicy < ApplicationPolicy
   end
 
   def update?
-    is_user?
+    user
   end
 
   def delete?

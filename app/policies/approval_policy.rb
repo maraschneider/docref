@@ -17,13 +17,13 @@ class ApprovalPolicy < ApplicationPolicy
     is_user?
   end
 
-  def delete?
-    is_user?
+  def destroy?
+    user
   end
 
   private
 
   def is_user?
-    record.user == user
+    @record.giver == user
   end
 end
