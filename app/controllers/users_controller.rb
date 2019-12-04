@@ -61,12 +61,14 @@ class UsersController < ApplicationController
   def search_doctor_by_field(search_input)
     if search_input.is_a? Array
       search_input.each do |input|
-        @field = Field.joins(:approvals).where(approvals: { receiver: @doctors }).search_by_field(input)
-        @doctors = @field.map {|p| p.users }.flatten.uniq
+        @approvals = Approval.where(receiver: @doctors)
+        @field = Field.search_by_field(input)
+        @doctors = @approvals.joins(:fields).where(fields: {id: @field}).map {|p| p.receiver }.flatten.uniq
+        #@doctors = @field.joins(:approvals).where(approvals: { receiver: @doctors }).map {|p| p.users }.flatten.uniq
       end
     else
       @field = Field.search_by_field(search_input)
-      @doctors = @field.map { |p| p.users }.flatten.uniq
+      @doctors = @field.joins(:approvals).where(approvals: { receiver: @doctors }).map { |p| p.users }.flatten.uniq
       # Field.joins(:approvals).where('lower(name) = ?', search_input.downcase).map {|p| p.users }.flatten.uniq
     end
     @doctors
