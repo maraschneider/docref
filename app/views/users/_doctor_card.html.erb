@@ -9,23 +9,7 @@
   <div>
     <%= cl_image_tag doctor.profile_picture, height: 100, width: 100, crop: :fill, alt: "profile_picture", class: "avatar-square" %>
   </div>
-  <%#= render :partial => 'users/recommendation_btn', :object => doctor %>
-  <div>
-    <% unless current_user == doctor || !current_user %>
-      <% @appr = Approval.where(receiver: doctor, giver: current_user) %>
-      <% if @appr.present? %>
-        <%= link_to "Update Recommendation",
-            edit_doctor_approval_path(doctor, @appr.first),
-            class: "btn-mint outline btn-wider hidden"
-        %>
-      <% else %>
-        <%= link_to "Add Recommendation",
-            new_doctor_approval_path(doctor),
-            class: "btn-mint outline btn-wider hidden"
-        %>
-      <% end %>
-    <% end %>
-  </div>
+  <%= render partial: 'users/recommendation_btn', object: doctor, as: :doctor %>
   <div>
     <%= link_to "Profile", doctor_path(doctor), class: "btn-mint outline hidden"%>
   </div>
