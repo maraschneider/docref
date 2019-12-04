@@ -3,9 +3,9 @@
     <div id="info-intro">
       Finding the right doctor for you.
     </div>
-    <div id="search-image">
+    <div id="search-area">
       <div id="landing-search">
-        <h5>Trustworthy recommendations  by doctors  for your condition.</h5>
+        <h4>Trustworthy recommendations  by doctors for your condition.</h4>
         <div>
           <%= form_tag doctors_path, method: :get, class: "two-field-search-container" do %>
             <%= text_field_tag :specialty_or_field,
@@ -34,8 +34,66 @@
 
   <div id="info-footer">
 
+  </div>
+</div>
+
+<div id="container-two">
+
+  <div id="why-docref"><h1>Why DocRef?</h4></div>
+
+  <div class="d-flex justify-content-center">
+
+    <div class="mission-card">
+      <div class="mission-icon">
+        <%= image_tag "icons/doctor.svg" %>
+      </div>
+      <div>
+        <h4 class="mission-card-title">By Doctors</h4>
+      </div>
+      <div>Online reviews of doctors are normally written by patients, who evaluate their treatment quality different to an experienced doctor.</div>
+      <div class="mission-selling-point">
+        <strong>On DocRef, only doctors write recommendations for other doctors.</strong>
+      </div>
+    </div>
+
+    <div class="mission-card">
+      <div class="mission-icon">
+        <%= image_tag "icons/organ.svg" %>
+      </div>
+      <div>
+        <h4 class="mission-card-title">Condition Specific</h4>
+      </div>
+      <div>A cardiologist may be excellent in treating arteriosclerosis, but may be less experienced in other fields.</div>
+      <div class="mission-selling-point">
+        <strong>DocRef recommendations are based on conditions and not just specialties.</strong>
+      </div>
+    </div>
+
+    <div class="mission-card">
+      <div class="mission-icon">
+        <%= image_tag "icons/verified.svg" %>
+      </div>
+      <div>
+        <h4 class="mission-card-title">Verified</h4>
+      </div>
+      <div>Doctor reviews can easily be faked and manipulated across the internet.</div>
+      <div class="mission-selling-point">
+        <strong>That is why all doctors on DocRef are verified clinicians.</strong>
+      </div>
+    </div>
 
   </div>
+</div>
+
+
+
+<!-- Why DocRef?
+
+Online reviews of doctors are often unreliable and can easily be faked.
+
+They are normally written by patients, who may have difficult evaluating the quality of their treatment.
+
+ -->
 
 
 

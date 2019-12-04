@@ -12,7 +12,7 @@
     <div data-approval-id="<%= approval.id %>">
       <div class="approval-info-box d-flex align-items-center">
         <div>
-        <% recommendee = User.find { |user| approval.receiver_id == user.id } %>
+        <% recommendee = approval.receiver %>
           <%= image_tag "profile.png", alt: "Doctor Avatar", class: "avatar-medium", style: "margin-right: 16px;" %>
         </div>
         <div>
