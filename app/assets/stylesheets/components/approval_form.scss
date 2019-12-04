@@ -1,6 +1,7 @@
 
 .recommendee-container {
   margin: $lg auto;
+  margin-bottom: $xl;
   width: 60%;
 
   .card-doc {
@@ -31,9 +32,8 @@
 
 .field-choices {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
-  margin: 20px 0;
+  margin-bottom: $lg;
 }
 
 .approval_explanation {
@@ -45,18 +45,18 @@
 }
 
 .field-choice {
-  flex: 0 0 30%;
-
   input {
     display: none;
   }
 
   input ~ label {
+  margin: $xs 0;
+  margin-right: $sm;
+  padding: 2px $sm;
+  border-radius: $lg;
+  border: 1px solid $mint;
   font-size: 14px;
   color: $mint;
-  margin-right: $sm;
-  padding: $xs $md;
-  border-radius: $xl;
   border: 1px solid $mint;
   background-color: white;
 
