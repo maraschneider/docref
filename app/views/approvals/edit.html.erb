@@ -21,6 +21,10 @@
       </div>
       <%= f.input :content, as: :text, placeholder: "Why do you recommend this doctor?"%>
 
+      <div class="anonymous-choice">
+      <%= f.input :anonymous, as: :radio_buttons, label: "Do you want to stay anonymous?", class:"anonymous-choice" %>
+      </div>
+
 <!--       <label class="switch">
         <%#= f.input :anonymous,
                     as: :check_boxes,
