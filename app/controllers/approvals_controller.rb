@@ -36,7 +36,10 @@ class ApprovalsController < ApplicationController
 
   def destroy
     @approval.destroy
-    redirect_to dashboard_path(current_user)
+    respond_to do |format|
+      format.html { redirect_to dashboard_path(current_user) }
+      format.js
+    end
   end
 
   private
