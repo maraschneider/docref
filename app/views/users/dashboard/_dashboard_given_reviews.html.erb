@@ -8,23 +8,25 @@
 
   <% @approvals.each do |approval| %>
   <!-- Info box on top of recommendations -->
-    <div class="approval-info-box d-flex align-items-center">
-      <div>
-      <% recommendee = User.find { |user| approval.receiver_id == user.id } %>
-        <%= image_tag "profile.png", alt: "Doctor Avatar", class: "avatar-medium", style: "margin-right: 16px;" %>
+    <div data-approval-id="<%= approval.id %>">
+      <div class="approval-info-box d-flex align-items-center">
+        <div>
+        <% recommendee = User.find { |user| approval.receiver_id == user.id } %>
+          <%= image_tag "profile.png", alt: "Doctor Avatar", class: "avatar-medium", style: "margin-right: 16px;" %>
+        </div>
+        <div>
+              <p style= "padding: 0 16px; margin-bottom: 0;">You recommended <strong> <%= link_to "#{recommendee.title} #{recommendee.first_name} #{recommendee.last_name}", doctor_path(recommendee), style: "text-decoration: none; color: rgb(66, 67, 62);" %> </strong> at <%= recommendee.clinic.name %></p>
+        </div>
+        <div>
+          <%= link_to image_tag("icons/pen.svg"), edit_doctor_approval_path(approval.receiver, approval), style: "margin-left: 16px;" %>
+        </div>
+        <div>
+          <%= link_to image_tag("icons/trash.svg"), approval_path(approval), method: :delete, remote: true, data: {confirm: "Are you sure?"}, style: "margin-left: 16px;" %>
+        </div>
       </div>
       <div>
-            <p style= "padding: 0 16px; margin-bottom: 0;">You recommended <strong> <%= link_to "#{recommendee.title} #{recommendee.first_name} #{recommendee.last_name}", doctor_path(recommendee), style: "text-decoration: none; color: rgb(66, 67, 62);" %> </strong> at <%= recommendee.clinic.name %></p>
+        <%= render partial: 'users/profile_page/approval_card/approval_card', locals: { approval: approval} %>
       </div>
-      <div>
-        <%= link_to image_tag("icons/pen.svg"), edit_doctor_approval_path(approval.receiver, approval), style: "margin-left: 16px;" %>
-      </div>
-      <div>
-        <%= link_to image_tag("icons/trash.svg"), approval_path(approval), method: :delete, data: {confirm: "Are you sure?"}, style: "margin-left: 16px;" %>
-      </div>
-    </div>
-    <div>
-      <%= render partial: 'users/profile_page/approval_card/approval_card', locals: { approval: approval} %>
     </div>
 
 <!-- Approval tags and content -->
