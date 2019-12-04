@@ -1,11 +1,12 @@
 <!-- Reassigning @approvals here to get the GIVEN approvals-->
-
   <% @approvals = Approval.all.select { |approval| approval.giver_id == @doctor.id } %>
 
 <!-- Do not delete outer div -->
+<div>
+  <%= render 'users/dashboard/dashboard_reviews_given_quota' %>
+</div>
 
 <div>
-
   <% @approvals.each do |approval| %>
   <!-- Info box on top of recommendations -->
     <div class="approval-info-box d-flex align-items-center">
@@ -28,14 +29,5 @@
       <%= render partial: 'users/profile_page/approval_card/approval_card', locals: { approval: approval} %>
     </div>
 
-<!-- Approval tags and content -->
-
-
   <% end %>
 </div>
-
-
-
-
-    <!-- Replace Recommendee Avatar later -->
-    <!-- link_to cl_image_tag(recommendee.profile_picture), doctor_path(recommendee), class: "avatar-medium"  -->
