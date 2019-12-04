@@ -1,0 +1,18 @@
+<div>
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link profile-tab active" href="#recommendations" role="tab" data-toggle="tab">Recommendations</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link profile-tab" href="#profile" role="tab" data-toggle="tab">Profile Info</a>
+    </li>
+  </ul>
+  <div class="tab-content">
+    <div role='tabpanel' class= "tab-pane active fade show" id="recommendations">
+      <%= render 'users/dashboard/dashboard_reviews' %>
+    </div>
+    <div role='tabpanel' class= "tab-pane fade" id="profile">
+      <%= render 'users/dashboard/dashboard_info' %>
+    </div>
+  </div>
+</div>
