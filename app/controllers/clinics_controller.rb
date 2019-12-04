@@ -6,17 +6,17 @@ class ClinicsController < ApplicationController
   end
 
   def update
-    @user.clinic.update(clinic_params)
-    if @user.clinic.save
-      redirect_to dashboard_path(@user)
+    @clinic.update(clinic_params)
+    if @clinic.save
+     # redirect_to dashboard_path(@user)
     end
   end
 
   private
 
   def set_clinic
-    @user = current_user
-    authorize @user
+    @clinic = current_user.clinic
+    authorize @clinic
   end
 
   def clinic_params

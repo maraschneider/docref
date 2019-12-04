@@ -117,37 +117,37 @@
         <%= f.hidden_field :clinic_picture_cache, as: :hidden %> <br>
         <strong>Name:</strong><br>
         <%= text_field_tag :name,
-          params[:name] = @user.clinic.name,
+          params[:name] = @clinic.name,
           class: "input-field edit-field"
           %>
         <strong>Address:</strong><br>
         <%= text_field_tag :address,
-          params[:address] = @user.clinic.address,
+          params[:address] = @clinic.address,
           class: "input-field edit-field"
           %>
         <strong>Phone:</strong><br>
         <%= text_field_tag :phone_number,
-          params[:phone_number] = @user.clinic.phone_number,
+          params[:phone_number] = @clinic.phone_number,
           class: "input-field edit-field"
           %>
         <strong>Website:</strong><br>
         <%= text_field_tag :website,
-          params[:website] = @user.clinic.website,
+          params[:website] = @clinic.website,
           class: "input-field edit-field"
           %>
         <strong>Email:</strong><br>
         <%= text_field_tag :email,
-          params[:email] = @user.clinic.email,
+          params[:email] = @clinic.email,
           class: "input-field edit-field"
           %>
         <strong>Consultation Times:</strong><br>
         <%= text_field_tag :consultation_times,
-          params[:consultation_times] = @user.clinic.consultation_times,
+          params[:consultation_times] = @clinic.consultation_times,
           class: "input-field edit-field"
           %>
         <strong>Description:</strong><br>
         <%= text_area_tag :description,
-          params[:description] = @user.clinic.description,
+          params[:description] = @clinic.description,
           class: "input-field edit-field"
           %>
           <br>

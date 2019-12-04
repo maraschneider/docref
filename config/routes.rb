@@ -7,6 +7,6 @@ Rails.application.routes.draw do
     resources :approvals, only: [:new, :create, :edit, :update]
   end
   resources :approvals, only: [:destroy]
-  resources :clinics, controller: :clinics, only: [:edit, :update]
+  resources :clinics, controller: :clinics, only: [:update]
   get 'dashboard', to: 'users#dashboard', as: :dashboard
 end
