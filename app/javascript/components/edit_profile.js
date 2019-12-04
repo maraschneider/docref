@@ -3,12 +3,18 @@ const editProfile = () => {
   const saveBtn = document.getElementById('save-btn')
 
   const currentData = document.getElementById('current-data')
-  const editField = document.getElementById('edit-form')
+  const editForm = document.getElementById('edit-form')
 
   editBtn.addEventListener('click', (event) => {
-    console.log("CLICK")
-    event.currentData.classList.add("hide");
-    event.editField.classList.remove("hide");
+    currentData.classList.add("hide");
+    editForm.classList.remove("hide");
+    console.log("Edit")
+  });
+
+  saveBtn.addEventListener('click', (event) => {
+    editForm.classList.add("hide");
+    currentData.classList.remove("hide");
+    console.log("Save")
   });
 }
 

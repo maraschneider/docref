@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show, :dashboard]
-  before_action :set_doctor, only: [:show, :edit, :update]
+  before_action :set_doctor, only: [:show]
+  before_action :set_current_user, only: [:edit, :update, :dashboard]
 
   # before_filter check if html, js etc
   def index
@@ -55,7 +56,10 @@ class UsersController < ApplicationController
   end
 
   def update
-    @doctor.update(user_params)
+    @user.update(user_params)
+    if @user.save
+      render 'users/dashboard'
+    end
   end
 
   private
@@ -134,7 +138,12 @@ class UsersController < ApplicationController
     authorize @doctor
   end
 
+  def set_current_user
+    @user = current_user
+    authorize @user
+  end
+
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :title, :position, :bio)
+    params.permit(:first_name, :last_name, :title, :position, :bio)
   end
 end

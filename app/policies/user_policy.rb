@@ -10,11 +10,7 @@ class UserPolicy < ApplicationPolicy
   end
 
   def dashboard?
-    true
-  end
-
-  def search?
-    true
+    user
   end
 
   def create?
@@ -22,16 +18,10 @@ class UserPolicy < ApplicationPolicy
   end
 
   def update?
-    is_user?
+    user
   end
 
   def delete?
     false # what if a doctor wants to not be signed up anymore?
-  end
-
-  private
-
-  def is_user?
-    record.user == user
   end
 end

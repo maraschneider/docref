@@ -35,3 +35,11 @@ border: 1px solid rgba(66, 67, 62, 0.1);
   border-radius: $rad;
   border: 1px solid rgba(66, 67, 62, 0.1);
 }
+
+.edit-field {
+    margin-bottom: 5px;
+}
+
+#save-btn, #edit-btn {
+  text-align: center;
+}

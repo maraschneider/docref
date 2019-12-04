@@ -87,32 +87,42 @@
         <%= "No bio provided." %>
         <% end %>
       </p>
+      <button id="edit-btn" class="btn-mint">Edit</button>
     </div>
-    <button id="edit-btn" class="btn-mint">Edit</button>
+
     <%#= link_to "Edit Profile", "#", class: "btn-mint" %>
-    <% form_for @doctor, url: doctor_path(@doctor), id: "edit-form", class: "hide" do |f| %> <!-- , url: { action: "update" } -->
+    <div id="edit-form" class="hide">
+      <%= form_for @user, url: doctor_path(@user) do |f| %> <!-- , url: { action: "update" } -->
               <!-- edit_doctor_path(current_user) -->
-      <strong>Name:</strong>
-      <%= text_field_tag :user_first_name,
-          value: @doctor.first_name
+        <strong>Name:</strong><br>
+        <%= text_field_tag :first_name,
+          params[:first_name] = @user.first_name,
+          class: "input-field edit-field"
           %>
-      <%= text_field_tag :user_last_name,
-          value: @doctor.last_name
+        <%= text_field_tag :last_name,
+          #value: @doctor.last_name,
+          params[:last_name] = @user.last_name,
+          class: "input-field edit-field"
           %>
-      <strong>Title:</strong>
-      <%= text_field_tag :user_title,
-          value: @doctor.title
+        <strong>Title:</strong><br>
+        <%= text_field_tag :title,
+          params[:title] = @user.title,
+          class: "input-field edit-field"
           %>
-      <strong>Position:</strong>
-      <%= text_field_tag :user_position,
-          value: @doctor.position
+        <strong>Position:</strong><br>
+        <%= text_field_tag :position,
+          params[:position] = @user.position,
+          class: "input-field edit-field"
           %>
-      <strong>Bio:</strong>
-      <%= text_field_tag :user_bio,
-          value: @doctor.bio
+        <strong>Bio:</strong><br>
+        <%= text_field_tag :bio,
+          params[:bio] = @user.bio,
+          class: "input-field edit-field"
           %>
-      <%= submit_tag "Save", class: "btn-mint" %>
-    <% end %>
+          <br>
+        <%= submit_tag "Save", id: "save-btn", class: "btn-mint" %>
+      <% end %>
+    </div>
 </div>
 
 
