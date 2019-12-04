@@ -55,7 +55,7 @@
     <%= cl_image_tag current_user.profile_picture, class: "avatar-square" %>
   <% end %>
   </div>
-    <div class="dashboard-profile-summary-data" id="current-data">
+    <div class="dashboard-profile-summary-data" id="current-profile-data">
       <p><strong>Name:</strong>
         <%=current_user.first_name + " " + current_user.last_name%>
         </p>
@@ -87,13 +87,11 @@
         <%= "No bio provided." %>
         <% end %>
       </p>
-      <button id="edit-btn" class="btn-mint">Edit</button>
+      <button id="edit-profile-btn" class="btn-mint">Edit</button>
     </div>
 
-    <%#= link_to "Edit Profile", "#", class: "btn-mint" %>
-    <div id="edit-form" class="hide">
+    <div id="edit-profile" class="hide">
       <%= form_for @user, url: doctor_path(@user) do |f| %> <!-- , url: { action: "update" } -->
-              <!-- edit_doctor_path(current_user) -->
         <br><strong>Profile Picture</strong><br>
         <%= f.file_field :profile_picture %>
         <%= f.hidden_field :profile_picture_cache, as: :hidden %> <br>
@@ -103,7 +101,6 @@
           class: "input-field edit-field"
           %>
         <%= text_field_tag :last_name,
-          #value: @doctor.last_name,
           params[:last_name] = @user.last_name,
           class: "input-field edit-field"
           %>
@@ -118,12 +115,12 @@
           class: "input-field edit-field"
           %>
         <strong>Bio:</strong><br>
-        <%= text_field_tag :bio,
+        <%= text_area_tag :bio,
           params[:bio] = @user.bio,
           class: "input-field edit-field"
           %>
           <br>
-        <%= submit_tag "Save", id: "save-btn", class: "btn-mint" %>
+        <%= submit_tag "Save", id: "save-profile-btn", class: "btn-mint" %>
       <% end %>
     </div>
 </div>

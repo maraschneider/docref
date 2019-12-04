@@ -14,16 +14,10 @@ class ClinicsPolicy < ApplicationPolicy
   end
 
   def update?
-    is_user?
+    user
   end
 
   def delete?
     false
-  end
-
-  private
-
-  def is_user?
-    record.user == user
   end
 end

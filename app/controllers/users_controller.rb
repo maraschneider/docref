@@ -44,6 +44,7 @@ class UsersController < ApplicationController
 
   def dashboard
     @doctor = current_user
+    @clinic = current_user.clinic
     # reusing mikes card generator
     @approvals = Approval.all.select { |approval| approval.receiver_id == @doctor.id }
     @gi_approvals = Approval.all.select { |approval| approval.giver_id == @doctor.id }
@@ -144,6 +145,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.permit(:first_name, :last_name, :title, :position, :bio)
+    params.permit(:first_name, :last_name, :title, :position, :bio, :profile_picture)
   end
 end

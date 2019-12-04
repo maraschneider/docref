@@ -1,19 +1,19 @@
 const editProfile = () => {
-  const editBtn = document.getElementById('edit-btn')
-  const saveBtn = document.getElementById('save-btn')
+  const editProfileBtn = document.getElementById('edit-profile-btn')
+  const saveProfileBtn = document.getElementById('save-profile-btn')
 
-  const currentData = document.getElementById('current-data')
-  const editForm = document.getElementById('edit-form')
+  const currentProfileData = document.getElementById('current-profile-data')
+  const editProfile = document.getElementById('edit-profile')
 
-  editBtn.addEventListener('click', (event) => {
-    currentData.classList.add("hide");
-    editForm.classList.remove("hide");
+  editProfileBtn.addEventListener('click', (event) => {
+    currentProfileData.classList.add("hide");
+    editProfile.classList.remove("hide");
     console.log("Edit")
   });
 
-  saveBtn.addEventListener('click', (event) => {
-    editForm.classList.add("hide");
-    currentData.classList.remove("hide");
+  saveProfileBtn.addEventListener('click', (event) => {
+    editProfile.classList.add("hide");
+    currentProfileData.classList.remove("hide");
     console.log("Save")
   });
 }
