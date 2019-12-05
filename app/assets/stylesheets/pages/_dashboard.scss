@@ -107,6 +107,14 @@
   }
 }
 
+.hide {
+  display: none;
+}
+
+#edit-profile, #edit-clinic {
+  text-align: left;
+}
+
 #personalized {
   background: rgba(255, 255, 255, 0)
 }

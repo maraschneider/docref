@@ -9,8 +9,10 @@
   display: flex;
 }
 
-.logo-container {
+img.logo-container {
   width: 50px;
+  object-fit: cover;
+  margin-right: 3px;
 }
 
 .header-container {
