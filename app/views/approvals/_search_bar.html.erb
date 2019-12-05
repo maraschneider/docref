@@ -3,7 +3,7 @@
     <div>
       <%= select_tag :name,
             options_from_collection_for_select(
-            User.all, "full_name", "full_name_with_title",
+            User.all, "full_name", "full_name_with_title_speciality_clinic",
             params[:name]),
             include_blank: true,
             class: "js-example-basic-single-name input-field",
