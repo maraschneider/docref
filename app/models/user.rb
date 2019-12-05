@@ -27,6 +27,10 @@ class User < ApplicationRecord
     "#{self.title} #{self.first_name.capitalize} #{self.last_name.capitalize}"
   end
 
+  def full_name_with_title_speciality_clinic
+    "#{self.title} #{self.first_name.capitalize} #{self.last_name.capitalize} (#{self.specialties.first.name.capitalize}) - #{self.clinic.name}"
+  end
+
   def position_specialty_clinic
     "#{self.position.capitalize} in #{self.specialties.first.name.capitalize} at #{self.clinic.name.capitalize}"
   end

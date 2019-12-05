@@ -1,10 +1,13 @@
 class ApprovalsController < ApplicationController
-  before_action :set_receiver, only: [:new, :create, :edit, :update]
+  before_action :set_receiver, only: [:edit, :update]
   before_action :set_approval, only: [:edit, :update, :destroy]
 
   def new
     # errors.add(:name, :blank, message: "You cannot create a recommendation") if current_user == @receiver
-    @approval = Approval.new(receiver: @receiver, giver: current_user)
+    @doctors = policy_scope(User)
+    @doctor = search_doctor_by_name(params[:name]) if params[:name].present?
+    @approval = Approval.new(giver: current_user)
+    @approval.receiver = @doctor
     authorize @approval
   end
 
@@ -59,6 +62,11 @@ class ApprovalsController < ApplicationController
       @approval = Approval.find(params[:id])
       authorize @approval
   end
+
+  def search_doctor_by_name(search_input)
+    User.search_by_name(search_input).where(id: @doctors).first
+  end
+
 
   def approval_params
     params.require(:approval).permit(:content, :headline, :anonymous, field_ids: [])
