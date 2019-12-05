@@ -8,4 +8,4 @@ but may be less experienced in other fields.
 DocRef recommendations are based on conditions and not just specialties.
 Doctor reviews can easily be faked and manipulated across the internet.
 That is why all doctors on DocRef are verified clinicians."
-meta_image: "picture-homepage.png" # should exist in `app/assets/images/`
+meta_image: "picture-metatag.png" # should exist in `app/assets/images/`
