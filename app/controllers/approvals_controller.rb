@@ -16,8 +16,10 @@ class ApprovalsController < ApplicationController
 
     @approval.specialty = @receiver.specialties.first
     if @approval.save
+      flash[:notice] = "Recommendation successfully created."
       redirect_to doctor_path(@receiver)
     else
+      flash[:alert] = "Recommendation was not created yet."
       render :new
     end
   end
@@ -28,17 +30,21 @@ class ApprovalsController < ApplicationController
   def update
     @approval.update(approval_params)
     if @approval.save
-      redirect_to dashboard_path(current_user)
+      flash[:notice] = "Recommendation successfully updated."
+      redirect_to doctor_path(@receiver)
     else
+      flash[:alert] = "Recommendation was not updated yet."
       render :edit
     end
   end
 
   def destroy
-    @approval.destroy
-    respond_to do |format|
-      format.html { redirect_to dashboard_path(current_user) }
-      format.js
+    if @approval.destroy
+      respond_to do |format|
+        format.html { redirect_to dashboard_path(current_user) }
+        format.js
+      #  TODO: Create flash: flash[:notice] = "Recommendation successfully deleted."
+      end
     end
   end
 
