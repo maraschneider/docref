@@ -83,13 +83,14 @@
 }
 
 .name-search {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 104px;
+  grid-column-gap: $md;
   justify-items: space-between;
-  width: 100%;
-  margin: $md auto;
+  margin: $md 0;
+
 
   .btn-mint {
     width: 104px;
-    margin-left: $md;
   }
 }
