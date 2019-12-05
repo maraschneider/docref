@@ -9,8 +9,9 @@
   <div>
     <%= cl_image_tag doctor.profile_picture, height: 100, width: 100, crop: :fill, alt: "profile_picture", class: "avatar-square" %>
   </div>
-  <%= render partial: 'users/recommendation_btn', object: doctor, as: :doctor %>
+  <div></div>
+  <%#= render partial: 'users/recommendation_btn', object: doctor, as: :doctor %>
   <div>
-    <%= link_to "Profile", doctor_path(doctor), class: "btn-mint outline hidden"%>
+    <%= link_to "Profile", doctor_path(doctor), class: "btn-mint outline"%>
   </div>
 </div>
