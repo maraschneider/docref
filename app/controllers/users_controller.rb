@@ -46,8 +46,8 @@ class UsersController < ApplicationController
     @doctor = current_user
     @clinic = current_user.clinic
     # reusing mikes card generator
+    @doctor = current_user
     @approvals = Approval.all.select { |approval| approval.receiver_id == @doctor.id }
-    @gi_approvals = Approval.all.select { |approval| approval.giver_id == @doctor.id }
     @months = Date::ABBR_MONTHNAMES
     @user = current_user
     authorize @user
@@ -74,12 +74,16 @@ class UsersController < ApplicationController
   def search_doctor_by_field(search_input)
     if search_input.is_a? Array
       search_input.each do |input|
-        @field = Field.joins(:approvals).where(approvals: { receiver: @doctors }).search_by_field(input)
-        @doctors = @field.map {|p| p.users }.flatten.uniq
+        @approvals = Approval.where(receiver: @doctors)
+        @field = Field.search_by_field(input)
+        @doctors = @approvals.joins(:fields).where(fields: {id: @field}).map {|p| p.receiver }.flatten.uniq
+        # @doctors = @field.joins(:approvals).where(approvals: { receiver: @doctors }).map {|p| p.users }.flatten.uniq
       end
     else
+      @approvals = Approval.where(receiver: @doctors)
       @field = Field.search_by_field(search_input)
-      @doctors = @field.map { |p| p.users }.flatten.uniq
+      @doctors = @approvals.joins(:fields).where(fields: {id: @field}).map {|p| p.receiver }.flatten.uniq
+      # @doctors = @field.joins(:approvals).where(approvals: { receiver: @doctors }).map { |p| p.users }.flatten.uniq
       # Field.joins(:approvals).where('lower(name) = ?', search_input.downcase).map {|p| p.users }.flatten.uniq
     end
     @doctors
@@ -88,6 +92,7 @@ class UsersController < ApplicationController
   def search_by_specialty_or_field(search_input)
     search_doctor_by_specialty(search_input)
     if @doctors == []
+      @doctors = policy_scope(User)
       @doctors = search_doctor_by_field(search_input)
       params[:field] = @field.first.name
     else

@@ -13,7 +13,8 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <%= link_to "New recommendation", doctors_path, class: "btn-mint outline" %>
+        <%= link_to "Recommend", new_approval_path, class: "btn-mint outline" %>
+        <%= link_to "Search", doctors_path, class: "btn-mint outline" %>
       <li class="nav-item active" style="margin: 0px;">
         <%= link_to "#{current_user.title} #{current_user.first_name} #{current_user.last_name}", doctor_path(current_user), class: "nav-link text_mint" %>
       </li>
@@ -35,10 +36,11 @@
       </li>
       <% else %>
       <li>
-        <%= link_to "Search", doctors_path, class: "btn-mint outline" %>
+        <%= link_to "Search", doctors_path, class: "btn-mint outline", style: "width: 104px;" %>
         <%= link_to "For doctors", new_user_session_path, class: "btn-mint outline" %>
       </li>
       <% end %>
     </ul>
   </div>
 </div>
+

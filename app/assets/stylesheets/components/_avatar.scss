@@ -47,6 +47,14 @@
   border-radius: $rad;
 }
 
+.avatar-square-hospital {
+  width: 290px;
+  height: $profile-banner-height;
+  object-fit: cover;
+  border-radius: $rad;
+  text-align: right;
+}
+
 .hospital-pic {
   width: 100%;
   height: 300px;

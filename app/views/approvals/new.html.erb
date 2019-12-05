@@ -1,40 +1,50 @@
 <div class="page-container">
-  <div class="recommendee-container">
+  <div class="approval-container">
     <h4>Write a recommendation </h4>
-    <p>The recommendee: </p>
-    <%= render partial: 'users/doctor_card', object: @receiver, as: :doctor %>
-  </div>
-  <div class="approval-form">
-    <%= simple_form_for @approval, url: doctor_approvals_path(@receiver) do |f| %>
-      <%= render partial: 'error_messages', object: @approval %>
-      <!-- <div class="approval_explanation">Thank you! By writing a trusted doctor recommendation you will help patients to find the right doctor for their condition.</div> -->
-      <%= f.input :headline, placeholder: "Title of your recommendation", class: "approval-headline"%>
-      <%= f.label "Fields", :field_ids %>
-      <p class="info-text">Please select up to 5 fields you recommend <%= @receiver.full_name_with_title %> for.</p>
-      <div class="field-choices">
-        <%= f.collection_check_boxes :field_ids,
-                                      @receiver.specialties.first.fields,
-                                      :id,
-                                      :name,
-                                      item_wrapper_tag: :div,
-                                      item_wrapper_class: "field-choice"  %>
+    <p class="search-tag">Which doctor would you like to recommend?</p>
+    <%= render 'search_bar' %>
+    <% if !@doctor.nil? %>
+      <p>The recommendee: </p>
+      <%= render partial: 'users/doctor_card', object: @doctor, as: :doctor %>
+      <% @appr = Approval.where(receiver: @doctor, giver: current_user).first %>
+      <% if @appr.present? %>
+        <div class="text-card-outline-purple d-flex my-4 justify-content-between">You already have a recommendation for this doctor.
+          <div class="d-flex">
+            <%= link_to image_tag("icons/pen.svg"), edit_doctor_approval_path(@appr.receiver, @appr), style: "margin-left: 16px;" %>
+            <%= link_to image_tag("icons/trash.svg"), approval_path(@appr), method: :delete, remote: true, data: {confirm: "Are you sure?"}, style: "margin-left: 16px;" %>
+          </div>
+        </div>
+      <% elsif @doctor == current_user %>
+        <div class="text-card-outline-purple d-flex my-4 justify-content-between">
+          Sorry. You cannot create a recommendation for yourself.
+        </div>
+    <% else %>
+      <div class="approval-form">
+        <%= simple_form_for @approval do |f| %>
+          <%= f.input :receiver_id, as: :hidden %>
+          <%= f.input :headline, placeholder: "Title of your recommendation", class: "approval-headline"%>
+          <%= f.label "Fields", :field_ids %>
+          <p class="info-text">Please select up to 5 fields you recommend <%= @approval.receiver.full_name_with_title %> for.</p>
+          <div class="field-choices">
+            <%= f.collection_check_boxes :field_ids,
+                                          @approval.receiver.specialties.first.fields,
+                                          :id,
+                                          :name,
+                                          item_wrapper_tag: :div,
+                                          item_wrapper_class: "field-choice"  %>
+          </div>
+
+          <%= f.input :content, as: :text, placeholder: "Why do you recommend this doctor?"%>
+
+          <div class="anonymous-choice">
+            <%= f.input :anonymous, as: :radio_buttons, label: "Do you want to stay anonymous?" %>
+          </div>
+          <div class="submit-btn-container">
+            <%= f.submit "Recommend", class: "btn-mint"  %>
+          </div>
+        <% end %>
       </div>
-      <%= f.input :content, as: :text, placeholder: "Why do you recommend this doctor?"%>
-     <!--
-      <label class="switch">
-        <%#= f.input :anonymous, as: :check_boxes, class: ""%>
-        <span class="slider"></span>
-      </label>
-
-      <div class="slider-container">
-        <label> Reveal personal information?</label>
-        <label class="switch">
-          <input type="checkbox" class="hidden" value="<%= @approval.anonymous %>" id="<%= @approval.anonymous %>" >
-          <span class="slider"></span>
-        </label>
-      </div> -->
-      <%= f.submit "Recommend", class: "btn-mint"  %>
     <% end %>
-  </div>
+  <% end %>
 </div>
-
+</div>

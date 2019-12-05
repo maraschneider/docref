@@ -1,12 +1,19 @@
 <div>
-  <ul class="nav nav-tabs">
-    <li class="nav-item">
-      <a class="nav-link profile-tab active" href="#given" role="tab" data-toggle="tab">Given Recommendations</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link profile-tab" href="#received" role="tab" data-toggle="tab">Received Recommendations</a>
-    </li>
-  </ul>
+  <div class="tab-organisation-box">
+    <div></div>
+    <div>
+      <ul class="nav nav-tabs" style="height: 50px; margin-top: 0px;">
+        <li class="nav-item">
+          <a id="dash-tab-review" class="nav-link profile-tab active" href="#given" role="tab" data-toggle="tab">Given</a>
+        </li>
+        <li class="nav-item">
+          <a id="dash-tab-review" class="nav-link profile-tab" href="#received" role="tab" data-toggle="tab">Received</a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+
   <div class="tab-content">
     <div role='tabpanel' class= "tab-pane active fade show" id="given">
       <div class="dashboard-body-layout"><%= render 'users/dashboard/dashboard_reviews_given' %></div>

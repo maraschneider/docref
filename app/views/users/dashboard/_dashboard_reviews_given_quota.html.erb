@@ -1,55 +1,68 @@
 <div class="dashboard-profile-summary">
-  <% percentage = 0 %>
-  <% total_allowed = Specialty.all.count * 4 %>
+  <% global_allowed = Specialty.all.count * 4 %>
   <% specialty_allowed = 4 %>
-  <% global_count = (2*100)/total_allowed %>
-  <% specialty_count = (3*100)/specialty_allowed %>
   <% progress_color_g = "#42433e" %>
   <% progress_color_s = "#42433e" %>
   <% font_color_g = "#42433E" %>
   <% font_color_s = "#42433E" %>
-<!-- This calculates the remaining referrals -->
+  <% global_count = 0 %>
+  <% specialty_count = 0 %>
 
-<!-- This calculates the color of "Total remaining available referrals" progress bar's background depending on the remaining referrals -->
-  <% if global_count >= 0 && global_count <= 30 %>
-  <% progress_color_g = "#6fbcb4" %>
-  <% elsif global_count > 30 && global_count <= 60 %>
-  <% progress_color_g = "#fff538" %>
-  <% elsif global_count > 60 && global_count <= 99 %>
-  <% progress_color_g = "#E67E22" %>
-  <% else %>
-  <% global_count = (total_allowed*100)/total_allowed %>
-  <% progress_color_g = "#FD1015" %>
+  <!-- Count all the referals given-->
+  <% Specialty.all.each do |specialty| %>
+  <% global_count += Approval.where(giver: current_user).where(specialty: specialty).count %>
   <% end %>
-<!-- This calculates the color of "Remaining available referrals by specialty" progress bars' background depending on the remaining referrals -->
-  <% if specialty_count >= 0 && specialty_count <= 30 %>
-  <% progress_color_s = "#6fbcb4" %>
-  <% elsif specialty_count > 30 && specialty_count <= 60 %>
-  <% progress_color_s = "#fff538" %>
-  <% elsif specialty_count > 60 && specialty_count <= 99 %>
-  <% progress_color_s = "#E67E22" %>
+  <% global_count_percentage = (global_count*100)/global_allowed %>
+
+
+  <!-- This calculates the color of "Total remaining available referrals" progress bar's background depending on the remaining referrals -->
+  <% if global_count_percentage >= 0 && global_count_percentage <= 30 %>
+  <% progress_color_g = "#FD1015" %>
+  <% elsif global_count_percentage > 30 && global_count_percentage <= 60 %>
+  <% progress_color_g = "#E67E22" %>
+  <% elsif global_count_percentage > 60 && global_count_percentage <= 99 %>
+  <% progress_color_g = "#fff538" %>
   <% else %>
-  <% specialty_count = (specialty_allowed*100)/specialty_allowed %>
-  <% progress_color_s = "#FD1015" %>
+  <% global_count_percentage = 100 %>
+  <% progress_color_g = "#6fbcb4" %>
   <% end %>
 
   <h4>Remaining Quota</h4>
-
+  <div class="dashboard-profile-summary" style="border: none; padding-bottom: 0;">
   <p>Total remaining available referrals</p>
   <div class="progress position-relative" style="height: 25px; width: 50%; margin: 15px auto; font-size: 0.95rem; color: <%= font_color_g %>;">
-    <div class="progress-bar" role="progressbar" style="background: <%= progress_color_g %>; width: <%= global_count %>%" aria-valuenow="<%= global_count %>" aria-valuemin="0" aria-valuemax="100"></div>
-  <div class="justify-content-center d-flex position-absolute w-100"><%= (global_count*total_allowed)/100 %> of <%= total_allowed %></div>
+    <div class="progress-bar" role="progressbar" style="background: <%= progress_color_g %>; width: <%= global_count_percentage %>%" aria-valuenow="<%= global_count %>" aria-valuemin="0" aria-valuemax="100"></div>
+    <div class="justify-content-center d-flex position-absolute w-100"><%= global_count %> of <%= global_allowed %></div>
   </div>
+</div>
 
-  <p>Remaining available referrals by specialty</p>
+  <!-- This calculates the color of "Remaining available referrals by specialty" progress bars' background depending on the remaining referrals -->
+  <div class="dashboard-profile-summary" style="border: none; padding-bottom: 0;">
+    <p>Remaining available referrals by specialty</p>
 
-  <% Specialty.all.each do |specialty| %>
-  <%= specialty.name.capitalize %>
-  <div class="progress position-relative" style="height: 25px; width: 50%; margin: 15px auto; font-size: 0.95rem; color: <%= font_color_s %>;">
-    <div class="progress-bar" role="progressbar" style="background: <%= progress_color_s %>; width: <%= specialty_count %>%" aria-valuenow="<%= specialty_count %>" aria-valuemin="0" aria-valuemax="100"></div>
-    <div class="justify-content-center d-flex position-absolute w-100"><%= (specialty_count*specialty_allowed)/100 %> of <%= specialty_allowed %></div>
+    <% Specialty.all.each do |specialty| %>
+    <% specialty_count = Approval.where(giver: current_user).where(specialty: specialty).count %>
+    <% specialty_count_percentage = (specialty_count*100)/specialty_allowed %>
+    <% if specialty_count_percentage >= 0 && specialty_count_percentage <= 30 %>
+    <% progress_color_s = "#FD1015" %>
+    <% elsif specialty_count_percentage > 30 && specialty_count_percentage <= 60 %>
+    <% progress_color_s = "#E67E22" %>
+    <% elsif specialty_count_percentage > 60 && specialty_count_percentage <= 99 %>
+    <% progress_color_s = "#fff538" %>
+    <% else %>
+    <% specialty_count_percentage = 100 %>
+    <% progress_color_s = "#6fbcb4" %>
+    <% end %>
+
+    <div class= "d-flex align-items-center">
+      <div><%= specialty.name.capitalize %></div>
+      <div class="progress position-relative" style="height: 25px; width: 50%; margin: 15px auto; font-size: 0.95rem; color: <%= font_color_s %>;">
+        <div class="progress-bar" role="progressbar" style="background: <%= progress_color_s %>; width: <%= specialty_count_percentage %>%" aria-valuenow="<%= specialty_count %>" aria-valuemin="0" aria-valuemax="100"></div>
+        <div class="justify-content-center d-flex position-absolute w-100"><%= specialty_count %> of <%= specialty_allowed %></div>
+      </div>
+    </div>
+    <% end %>
   </div>
-  <% end %>
 </div>
 
 

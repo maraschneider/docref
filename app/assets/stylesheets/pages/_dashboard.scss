@@ -9,7 +9,7 @@
 }
 
 .dashboard_header-text {
-  margin-left: $lg;
+  margin-left: 60px;
 }
 
 .dashboard-header-image {
@@ -21,6 +21,24 @@
   display: grid;
   grid-template-columns: 2fr 3fr;
   grid-gap: $lg;
+}
+
+.tab-organisation-box {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  grid-gap: $lg;
+}
+
+#dash-tab-review.active {
+  // background-color: $light-mint !important;
+  background-color: $mint !important;
+  color: white !important;
+  border-radius: $rad !important;
+}
+
+#dash-tab-review {
+  // background-color: $light-mint !important;
+  // width: 200px;
 }
 
 .dashboard-info-layout {
@@ -67,6 +85,12 @@
       }
 }
 
+.gridded{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: $xs;
+}
+
 .dashboard-profile-summary-data {
   text-align: left;
   margin-top: $lg;
@@ -85,4 +109,7 @@
 
 #edit-profile, #edit-clinic {
   text-align: left;
+
+#personalized {
+  background: rgba(255, 255, 255, 0)
 }

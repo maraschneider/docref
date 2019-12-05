@@ -3,6 +3,7 @@ import "bootstrap";
 import 'select2/dist/css/select2.css';
 import { initSelect2Multi } from '../plugins/init_select2_multi';
 import { initSelect2Sing } from '../plugins/init_select2_sing';
+import { initSelect2SingName } from '../plugins/init_select2_sing_name';
 
 import 'mapbox-gl/dist/mapbox-gl.css';
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
@@ -17,6 +18,7 @@ import { editClinic } from '../components/edit_clinic';
 initMapbox();
 initSelect2Multi();
 initSelect2Sing();
+initSelect2SingName();
 initAutocomplete();
 
 setActiveClassToFieldChoice();
