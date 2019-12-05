@@ -20,6 +20,7 @@
 
 .input-lg {
   padding: $sm $lg;
+  min-width: 265px;
 }
 
 .address {
@@ -80,4 +81,21 @@
   .btn-mint {
     width: 100%;
   }
+}
+
+.name-search {
+  display: grid;
+  grid-template-columns: 1fr 104px;
+  grid-column-gap: $md;
+  justify-items: space-between;
+  margin: $md 0;
+
+
+  .btn-mint {
+    width: 104px;
+  }
+}
+
+.search-tag {
+  padding: $sm 0;
 }

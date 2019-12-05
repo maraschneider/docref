@@ -1,10 +1,13 @@
 class ApprovalsController < ApplicationController
-  before_action :set_receiver, only: [:new, :create, :edit, :update]
+  before_action :set_receiver, only: [:edit, :update]
   before_action :set_approval, only: [:edit, :update, :destroy]
 
   def new
     # errors.add(:name, :blank, message: "You cannot create a recommendation") if current_user == @receiver
-    @approval = Approval.new(receiver: @receiver, giver: current_user)
+    @doctors = policy_scope(User)
+    @doctor = search_doctor_by_name(params[:name]) if params[:name].present?
+    @approval = Approval.new(giver: current_user)
+    @approval.receiver = @doctor
     authorize @approval
   end
 
@@ -16,8 +19,10 @@ class ApprovalsController < ApplicationController
 
     @approval.specialty = @receiver.specialties.first
     if @approval.save
+      flash[:notice] = "Recommendation successfully created."
       redirect_to doctor_path(@receiver)
     else
+      flash[:alert] = "Recommendation was not created yet."
       render :new
     end
   end
@@ -28,17 +33,21 @@ class ApprovalsController < ApplicationController
   def update
     @approval.update(approval_params)
     if @approval.save
-      redirect_to dashboard_path(current_user)
+      flash[:notice] = "Recommendation successfully updated."
+      redirect_to doctor_path(@receiver)
     else
+      flash[:alert] = "Recommendation was not updated yet."
       render :edit
     end
   end
 
   def destroy
-    @approval.destroy
-    respond_to do |format|
-      format.html { redirect_to dashboard_path(current_user) }
-      format.js
+    if @approval.destroy
+      respond_to do |format|
+        format.html { redirect_to dashboard_path(current_user) }
+        format.js
+      #  TODO: Create flash: flash[:notice] = "Recommendation successfully deleted."
+      end
     end
   end
 
@@ -53,6 +62,11 @@ class ApprovalsController < ApplicationController
       @approval = Approval.find(params[:id])
       authorize @approval
   end
+
+  def search_doctor_by_name(search_input)
+    User.search_by_name(search_input).where(id: @doctors).first
+  end
+
 
   def approval_params
     params.require(:approval).permit(:content, :headline, :anonymous, field_ids: [])
