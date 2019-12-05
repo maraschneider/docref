@@ -8,7 +8,7 @@ class ClinicsController < ApplicationController
   def update
     @clinic.update(clinic_params)
     if @clinic.save
-     # redirect_to dashboard_path(@user)
+      redirect_to dashboard_path(@user)
     end
   end
 
