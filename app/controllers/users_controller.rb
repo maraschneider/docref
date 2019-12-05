@@ -31,7 +31,8 @@ class UsersController < ApplicationController
     elsif params[:approval_field].present?
       @approvals = search_approvals_by_field(params[:approval_field])
     else
-      @approvals = Approval.all.select { |approval| approval.receiver_id == @doctor.id }
+      results = Approval.all.select { |approval| approval.receiver_id == @doctor.id }
+      @approvals = results.sort_by(&:"created_at").reverse
     end
     # months required to show "Nov" instead of '11' on approval cards
     @months = Date::ABBR_MONTHNAMES
@@ -42,10 +43,10 @@ class UsersController < ApplicationController
   end
 
   def dashboard
-    # reusing mikes card generator
-    @doctor = current_user
-    @approvals = Approval.all.select { |approval| approval.receiver_id == @doctor.id }
+    results = Approval.all.select { |approval| approval.giver_id == current_user.id }
+    @approvals = results.sort_by(&:"created_at").reverse
     @months = Date::ABBR_MONTHNAMES
+    @doctor = current_user
     @user = current_user
     authorize @user
   end
