@@ -1,0 +1,16 @@
+<div>
+  <%= form_tag new_approval_path, method: :get, class: "name-search" do %>
+    <div>
+    <%= text_field_tag :name,
+      params[:name],
+      placeholder: "Doctor name",
+      class: "input-field"
+    %>
+    </div>
+    <div>
+    <%= submit_tag "Search", class: "btn-mint" %>
+    </div>
+  <% end %>
+</div>
+
+
