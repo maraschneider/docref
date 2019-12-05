@@ -1,7 +1,7 @@
 <div class="page-container">
   <div class="recommendee-container">
     <h4>Write a recommendation </h4>
-    <p>Which doctor would you like to recommend?</p>
+    <p class="search-tag">Which doctor would you like to recommend?</p>
     <%= render 'search_bar' %>
   </div>
     <% if @doctor.nil? %>
@@ -36,21 +36,3 @@
       <% end %>
     <% end %>
 </div>
-
-
-<%#= render partial: 'error_messages', object: @approval %>
-        <!-- <div class="approval_explanation">Thank you! By writing a trusted doctor recommendation you will help patients to find the right doctor for their condition.</div> -->
-<!--
-        <label class="switch">
-          <%#= f.input :anonymous, as: :check_boxes, class: ""%>
-          <span class="slider"></span>
-        </label>
-
-        <div class="slider-container">
-          <label> Reveal personal information?</label>
-          <label class="switch">
-            <input type="checkbox" class="hidden" value="<%= @approval.anonymous %>" id="<%= @approval.anonymous %>" >
-            <span class="slider"></span>
-          </label>
-        </div> -->
-
