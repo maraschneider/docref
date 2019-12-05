@@ -26,35 +26,31 @@
     <p style="margin: 0;">Conditions mentioned in your recomendations</>
   </div>
 
-    <% Field.all.each do |field| %>
-      <% field_count = Approval.joins(:fields).where(receiver: current_user).where(fields: {id: field} ).count %>
-      <% if field_count != 0 %>
-          <% field_order_hash[field.name.capitalize] = field_count %>
-      <% end %>
+  <% Field.all.each do |field| %>
+    <% field_count = Approval.joins(:fields).where(receiver: current_user).where(fields: {id: field} ).count %>
+    <% if field_count != 0 %>
+        <% field_order_hash[field.name.capitalize] = field_count %>
     <% end %>
-    <% field_order_hash = field_order_hash.sort_by {|k, v| -v} %>
+  <% end %>
+  <% field_order_hash = field_order_hash.sort_by {|k, v| -v} %>
 
-  <!-- <div class="dashboard-profile-summary gridded" style="border: none; padding: 0;"> -->
-
-    <div>
-      <% field_order_hash.each do |field, count| %>
-        <div class="dashboard-profile-summary gridded" style="border: none">
-          <div>
-            <div><%= field %></div>
-          </div>
-          <div>
-            <% field_count_percentage = (count*100)/global_count %>
-            <div class= "d-flex align-items-center" style="height: 30px;">
-              <div class="progress position-relative" id="personalized" style="height: 22px; width: 125px; margin: 15px auto; font-size: 0.95rem; color: <%= font_color %>;">
-                <div class="progress-bar" role="progressbar" style="background: <%= progress_color %>; width: <%= field_count_percentage %>%" aria-valuenow="<%= field_count_percentage %>" aria-valuemin="0" aria-valuemax="100"></div>
-                <div class="justify-content-center d-flex position-absolute w-100"><%= count %></div>
-              </div>
+  <div>
+    <% field_order_hash.each do |field, count| %>
+      <div class="dashboard-profile-summary gridded" style="border: none">
+        <div>
+          <div><%= field %></div>
+        </div>
+        <div>
+          <% field_count_percentage = (count*100)/global_count %>
+          <div class= "d-flex align-items-center" style="height: 30px;">
+            <div class="progress position-relative" id="personalized" style="height: 22px; width: 125px; margin: 15px auto; font-size: 0.95rem; color: <%= font_color %>;">
+              <div class="progress-bar" role="progressbar" style="background: <%= progress_color %>; width: <%= field_count_percentage %>%" aria-valuenow="<%= field_count_percentage %>" aria-valuemin="0" aria-valuemax="100"></div>
+              <div class="justify-content-center d-flex position-absolute w-100"><%= count %></div>
             </div>
           </div>
         </div>
-      <% end %>
-
-
+      </div>
+    <% end %>
   </div>
 
 </div>
