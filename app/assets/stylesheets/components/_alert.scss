@@ -4,3 +4,16 @@
   right: 16px;
   z-index: 1000;
 }
+
+.alert-info {
+  background-color: $light-mint;
+  color: $gray;
+  border: none;
+  border-radius: $rad;
+}
+.alert-warning {
+  background-color: $light-purple;
+  color: white;
+  border: none;
+  border-radius: $rad;
+}
