@@ -3,12 +3,11 @@
     <div>
       <%= select_tag :name,
             options_from_collection_for_select(
-            User.all, "full_name_with_title", "full_name_with_title",
+            User.all, "full_name", "full_name_with_title",
             params[:name]),
             include_blank: true,
-            placeholder: "Doctor name",
             class: "js-example-basic-single-name input-field",
-            id: "doctor name"
+            id: "doctor_name"
       %>
     </div>
     <div>
