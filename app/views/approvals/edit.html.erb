@@ -1,9 +1,8 @@
 <div class="page-container">
-  <div class="recommendee-container">
+  <div class="approval-container">
     <h4>Edit recommendation </h4>
     <p>The recommendee: </p>
     <%= render partial: 'users/doctor_card', object: @receiver, as: :doctor %>
-  </div>
   <div class="approval-form">
     <%= simple_form_for @approval, url: doctor_approval_path(@receiver) do |f| %>
       <%= f.input :headline, placeholder: "Title of your recommendation", class: "approval-headline"%>
@@ -29,6 +28,7 @@
       <%= f.submit "Update", class: "btn-mint"  %>
       </div>
     <% end %>
+  </div>
   </div>
 </div>
 
