@@ -64,11 +64,13 @@ class UsersController < ApplicationController
         @approvals = Approval.where(receiver: @doctors)
         @field = Field.search_by_field(input)
         @doctors = @approvals.joins(:fields).where(fields: {id: @field}).map {|p| p.receiver }.flatten.uniq
-        #@doctors = @field.joins(:approvals).where(approvals: { receiver: @doctors }).map {|p| p.users }.flatten.uniq
+        # @doctors = @field.joins(:approvals).where(approvals: { receiver: @doctors }).map {|p| p.users }.flatten.uniq
       end
     else
+      @approvals = Approval.where(receiver: @doctors)
       @field = Field.search_by_field(search_input)
-      @doctors = @field.joins(:approvals).where(approvals: { receiver: @doctors }).map { |p| p.users }.flatten.uniq
+      @doctors = @approvals.joins(:fields).where(fields: {id: @field}).map {|p| p.receiver }.flatten.uniq
+      # @doctors = @field.joins(:approvals).where(approvals: { receiver: @doctors }).map { |p| p.users }.flatten.uniq
       # Field.joins(:approvals).where('lower(name) = ?', search_input.downcase).map {|p| p.users }.flatten.uniq
     end
     @doctors
@@ -77,6 +79,7 @@ class UsersController < ApplicationController
   def search_by_specialty_or_field(search_input)
     search_doctor_by_specialty(search_input)
     if @doctors == []
+      @doctors = policy_scope(User)
       @doctors = search_doctor_by_field(search_input)
       params[:field] = @field.first.name
     else
