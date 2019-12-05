@@ -83,10 +83,24 @@
 
 }
 
-input.btn-mint {
+.anonymous-choice {
 
+  .form-check-input.is-valid ~ .form-check-label {
+    color: $dark-gray;
+  }
 }
 
+.submit-btn-container {
+  display: grid;
+
+  input.btn-mint {
+  justify-self: end;
+  width: 122px;
+  margin: $sm 0;
+  }
+}
+
+// TODO Checkbox Toggle Switch - not working
 .switch {
   position: relative;
   display: inline-block;
