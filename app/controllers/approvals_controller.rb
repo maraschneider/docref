@@ -21,7 +21,7 @@ class ApprovalsController < ApplicationController
     params[:name] = @approval.receiver.full_name
     if @approval.save
       flash[:notice] = "Recommendation successfully created."
-      redirect_to doctor_path(@approval.receiver)
+      redirect_to dashboard_path(current_user)
     else
       flash[:alert] = "Error while creating the recommendation."
       render :new
@@ -36,7 +36,7 @@ class ApprovalsController < ApplicationController
     @approval.update(approval_params)
     if @approval.save
       flash[:notice] = "Recommendation successfully updated."
-      redirect_to doctor_path(@receiver)
+      redirect_to dashboard_path(current_user)
     else
       flash[:alert] = "Recommendation was not updated yet."
       render :edit
