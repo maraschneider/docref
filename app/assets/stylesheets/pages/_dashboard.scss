@@ -85,6 +85,12 @@
       }
 }
 
+.gridded{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: $xs;
+}
+
 .dashboard-profile-summary-data {
   text-align: left;
   margin-top: $lg;
@@ -95,4 +101,8 @@
   .btn-mint {
     width: 88px;
   }
+}
+
+#personalized {
+  background: rgba(255, 255, 255, 0)
 }

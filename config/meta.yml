@@ -1,0 +1,11 @@
+meta_product_name: "DocRef"
+meta_title: "DocRef - Trustworthy recommendations  by doctors for your condition."
+meta_description: "Online reviews of doctors are normally written by patients,
+who evaluate their treatment quality different to an experienced doctor.
+On DocRef, only doctors write recommendations for other doctors.
+A cardiologist may be excellent in treating arteriosclerosis,
+but may be less experienced in other fields.
+DocRef recommendations are based on conditions and not just specialties.
+Doctor reviews can easily be faked and manipulated across the internet.
+That is why all doctors on DocRef are verified clinicians."
+meta_image: "picture-metatag.png" # should exist in `app/assets/images/`

@@ -11,7 +11,6 @@ class Approval < ApplicationRecord
               scope: [:receiver],
               message: "You have already written a recommendation for this doctor."
             }
-  # validates :giver, exclusion: { in: ->(receiver) { [user.email] } }
 
   include PgSearch::Model
   pg_search_scope :search_approvals_by_keyword,

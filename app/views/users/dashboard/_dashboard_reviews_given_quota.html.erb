@@ -17,14 +17,14 @@
 
   <!-- This calculates the color of "Total remaining available referrals" progress bar's background depending on the remaining referrals -->
   <% if global_count_percentage >= 0 && global_count_percentage <= 30 %>
-  <% progress_color_g = "#6fbcb4" %>
+  <% progress_color_g = "#FD1015" %>
   <% elsif global_count_percentage > 30 && global_count_percentage <= 60 %>
-  <% progress_color_g = "#fff538" %>
-  <% elsif global_count_percentage > 60 && global_count_percentage <= 99 %>
   <% progress_color_g = "#E67E22" %>
+  <% elsif global_count_percentage > 60 && global_count_percentage <= 99 %>
+  <% progress_color_g = "#fff538" %>
   <% else %>
   <% global_count_percentage = 100 %>
-  <% progress_color_g = "#FD1015" %>
+  <% progress_color_g = "#6fbcb4" %>
   <% end %>
 
   <h4>Remaining Quota</h4>
@@ -44,14 +44,14 @@
     <% specialty_count = Approval.where(giver: current_user).where(specialty: specialty).count %>
     <% specialty_count_percentage = (specialty_count*100)/specialty_allowed %>
     <% if specialty_count_percentage >= 0 && specialty_count_percentage <= 30 %>
-    <% progress_color_s = "#6fbcb4" %>
+    <% progress_color_s = "#FD1015" %>
     <% elsif specialty_count_percentage > 30 && specialty_count_percentage <= 60 %>
-    <% progress_color_s = "#fff538" %>
-    <% elsif specialty_count_percentage > 60 && specialty_count_percentage <= 99 %>
     <% progress_color_s = "#E67E22" %>
+    <% elsif specialty_count_percentage > 60 && specialty_count_percentage <= 99 %>
+    <% progress_color_s = "#fff538" %>
     <% else %>
     <% specialty_count_percentage = 100 %>
-    <% progress_color_s = "#FD1015" %>
+    <% progress_color_s = "#6fbcb4" %>
     <% end %>
 
     <div class= "d-flex align-items-center">
