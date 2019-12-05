@@ -1,16 +1,18 @@
 <div>
   <%= form_tag new_approval_path, method: :get, class: "name-search" do %>
     <div>
-    <%= text_field_tag :name,
-      params[:name],
-      placeholder: "Doctor name",
-      class: "input-field"
-    %>
+      <%= select_tag :name,
+            options_from_collection_for_select(
+            User.all, "full_name_with_title", "full_name_with_title",
+            params[:name]),
+            include_blank: true,
+            placeholder: "Doctor name",
+            class: "js-example-basic-single-name input-field",
+            id: "doctor name"
+      %>
     </div>
     <div>
-    <%= submit_tag "Search", class: "btn-mint" %>
+      <%= submit_tag "Search", class: "btn-mint" %>
     </div>
   <% end %>
 </div>
-
-
