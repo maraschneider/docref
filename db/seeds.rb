@@ -32,7 +32,7 @@ oncology_condition_6 = Field.create!(name: "Surgical oncology", specialty: oncol
 oncology_condition_7 = Field.create!(name: "Gynecologic oncology", specialty: oncology)
 oncology_condition_8 = Field.create!(name: "Hematologic oncology", specialty: oncology)
 oncology_condition_9 = Field.create!(name: "Neuropediatric oncology", specialty: oncology)
-oncology_condition_10 = Field.create!(name: "Oncological trials", specialty: oncology)
+oncology_condition_10 = Field.create!(name: "Oncological research trials", specialty: oncology)
 
 neurology_condition_1 = Field.create!(name: "Stroke", specialty: neurology)
 neurology_condition_2 = Field.create!(name: "Chronic degenerative diseases", specialty: neurology)
@@ -51,7 +51,7 @@ general_surgery_condition_4 = Field.create!(name: "Breast surgery", specialty: g
 general_surgery_condition_5 = Field.create!(name: "Vascular surgery", specialty: general_surgery)
 general_surgery_condition_6 = Field.create!(name: "Endocrine surgery", specialty: general_surgery)
 general_surgery_condition_7 = Field.create!(name: "Transplant surgery", specialty: general_surgery)
-general_surgery_condition_8 = Field.create!(name: "Surgical oncology", specialty: general_surgery)
+general_surgery_condition_8 = Field.create!(name: "Oncologic surgery", specialty: general_surgery)
 general_surgery_condition_9 = Field.create!(name: "Cardiothoracic surgery", specialty: general_surgery)
 general_surgery_condition_10 = Field.create!(name: "Pediatric surgery", specialty: general_surgery)
 
@@ -235,11 +235,89 @@ user_8 = User.create!(
   first_name: "Ramiro",
   last_name: "Gordillo",
   only_private_insurance: false,
-  bio: "For the last twenty years, I have been specializing in Cardiovascular Disease. I am practising at Charité Mitte and Virchow Campuses. In addition, I am involved in teaching our students as well as cardiovascular research on biomarkers.",
+  bio: "For the last twenty years, I have been specializing in pancreatic cancer. I am practising at Charité Mitte and Virchow Campuses. In addition, I am involved in teaching our students. I am also currently running different trials on ",
   position: "Chief doctor",
   clinic: clinic_1)
 user_8[:profile_picture] = "https://res.cloudinary.com/ddoiquevw/image/upload/v1575465930/photo-1544819616-8b86befe568c_qzthlq.jpg"
 user_8.save!
+
+user_9 = User.create!(
+  email: "doctor9@example.com",
+  password: "123456",
+  title: "Dr",
+  first_name: "Frank",
+  last_name: "Steinmann",
+  only_private_insurance: false,
+  bio: "I have recently taken up my new position as consultant oncologist at the Unfallkrankenhaus Berlin. Prior to that I completed my residency training under Prof Dr Gordillo. My research interests are new approaches in chemotherapy targeting pancreatic cancer.",
+  position: "Consultant doctor",
+  clinic: clinic_1)
+user_9[:profile_picture] = "https://res.cloudinary.com/ddoiquevw/image/upload/v1575465930/photo-1544819616-8b86befe568c_qzthlq.jpg"
+user_9.save!
+
+user_10 = User.create!(
+  email: "r.gordillo@charite.de",
+  password: "123456",
+  title: "Prof Dr",
+  first_name: "Ramiro",
+  last_name: "Gordillo",
+  only_private_insurance: false,
+  bio: "For the last twenty years, I have been specializing in general surgery. I am practising at Charité Mitte and Virchow Campuses. In addition, I am involved in teaching our students as well as research on pancreatic cancer.",
+  position: "Chief doctor",
+  clinic: clinic_1)
+user_10[:profile_picture] = "https://res.cloudinary.com/ddoiquevw/image/upload/v1575465930/photo-1544819616-8b86befe568c_qzthlq.jpg"
+user_10.save!
+
+user_11 = User.create!(
+  email: "r.gordillo@charite.de",
+  password: "123456",
+  title: "Prof Dr",
+  first_name: "Ramiro",
+  last_name: "Gordillo",
+  only_private_insurance: false,
+  bio: "For the last twenty years, I have been specializing in general surgery. I am practising at Charité Mitte and Virchow Campuses. In addition, I am involved in teaching our students as well as research on pancreatic cancer.",
+  position: "Chief doctor",
+  clinic: clinic_2)
+user_11[:profile_picture] = "https://res.cloudinary.com/ddoiquevw/image/upload/v1575465930/photo-1544819616-8b86befe568c_qzthlq.jpg"
+user_11.save!
+
+user_12 = User.create!(
+  email: "r.gordillo@charite.de",
+  password: "123456",
+  title: "Prof Dr",
+  first_name: "Ramiro",
+  last_name: "Gordillo",
+  only_private_insurance: false,
+  bio: "For the last twenty years, I have been specializing in general surgery. I am practising at Charité Mitte and Virchow Campuses. In addition, I am involved in teaching our students as well as research on pancreatic cancer.",
+  position: "Chief doctor",
+  clinic: clinic_1)
+user_13[:profile_picture] = "https://res.cloudinary.com/ddoiquevw/image/upload/v1575465930/photo-1544819616-8b86befe568c_qzthlq.jpg"
+user_13.save!
+
+user_14 = User.create!(
+  email: "r.gordillo@charite.de",
+  password: "123456",
+  title: "Prof Dr",
+  first_name: "Ramiro",
+  last_name: "Gordillo",
+  only_private_insurance: false,
+  bio: "For the last twenty years, I have been specializing in general surgery. I am practising at Charité Mitte and Virchow Campuses. In addition, I am involved in teaching our students as well as research on pancreatic cancer.",
+  position: "Chief doctor",
+  clinic: clinic_1)
+user_14[:profile_picture] = "https://res.cloudinary.com/ddoiquevw/image/upload/v1575465930/photo-1544819616-8b86befe568c_qzthlq.jpg"
+user_14.save!
+
+user_14 = User.create!(
+  email: "r.gordillo@charite.de",
+  password: "123456",
+  title: "Prof Dr",
+  first_name: "Ramiro",
+  last_name: "Gordillo",
+  only_private_insurance: false,
+  bio: "For the last twenty years, I have been specializing in general surgery. I am practising at Charité Mitte and Virchow Campuses. In addition, I am involved in teaching our students as well as research on pancreatic cancer.",
+  position: "Chief doctor",
+  clinic: clinic_1)
+user_14[:profile_picture] = "https://res.cloudinary.com/ddoiquevw/image/upload/v1575465930/photo-1544819616-8b86befe568c_qzthlq.jpg"
+user_14.save!
 
 UserSpecialty.create!(user: user_1, specialty: cardiology)
 UserSpecialty.create!(user: user_2, specialty: oncology)
@@ -248,7 +326,13 @@ UserSpecialty.create!(user: user_4, specialty: cardiology)
 UserSpecialty.create!(user: user_5, specialty: oncology)
 UserSpecialty.create!(user: user_6, specialty: neurology)
 UserSpecialty.create!(user: user_7, specialty: oncology)
-UserSpecialty.create!(user: user_8, specialty: general_surgery)
+UserSpecialty.create!(user: user_8, specialty: oncology)
+UserSpecialty.create!(user: user_9, specialty: oncology)
+UserSpecialty.create!(user: user_10, specialty: oncology)
+UserSpecialty.create!(user: user_11, specialty: oncology)
+UserSpecialty.create!(user: user_12, specialty: oncology)
+UserSpecialty.create!(user: user_13, specialty: oncology)
+UserSpecialty.create!(user: user_14, specialty: oncology)
 
 UserField.create!(user: user_1, field: cardiology_condition_1)
 UserField.create!(user: user_1, field: cardiology_condition_2)
@@ -274,6 +358,32 @@ UserField.create!(user: user_7, field: oncology_condition_1)
 UserField.create!(user: user_7, field: oncology_condition_3)
 UserField.create!(user: user_7, field: oncology_condition_4)
 
+UserField.create!(user: user_8, field: oncology_condition_2)
+UserField.create!(user: user_8, field: oncology_condition_3)
+UserField.create!(user: user_8, field: oncology_condition_6)
+UserField.create!(user: user_8, field: oncology_condition_10)
+
+UserField.create!(user: user_9, field: oncology_condition_2)
+UserField.create!(user: user_9, field: oncology_condition_1)
+UserField.create!(user: user_9, field: oncology_condition_4)
+UserField.create!(user: user_9, field: oncology_condition_5)
+
+UserField.create!(user: user_10, field: oncology_condition_2)
+UserField.create!(user: user_10, field: oncology_condition_4)
+UserField.create!(user: user_10, field: oncology_condition_7)
+UserField.create!(user: user_10, field: oncology_condition_9)
+
+UserField.create!(user: user_11, field: oncology_condition_2)
+UserField.create!(user: user_11, field: oncology_condition_3)
+UserField.create!(user: user_11, field: oncology_condition_6)
+UserField.create!(user: user_11, field: oncology_condition_9)
+
+UserField.create!(user: user_12, field: oncology_condition_2)
+UserField.create!(user: user_12, field: oncology_condition_3)
+UserField.create!(user: user_12, field: oncology_condition_6)
+UserField.create!(user: user_12, field: oncology_condition_9)
+
+
 approval_1 = Approval.create!(giver: user_1, receiver: user_2, specialty: oncology, headline: "The one and only", content: "I have been working together with Dr Meier and I can highly recommend him based on his experience.")
 approval_2 = Approval.create!(giver: user_1, receiver: user_3, specialty: neurology, headline: "Excellent physician", content: "As I have taught Steffen Seibert over several years, I can highly recommend this young physician for the neurological conditions specified.")
 
@@ -282,6 +392,18 @@ approval_4 = Approval.create!(giver: user_2, receiver: user_3, specialty: neurol
 
 approval_5 = Approval.create!(giver: user_3, receiver: user_1, specialty: cardiology, headline: "Leading expert", content: "Dr House belongs to the country's leading experts in cardiology. He is an excellent interventional cardiologist with almost three decades of experience.")
 approval_6 = Approval.create!(giver: user_3, receiver: user_2, specialty: oncology, headline: "First hand experience", content: "As a clinician myself I have been treated by Dr Meier. He is one of the most able oncologists that I have encountered over my career.")
+
+#Ramiros Approvals
+
+approval_8 = Approval.create!(giver: user_3, receiver: user_8, specialty: oncology, headline: "First hand experience", content: "As a clinician myself I have been treated by Prof Gordillo. He is one of the most able oncologists that I have encountered over my career.")
+
+approval_9 = Approval.create!(giver: user_9, receiver: user_8, specialty: oncology, headline: "Excellent research results", content: "Prof Gordillo recently published very promising results for new approaches to treat pancreatic cancer. I highly recommend him, particularly for more complicated cases.")
+
+approval_10 = Approval.create!(giver: user_10, receiver: user_8, specialty: oncology, headline: "Very experienced clinician", content: "Prof Gordillo has been a leading authority in oncology for almost two decades.")
+
+approval_11 = Approval.create!(giver: user_2, receiver: user_8, specialty: oncology, headline: "Promising trials on pancreatic cancer.", content: "As a former colleague of mine I have been following Professor Gordillo's groundbreaking trials for several years now. He has my strongest recommendation for patients suffering from pancreatic cancer who would like to partake in one of the most promising trials currently happening in Germany.")
+
+approval_12 = Approval.create!(giver: user_4, receiver: user_8, specialty: oncology, headline: "Excellent, professionally & personally", content: "As a doctor myself Prof Gordillo has been treating my mother for cancer. As difficult as chemotherapy can be for a patient, the whole process was extremely smooth. He is indeed an extraordinary physician, both professionally but also personally.")
 
 ApprovalField.create!(approval: approval_1, field: oncology_condition_1)
 ApprovalField.create!(approval: approval_1, field: oncology_condition_2)
@@ -311,6 +433,24 @@ ApprovalField.create!(approval: approval_6, field: oncology_condition_2)
 ApprovalField.create!(approval: approval_6, field: oncology_condition_3)
 ApprovalField.create!(approval: approval_6, field: oncology_condition_4)
 ApprovalField.create!(approval: approval_6, field: oncology_condition_5)
+
+ApprovalField.create!(approval: approval_8, field: oncology_condition_2)
+ApprovalField.create!(approval: approval_8, field: oncology_condition_3)
+ApprovalField.create!(approval: approval_8, field: oncology_condition_4)
+
+ApprovalField.create!(approval: approval_9, field: oncology_condition_2)
+ApprovalField.create!(approval: approval_9, field: oncology_condition_3)
+ApprovalField.create!(approval: approval_9, field: oncology_condition_4)
+ApprovalField.create!(approval: approval_9, field: oncology_condition_10)
+
+ApprovalField.create!(approval: approval_10, field: oncology_condition_1)
+ApprovalField.create!(approval: approval_10, field: oncology_condition_2)
+ApprovalField.create!(approval: approval_10, field: oncology_condition_3)
+ApprovalField.create!(approval: approval_10, field: oncology_condition_4)
+
+ApprovalField.create!(approval: approval_11, field: oncology_condition_2)
+ApprovalField.create!(approval: approval_11, field: oncology_condition_3)
+ApprovalField.create!(approval: approval_11, field: oncology_condition_10)
 
 puts 'SUCCESSFULLY SEEDED :-)'
 
