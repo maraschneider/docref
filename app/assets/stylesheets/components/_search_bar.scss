@@ -81,3 +81,15 @@
     width: 100%;
   }
 }
+
+.name-search {
+  display: flex;
+  justify-items: space-between;
+  width: 100%;
+  margin: $md auto;
+
+  .btn-mint {
+    width: 104px;
+    margin-left: $md;
+  }
+}
