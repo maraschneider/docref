@@ -9,9 +9,8 @@
       <% @appr = Approval.where(receiver: @doctor, giver: current_user).first %>
       <% if @appr.present? %>
         <div class="text-card-outline-purple d-flex my-4 justify-content-between">You already have a recommendation for this doctor.
-          <div class="d-flex">
+          <div>
             <%= link_to image_tag("icons/pen.svg"), edit_doctor_approval_path(@appr.receiver, @appr), style: "margin-left: 16px;" %>
-            <%= link_to image_tag("icons/trash.svg"), approval_path(@appr), method: :delete, remote: true, data: {confirm: "Are you sure?"}, style: "margin-left: 16px;" %>
           </div>
         </div>
       <% elsif @doctor == current_user %>
