@@ -7,28 +7,53 @@ end
 
 puts "Create test users, clinics, fields, specialties and approvals..."
 
+general_surgery = Specialty.create!(name: 'General surgery')
 cardiology = Specialty.create!(name: 'cardiology')
 oncology = Specialty.create!(name: 'oncology')
 neurology = Specialty.create!(name: 'neurology')
 
-cardiology_fields = ['Hypertension', 'Coronary disease', 'Angiology', 'Interventional Cardiology', 'Cardiovascular intensive care', 'Congenital heart defects in adults', 'Cardiomyopathy', 'Heart failure', 'Valvular disorders', 'Sport cardiology']
+cardiology_condition_1 = Field.create!(name: "Hypertension", specialty: cardiology)
+cardiology_condition_2 = Field.create!(name: "Coronary Disease", specialty: cardiology)
+cardiology_condition_3 = Field.create!(name: "Angiology", specialty: cardiology)
+cardiology_condition_4 = Field.create!(name: "Interventional Cardiology", specialty: cardiology)
+cardiology_condition_5 = Field.create!(name: "Cardiovascular intensive care", specialty: cardiology)
+cardiology_condition_6 = Field.create!(name: "Congenital heart defects in adults", specialty: cardiology)
+cardiology_condition_7 = Field.create!(name: "Cardiomyopathy", specialty: cardiology)
+cardiology_condition_8 = Field.create!(name: "Heart failure", specialty: cardiology)
+cardiology_condition_9 = Field.create!(name: "Valvular disorders", specialty: cardiology)
+cardiology_condition_10 = Field.create!(name: "Sport cardiology", specialty: cardiology)
 
-oncology_fields = ['Lung cancer', 'Pancreatic cancer', 'Palliative care', 'Radiation Oncology', 'Pediatric Oncology', 'Surgical Oncology', 'Gynecologic Oncology', 'Hematologic-oncology', 'Neuropediatric Oncology', 'Oncological Trials']
+oncology_condition_1 = Field.create!(name: "Lung cancer", specialty: oncology)
+oncology_condition_2 = Field.create!(name: "Pancreatic cancer", specialty: oncology)
+oncology_condition_3 = Field.create!(name: "Palliative care", specialty: oncology)
+oncology_condition_4 = Field.create!(name: "Radiation oncology", specialty: oncology)
+oncology_condition_5 = Field.create!(name: "Pediatric oncology", specialty: oncology)
+oncology_condition_6 = Field.create!(name: "Surgical oncology", specialty: oncology)
+oncology_condition_7 = Field.create!(name: "Gynecologic oncology", specialty: oncology)
+oncology_condition_8 = Field.create!(name: "Hematologic oncology", specialty: oncology)
+oncology_condition_9 = Field.create!(name: "Neuropediatric oncology", specialty: oncology)
+oncology_condition_10 = Field.create!(name: "Oncological trials", specialty: oncology)
 
-neurology_fields = ['Stroke', 'Chronic degenerative diseases', 'Rehabilitation', 'Clinical Neurophysiologist', 'Vascular Neurologist', 'Pain Management and Palliative Care', 'Neurodevelopmental and Neuromuscular Neurology', 'Pediatric Neurology', 'Neurological Geriatric Conditions']
+neurology_condition_1 = Field.create!(name: "Stroke", specialty: neurology)
+neurology_condition_2 = Field.create!(name: "Chronic degenerative diseases", specialty: neurology)
+neurology_condition_3 = Field.create!(name: "Rehabilitation", specialty: neurology)
+neurology_condition_4 = Field.create!(name: "Clinical Neurophysiologist", specialty: neurology)
+neurology_condition_5 = Field.create!(name: "Vascular Neurologist", specialty: neurology)
+neurology_condition_6 = Field.create!(name: "Pain Management and Palliative Care", specialty: neurology)
+neurology_condition_7 = Field.create!(name: "Neurodevelopmental and Neuromuscular Neurology", specialty: neurology)
+neurology_condition_8 = Field.create!(name: "Pediatric Neurology", specialty: neurology)
+neurology_condition_9 = Field.create!(name: "Neurological Geriatric Conditions", specialty: neurology)
 
-
-cardiology_fields.each do |field|
-  Field.create!(name: field, specialty: cardiology)
-end
-
-oncology_fields.each do |field|
-  Field.create!(name: field, specialty: oncology)
-end
-
-neurology_fields.each do |field|
-  Field.create!(name: field, specialty: neurology)
-end
+general_surgery_condition_1 = Field.create!(name: "Trauma surgery", specialty: general_surgery)
+general_surgery_condition_2 = Field.create!(name: "Laparoscopic surgery", specialty: general_surgery)
+general_surgery_condition_3 = Field.create!(name: "Colorectal surgery", specialty: general_surgery)
+general_surgery_condition_4 = Field.create!(name: "Breast surgery", specialty: general_surgery)
+general_surgery_condition_5 = Field.create!(name: "Vascular surgery", specialty: general_surgery)
+general_surgery_condition_6 = Field.create!(name: "Endocrine surgery", specialty: general_surgery)
+general_surgery_condition_7 = Field.create!(name: "Transplant surgery", specialty: general_surgery)
+general_surgery_condition_8 = Field.create!(name: "Surgical oncology", specialty: general_surgery)
+general_surgery_condition_9 = Field.create!(name: "Cardiothoracic surgery", specialty: general_surgery)
+general_surgery_condition_10 = Field.create!(name: "Pediatric surgery", specialty: general_surgery)
 
 clinic_1 = Clinic.create!(
   name:'Charite Berlin Mitte',
@@ -203,95 +228,90 @@ user_7 = User.create!(
 user_7[:profile_picture] = "https://res.cloudinary.com/ddoiquevw/image/upload/v1575465817/photo-1567568315185-8738d14226ce_gferkc.jpg"
 user_7.save!
 
-UserSpecialty.create!(user_id: 1, specialty_id: 1)
-UserSpecialty.create!(user_id: 2, specialty_id: 2)
-UserSpecialty.create!(user_id: 3, specialty_id: 3)
-UserSpecialty.create!(user_id: 4, specialty_id: 1)
-UserSpecialty.create!(user_id: 5, specialty_id: 2)
-UserSpecialty.create!(user_id: 6, specialty_id: 3)
-UserSpecialty.create!(user_id: 7, specialty_id: 2)
+user_8 = User.create!(
+  email: "r.gordillo@charite.de",
+  password: "123456",
+  title: "Prof Dr",
+  first_name: "Ramiro",
+  last_name: "Gordillo",
+  only_private_insurance: false,
+  bio: "For the last twenty years, I have been specializing in Cardiovascular Disease. I am practising at Charité Mitte and Virchow Campuses. In addition, I am involved in teaching our students as well as cardiovascular research on biomarkers.",
+  position: "Chief doctor",
+  clinic: clinic_1)
+user_8[:profile_picture] = "https://res.cloudinary.com/ddoiquevw/image/upload/v1575465930/photo-1544819616-8b86befe568c_qzthlq.jpg"
+user_8.save!
 
-UserField.create!(user_id: 1, field_id: 1)
-UserField.create!(user_id: 1, field_id: 2)
-UserField.create!(user_id: 1, field_id: 3)
-UserField.create!(user_id: 1, field_id: 4)
-UserField.create!(user_id: 1, field_id: 5)
+UserSpecialty.create!(user: user_1, specialty: cardiology)
+UserSpecialty.create!(user: user_2, specialty: oncology)
+UserSpecialty.create!(user: user_3, specialty: neurology)
+UserSpecialty.create!(user: user_4, specialty: cardiology)
+UserSpecialty.create!(user: user_5, specialty: oncology)
+UserSpecialty.create!(user: user_6, specialty: neurology)
+UserSpecialty.create!(user: user_7, specialty: oncology)
+UserSpecialty.create!(user: user_8, specialty: general_surgery)
 
-UserField.create!(user_id: 2, field_id: 11)
-UserField.create!(user_id: 2, field_id: 12)
-UserField.create!(user_id: 2, field_id: 13)
-UserField.create!(user_id: 2, field_id: 14)
+UserField.create!(user: user_1, field: cardiology_condition_1)
+UserField.create!(user: user_1, field: cardiology_condition_2)
+UserField.create!(user: user_1, field: cardiology_condition_3)
+UserField.create!(user: user_1, field: cardiology_condition_4)
+UserField.create!(user: user_1, field: cardiology_condition_5)
 
-UserField.create!(user_id: 3, field_id: 21)
-UserField.create!(user_id: 3, field_id: 22)
-UserField.create!(user_id: 3, field_id: 23)
-UserField.create!(user_id: 3, field_id: 24)
+UserField.create!(user: user_2, field: oncology_condition_1)
+UserField.create!(user: user_2, field: oncology_condition_2)
+UserField.create!(user: user_2, field: oncology_condition_3)
+UserField.create!(user: user_2, field: oncology_condition_4)
 
-UserField.create!(user_id: 5, field_id: 11)
-UserField.create!(user_id: 5, field_id: 12)
-UserField.create!(user_id: 5, field_id: 14)
+UserField.create!(user: user_3, field: neurology_condition_1)
+UserField.create!(user: user_3, field: neurology_condition_2)
+UserField.create!(user: user_3, field: neurology_condition_3)
+UserField.create!(user: user_3, field: neurology_condition_4)
 
- UserField.create!(user_id: 7, field_id: 11)
- UserField.create!(user_id: 7, field_id: 13)
- UserField.create!(user_id: 7, field_id: 14)
+UserField.create!(user: user_5, field: oncology_condition_1)
+UserField.create!(user: user_5, field: oncology_condition_2)
+UserField.create!(user: user_5, field: oncology_condition_4)
 
-approval1 = Approval.create!(giver_id: 1, receiver_id: 2, specialty_id: 2, headline: "The one and only", content: "I have been working together with Dr Meier and I can highly recommend him based on his experience.")
-approval2 = Approval.create!(giver_id: 1, receiver_id: 3, specialty_id: 3, headline: "Excellent physician", content: "As I have taught Steffen Seibert over several years, I can highly recommend this young physician for the neurological conditions specified.")
+UserField.create!(user: user_7, field: oncology_condition_1)
+UserField.create!(user: user_7, field: oncology_condition_3)
+UserField.create!(user: user_7, field: oncology_condition_4)
 
-approval3 = Approval.create!(giver_id: 2, receiver_id: 1, specialty_id: 1, headline: "The one and only", content: "What can I say, there is only one doctor house in the world, and you can find him at Charité Mitte.")
-approval4 = Approval.create!(giver_id: 2, receiver_id: 3, specialty_id: 3, headline: "Excellent neurologist", content: "Seibert is far ahead of many colleagues that I have encountered at his stage. Overall, a promising young physician that I can recommedn without any hesitation.")
+approval_1 = Approval.create!(giver: user_1, receiver: user_2, specialty: oncology, headline: "The one and only", content: "I have been working together with Dr Meier and I can highly recommend him based on his experience.")
+approval_2 = Approval.create!(giver: user_1, receiver: user_3, specialty: neurology, headline: "Excellent physician", content: "As I have taught Steffen Seibert over several years, I can highly recommend this young physician for the neurological conditions specified.")
 
-approval5 = Approval.create!(giver_id: 3, receiver_id: 1, specialty_id: 1, headline: "Leading expert", content: "Dr House belongs to the country's leading experts in cardiology. He is an excellent interventional cardiologist with almost three decades of experience.")
-approval6 = Approval.create!(giver_id: 3, receiver_id: 2, specialty_id: 2, headline: "First hand experience", content: "As a clinician myself I have been treated by Dr Meier. He is one of the most able oncologists that I have encountered over my career.")
+approval_3 = Approval.create!(giver: user_2, receiver: user_1, specialty: cardiology, headline: "The one and only", content: "What can I say, there is only one doctor house in the world, and you can find him at Charité Mitte.")
+approval_4 = Approval.create!(giver: user_2, receiver: user_3, specialty: neurology, headline: "Excellent neurologist", content: "Seibert is far ahead of many colleagues that I have encountered at his stage. Overall, a promising young physician that I can recommedn without any hesitation.")
 
-approval7 = Approval.create!(giver_id: 2, receiver_id: 5, specialty_id: 2, headline: "Leading expert", content: "This doctor belongs to the country's leading experts in oncology. He is an excellent doctor with almost three decades of experience.")
-approval8 = Approval.create!(giver_id: 1, receiver_id: 2, specialty_id: 2, headline: "Leading expert", content: "I can highly recommend Prof Meier for pancreatic surgery. He is particularly renowned for radiation therapy of tumors in cases where chemotherapy is not an option.")
-approval9 = Approval.create!(giver_id: 1, receiver_id: 2, specialty_id: 2, headline: "First hand experience", content: "As a clinician myself I have been treated by Dr Meier. He is one of the most able oncologists that I have encountered over my career.")
-approval10 = Approval.create!(giver_id: 5, receiver_id: 5, specialty_id: 2, headline: "First hand experience", content: "As a clinician myself I have been treated by Dr Meier. He is one of the most able oncologists that I have encountered over my career.")
+approval_5 = Approval.create!(giver: user_3, receiver: user_1, specialty: cardiology, headline: "Leading expert", content: "Dr House belongs to the country's leading experts in cardiology. He is an excellent interventional cardiologist with almost three decades of experience.")
+approval_6 = Approval.create!(giver: user_3, receiver: user_2, specialty: oncology, headline: "First hand experience", content: "As a clinician myself I have been treated by Dr Meier. He is one of the most able oncologists that I have encountered over my career.")
 
-ApprovalField.create!(approval_id: 1, field_id: 11)
-ApprovalField.create!(approval_id: 1, field_id: 12)
-ApprovalField.create!(approval_id: 1, field_id: 13)
-ApprovalField.create!(approval_id: 1, field_id: 14)
+ApprovalField.create!(approval: approval_1, field: oncology_condition_1)
+ApprovalField.create!(approval: approval_1, field: oncology_condition_2)
+ApprovalField.create!(approval: approval_1, field: oncology_condition_3)
+ApprovalField.create!(approval: approval_1, field: oncology_condition_4)
 
-ApprovalField.create!(approval_id: 2, field_id: 21)
-ApprovalField.create!(approval_id: 2, field_id: 22)
-ApprovalField.create!(approval_id: 2, field_id: 23)
+ApprovalField.create!(approval: approval_2, field: neurology_condition_1)
+ApprovalField.create!(approval: approval_2, field: neurology_condition_2)
+ApprovalField.create!(approval: approval_2, field: neurology_condition_3)
 
-ApprovalField.create!(approval_id: 3, field_id: 1)
-ApprovalField.create!(approval_id: 3, field_id: 2)
-ApprovalField.create!(approval_id: 3, field_id: 3)
-ApprovalField.create!(approval_id: 3, field_id: 4)
+ApprovalField.create!(approval: approval_3, field: cardiology_condition_1)
+ApprovalField.create!(approval: approval_3, field: cardiology_condition_2)
+ApprovalField.create!(approval: approval_3, field: cardiology_condition_3)
+ApprovalField.create!(approval: approval_3, field: cardiology_condition_4)
 
-ApprovalField.create!(approval_id: 4, field_id: 22)
-ApprovalField.create!(approval_id: 4, field_id: 23)
-ApprovalField.create!(approval_id: 4, field_id: 24)
-ApprovalField.create!(approval_id: 4, field_id: 25)
+ApprovalField.create!(approval: approval_4, field: neurology_condition_2)
+ApprovalField.create!(approval: approval_4, field: neurology_condition_3)
+ApprovalField.create!(approval: approval_4, field: neurology_condition_4)
+ApprovalField.create!(approval: approval_4, field: neurology_condition_5)
 
-ApprovalField.create!(approval_id: 5, field_id: 2)
-ApprovalField.create!(approval_id: 5, field_id: 3)
-ApprovalField.create!(approval_id: 5, field_id: 4)
-ApprovalField.create!(approval_id: 5, field_id: 5)
+ApprovalField.create!(approval: approval_5, field: cardiology_condition_2)
+ApprovalField.create!(approval: approval_5, field: cardiology_condition_3)
+ApprovalField.create!(approval: approval_5, field: cardiology_condition_4)
+ApprovalField.create!(approval: approval_5, field: cardiology_condition_5)
 
-ApprovalField.create!(approval_id: 6, field_id: 12)
-ApprovalField.create!(approval_id: 6, field_id: 13)
-ApprovalField.create!(approval_id: 6, field_id: 14)
-ApprovalField.create!(approval_id: 6, field_id: 15)
-
-ApprovalField.create!(approval_id: 7, field_id: 12)
-ApprovalField.create!(approval_id: 7, field_id: 13)
-ApprovalField.create!(approval_id: 7, field_id: 14)
-
-ApprovalField.create!(approval_id: 8, field_id: 12)
-ApprovalField.create!(approval_id: 8, field_id: 13)
-ApprovalField.create!(approval_id: 8, field_id: 15)
-
-ApprovalField.create!(approval_id: 9, field_id: 12)
-ApprovalField.create!(approval_id: 9, field_id: 13)
-ApprovalField.create!(approval_id: 9, field_id: 14)
-
-ApprovalField.create!(approval_id: 10, field_id: 15)
+ApprovalField.create!(approval: approval_6, field: oncology_condition_2)
+ApprovalField.create!(approval: approval_6, field: oncology_condition_3)
+ApprovalField.create!(approval: approval_6, field: oncology_condition_4)
+ApprovalField.create!(approval: approval_6, field: oncology_condition_5)
 
 puts 'SUCCESSFULLY SEEDED :-)'
 
-
+# done

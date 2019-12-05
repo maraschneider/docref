@@ -50,13 +50,13 @@
   </div>
   <div style="padding-top: 36px;">
   <% if current_user.profile_picture != nil %>
-  <%= cl_image_tag current_user.profile_picture, class: "avatar-square" %>
+    <%= cl_image_tag current_user.profile_picture, class: "avatar-square" %>
   <% end %>
   </div>
-    <div class="dashboard-profile-summary-data">
+    <div class="dashboard-profile-summary-data" id="current-profile-data">
       <p><strong>Name:</strong>
         <%=current_user.first_name + " " + current_user.last_name%>
-      </p>
+        </p>
       <p><strong>Title:</strong>
         <% if current_user.title != nil %>
         <%= current_user.title %>
@@ -85,8 +85,13 @@
         <%= "No bio provided." %>
         <% end %>
       </p>
+      <button id="edit-profile-btn" class="btn-mint">Edit</button>
     </div>
-    <%= link_to "Edit Profile", "#", class: "btn-mint" %>
+
+    <div id="edit-profile" class="hide">
+      <%#= form_for @user, url: doctor_path(@user), html: { multipart: true } do |f| %>
+      <%= render template: 'devise/registrations/edit' %>
+    </div>
 </div>
 
 
