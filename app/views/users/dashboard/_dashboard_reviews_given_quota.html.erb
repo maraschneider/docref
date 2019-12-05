@@ -6,7 +6,7 @@
   <% progress_color_g = "#80C4BD" %>
   <% progress_color_s = "#80C4BD" %>
   <% font_color_g = "#42433E" %>
-  <% font_color_s = "#42433E" %>
+  <% font_color_s = "#ffffff" %>
   <% specialty_order_hash = Hash.new %>
 
   <!-- Count all the referals given-->
@@ -14,7 +14,6 @@
   <% global_count += Approval.where(giver: current_user).where(specialty: specialty).count %>
   <% end %>
   <% global_count_percentage = (global_count*100)/global_allowed %>
-
 
   <!-- This calculates the color of "Total remaining available referrals" progress bar's background depending on the remaining referrals -->
   <% if global_count_percentage >= 0 && global_count_percentage <= 30 %>
@@ -37,14 +36,9 @@
   </div>
   </div>
 
-
-
-
   <div class="dashboard-profile-summary" style="border: none; padding: 24px; text-align: start;">
     <p>Given recommendations by specialty</p>
   </div>
-
-
 
   <% Specialty.all.each do |specialty| %>
     <% specialty_count = Approval.where(giver: current_user).where(specialty: specialty).count %>
@@ -56,15 +50,18 @@
     <% specialty_order_hash.each do |specialty, count| %>
 
       <% specialty_count_percentage = (count*100)/specialty_allowed %>
+      <% font_color_s = "#42433E" %>
       <% if specialty_count_percentage >= 0 && specialty_count_percentage <= 30 %>
       <% progress_color_s = "#D3D0FF" %>
       <% elsif specialty_count_percentage > 30 && specialty_count_percentage <= 60 %>
       <% progress_color_s = "#A59FFF" %>
       <% elsif specialty_count_percentage > 60 && specialty_count_percentage <= 99 %>
       <% progress_color_s = "#6C63FF" %>
+      <% font_color_s = "#ffffff" %>
       <% else %>
       <% specialty_count_percentage = 100 %>
       <% progress_color_s = "#80C4BD" %>
+      <% font_color_s = "#ffffff" %>
       <% end %>
 
       <div class="dashboard-profile-summary gridded" style="border: none">
