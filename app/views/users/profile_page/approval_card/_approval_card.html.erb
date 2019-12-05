@@ -53,8 +53,8 @@
     <% approval.fields.each do |field|  %>
     <div class="tag-outline"><%= field.name %></div>
     <% end %>
-    <div><p style="margin-bottom: 0;"><%= approval.content %></p></div>
   </div>
+    <div><p style="margin-bottom: 0;"><%= approval.content %></p></div>
 
   <div class="card-date">
     <%= "#{approval.created_at.strftime("%d")}" + " #{@months[approval.created_at.month]} " + "#{approval.created_at.strftime("%Y")}" %>

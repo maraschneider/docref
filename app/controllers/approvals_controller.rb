@@ -15,15 +15,17 @@ class ApprovalsController < ApplicationController
     @approval = Approval.new(approval_params)
     authorize @approval
     @approval.giver = current_user
-    @approval.receiver = @receiver
 
-    @approval.specialty = @receiver.specialties.first
+    @approval.specialty = @approval.receiver.specialties.first
+
+    params[:name] = @approval.receiver.full_name
     if @approval.save
       flash[:notice] = "Recommendation successfully created."
-      redirect_to doctor_path(@receiver)
+      redirect_to dashboard_path(current_user)
     else
-      flash[:alert] = "Recommendation was not created yet."
+      flash[:alert] = "Error while creating the recommendation."
       render :new
+
     end
   end
 
@@ -34,7 +36,7 @@ class ApprovalsController < ApplicationController
     @approval.update(approval_params)
     if @approval.save
       flash[:notice] = "Recommendation successfully updated."
-      redirect_to doctor_path(@receiver)
+      redirect_to dashboard_path(current_user)
     else
       flash[:alert] = "Recommendation was not updated yet."
       render :edit
@@ -69,6 +71,6 @@ class ApprovalsController < ApplicationController
 
 
   def approval_params
-    params.require(:approval).permit(:content, :headline, :anonymous, field_ids: [])
+    params.require(:approval).permit(:content, :receiver_id, :headline, :anonymous, field_ids: [])
   end
 end
