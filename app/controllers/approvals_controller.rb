@@ -1,5 +1,5 @@
 class ApprovalsController < ApplicationController
-  before_action :set_receiver, only: [:new, :create, :edit, :update]
+  before_action :set_receiver, only: [:edit, :update]
   before_action :set_approval, only: [:edit, :update, :destroy]
 
   def new
