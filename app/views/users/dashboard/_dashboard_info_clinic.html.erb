@@ -47,6 +47,7 @@
   <% font_color = "#FFFFFF" %>
   <% end %>
 
+<div>
   <h4>Clinic information</h4>
   <div class="progress position-relative" style="height: 25px; width: 50%; margin: 0 auto; margin-top: 15px; font-size: 0.95rem; color: <%= font_color %>;">
     <div class="progress-bar" role="progressbar" style="background: <%= progress_color %>; width: <%= percentage %>%" aria-valuenow="<%= percentage %>" aria-valuemin="0" aria-valuemax="100"></div>
@@ -54,10 +55,11 @@
   </div>
   <div style="padding-top: 36px;">
   <% if current_user.clinic.clinic_picture != nil %>
-  <%= cl_image_tag current_user.clinic.clinic_picture, class: "avatar-square" %>
+    <%= cl_image_tag current_user.clinic.clinic_picture, class: "avatar-square" %>
   <% end %>
   </div>
-    <div class="dashboard-profile-summary-data" id="current-clinic-data">
+    <div class="dashboard-profile-summary-data info-section" id="current-clinic-data">
+      <div>
       <p><strong>Name:</strong>
         <% if current_user.clinic.name != nil %>
         <%= current_user.clinic.name %>
@@ -107,8 +109,12 @@
         <%= "No description provided." %>
         <% end %>
       </p>
-      <button id="edit-clinic-btn" class="btn-mint">Edit</button>
+      </div>
     </div>
+      <div class="edit-btn">
+          <button id="edit-clinic-btn" class="btn-mint">Edit</button>
+      </div>
+  </div>
 
     <div id="edit-clinic" class="hide">
       <%= form_for @clinic, url: clinic_path(@clinic) do |f| %> <!-- , url: { action: "update" } -->
@@ -151,7 +157,9 @@
           class: "input-field edit-field"
           %>
           <br>
-        <%= submit_tag "Update", id: "save-clinic-btn", class: "btn-mint" %>
+        <div class="edit-btn">
+          <%= submit_tag "Update", id: "save-clinic-btn", class: "btn-mint" %>
+        </div>
       <% end %>
     </div>
 </div>

@@ -88,9 +88,10 @@
 
 .info-section {
   height: 100%;
+  display: grid;
 }
 
-.gridded{
+.gridded {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: $xs;
