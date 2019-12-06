@@ -170,7 +170,7 @@ user_2 = User.create!(
   bio: "Prior to my medical career I have been serving in the Bundeswehr as a paramedic. I have now been working at the Bundeswehrkrankenhaus for about ten years. My research interests include telemedical diagnostics of oncological conditions.",
   position: "Consultant doctor",
   clinic: clinic_2)
-user_2[:profile_picture] = "https://res.cloudinary.com/ddoiquevw/image/upload/v1575465918/photo-1500648767791-00dcc994a43e_c60d6j.jpg"
+user_2[:profile_picture] = "https://res.cloudinary.com/ddoiquevw/image/upload/v1575625512/pexels-photo-1300402_ssfxdi.jpg"
 user_2.save!
 
 user_3 = User.create!(
@@ -196,7 +196,7 @@ user_4 = User.create!(
   bio: "I have recently joined the UKB as a resident doctor in neurology. My dissertation was titled 'What went wrong in my life and how did I end up here?' Please do not hesitate to contact me or our office if you have any questions.",
   position: "Resident doctor",
   clinic: clinic_4)
-user_4[:profile_picture] = "https://res.cloudinary.com/ddoiquevw/image/upload/v1575465881/photo-1528892952291-009c663ce843_uibbm3.jpg"
+user_4[:profile_picture] = "https://res.cloudinary.com/ddoiquevw/image/upload/v1575625569/pexels-photo-262391_ewbsuh.jpg"
 user_4.save!
 
 user_5 = User.create!(
@@ -209,33 +209,33 @@ user_5 = User.create!(
   bio: "I have recently joined the UKB as a resident doctor in neurology. My dissertation was titled 'What went wrong in my life and how did I end up here?' Please do not hesitate to contact me or our office if you have any questions.",
   position: "Chief doctor",
   clinic: clinic_2)
-user_5[:profile_picture] = "https://res.cloudinary.com/ddoiquevw/image/upload/v1575465862/photo-1550831107-1553da8c8464_rf8v8q.jpg"
+user_5[:profile_picture] = "https://res.cloudinary.com/ddoiquevw/image/upload/v1575626106/photo-1474176857210-7287d38d27c6_lpalzp.jpg"
 user_5.save!
 
 user_6 = User.create!(
   email: "doctor6@example.com",
   password: "123456",
   title: "Dr",
-  first_name: "Kirsten",
+  first_name: "Christian",
   last_name: "Laube",
   only_private_insurance: false,
   bio: "I have recently joined the UKB as a resident doctor in neurology. My dissertation was titled 'What went wrong in my life and how did I end up here?' Please do not hesitate to contact me or our office if you have any questions.",
   position: "Assistent doctor",
   clinic: clinic_6)
-user_6[:profile_picture] = "https://res.cloudinary.com/ddoiquevw/image/upload/v1575465840/photo-1536064479547-7ee40b74b807_sd6vbm.jpg"
+user_6[:profile_picture] = "https://res.cloudinary.com/ddoiquevw/image/upload/v1575625391/photo-1511546395756-590dffdcdbd1_wizzdb.jpg"
 user_6.save!
 
 user_7 = User.create!(
   email: "doctor7@example.com",
   password: "123456",
-  title: "Prof Dr Med",
-  first_name: "Chang",
-  last_name: "Lu Li",
+  title: "Prof Dr",
+  first_name: "Dieter",
+  last_name: "Jung",
   only_private_insurance: false,
   bio: "I have recently joined the UKB as a resident doctor in neurology. My dissertation was titled 'What went wrong in my life and how did I end up here?' Please do not hesitate to contact me or our office if you have any questions.",
   position: "Chief doctor",
   clinic: clinic_7)
-user_7[:profile_picture] = "https://res.cloudinary.com/ddoiquevw/image/upload/v1575465817/photo-1567568315185-8738d14226ce_gferkc.jpg"
+user_7[:profile_picture] = "https://res.cloudinary.com/ddoiquevw/image/upload/v1575625356/photo-1504257432389-52343af06ae3_vjbldb.jpg"
 user_7.save!
 
 user_8 = User.create!(
@@ -261,7 +261,7 @@ user_9 = User.create!(
   bio: "I have recently taken up my new position as consultant oncologist at the Unfallkrankenhaus Berlin. Prior to that I completed my residency training under Prof Dr Gordillo. My research interests are new approaches in chemotherapy targeting pancreatic cancer.",
   position: "Consultant doctor",
   clinic: clinic_3)
-user_9[:profile_picture] = "https://res.cloudinary.com/ddoiquevw/image/upload/v1575465930/photo-1544819616-8b86befe568c_qzthlq.jpg"
+user_9[:profile_picture] = "https://res.cloudinary.com/ddoiquevw/image/upload/v1575465918/photo-1500648767791-00dcc994a43e_c60d6j.jpg"
 user_9.save!
 
 user_10 = User.create!(
@@ -274,7 +274,7 @@ user_10 = User.create!(
   bio: "For the last twenty years, I have been specializing in oncology. I am practising at Charité Mitte and Virchow Campuses. In addition, I am involved in teaching our students as well as research on pancreatic cancer.",
   position: "Chief doctor",
   clinic: clinic_4)
-user_10[:profile_picture] = "https://res.cloudinary.com/ddoiquevw/image/upload/v1575465930/photo-1544819616-8b86befe568c_qzthlq.jpg"
+user_10[:profile_picture] = "https://res.cloudinary.com/ddoiquevw/image/upload/v1575625079/pexels-photo-220453_yjrs4c.jpg"
 user_10.save!
 
 user_11 = User.create!(
@@ -287,7 +287,7 @@ user_11 = User.create!(
   bio: "For the last twenty years, I have been specializing in oncology. I am practising at Charité Mitte and Virchow Campuses. In addition, I am involved in teaching our students as well as research on pancreatic cancer.",
   position: "Chief doctor",
   clinic: clinic_5)
-user_11[:profile_picture] = "https://res.cloudinary.com/ddoiquevw/image/upload/v1575465930/photo-1544819616-8b86befe568c_qzthlq.jpg"
+user_11[:profile_picture] = "https://res.cloudinary.com/ddoiquevw/image/upload/v1575465881/photo-1528892952291-009c663ce843_uibbm3.jpg"
 user_11.save!
 
 user_12 = User.create!(
@@ -300,20 +300,20 @@ user_12 = User.create!(
   bio: "For the last twenty years, I have been specializing in oncology. I am practising at Charité Mitte and Virchow Campuses. In addition, I am involved in teaching our students as well as research on pancreatic cancer.",
   position: "Chief doctor",
   clinic: clinic_6)
-user_12[:profile_picture] = "https://res.cloudinary.com/ddoiquevw/image/upload/v1575465930/photo-1544819616-8b86befe568c_qzthlq.jpg"
+user_12[:profile_picture] = "https://res.cloudinary.com/ddoiquevw/image/upload/v1575465862/photo-1550831107-1553da8c8464_rf8v8q.jpg"
 user_12.save!
 
 user_13 = User.create!(
   email: "doctor13@example.com",
   password: "123456",
-  title: "Prof Dr",
-  first_name: "Herbert",
-  last_name: "Altmann",
+  title: "Dr",
+  first_name: "Nadine",
+  last_name: "Neuhaus",
   only_private_insurance: false,
   bio: "For the last twenty years, I have been specializing in oncology. I am practising at Charité Mitte and Virchow Campuses. In addition, I am involved in teaching our students as well as research on pancreatic cancer.",
   position: "Chief doctor",
   clinic: clinic_7)
-user_13[:profile_picture] = "https://res.cloudinary.com/ddoiquevw/image/upload/v1575465930/photo-1544819616-8b86befe568c_qzthlq.jpg"
+user_13[:profile_picture] = "https://res.cloudinary.com/ddoiquevw/image/upload/v1575465840/photo-1536064479547-7ee40b74b807_sd6vbm.jpg"
 user_13.save!
 
 user_14 = User.create!(
@@ -326,7 +326,7 @@ user_14 = User.create!(
   bio: "For the last twenty years, I have been specializing in oncology. I am practising at Charité Mitte and Virchow Campuses. In addition, I am involved in teaching our students as well as research on pancreatic cancer.",
   position: "Chief doctor",
   clinic: clinic_8)
-user_14[:profile_picture] = "https://res.cloudinary.com/ddoiquevw/image/upload/v1575465930/photo-1544819616-8b86befe568c_qzthlq.jpg"
+user_14[:profile_picture] = "https://res.cloudinary.com/ddoiquevw/image/upload/v1575465817/photo-1567568315185-8738d14226ce_gferkc.jpg"
 user_14.save!
 
 UserSpecialty.create!(user: user_1, specialty: cardiology)
@@ -404,7 +404,6 @@ UserField.create!(user: user_14, field: oncology_condition_6)
 UserField.create!(user: user_14, field: oncology_condition_9)
 
 
-approval_1 = Approval.create!(giver: user_8, receiver: user_2, specialty: oncology, headline: "The one and only", content: "I have been working together with Dr Meier and I can highly recommend him based on his experience.")
 approval_2 = Approval.create!(giver: user_8, receiver: user_3, specialty: neurology, headline: "Excellent physician", content: "As I have taught Steffen Seibert over several years, I can highly recommend this young physician for the neurological conditions specified.")
 
 approval_3 = Approval.create!(giver: user_8, receiver: user_1, specialty: cardiology, headline: "The one and only", content: "What can I say, there is only one doctor house in the world, and you can find him at Charité Mitte.")
@@ -448,11 +447,6 @@ approval_17 = Approval.create!(giver: user_4, receiver: user_12, specialty: onco
 approval_18 = Approval.create!(giver: user_4, receiver: user_13, specialty: oncology, headline: "Excellent, professionally & personally", content: "As a doctor myself he has been treating my mother for cancer. As difficult as chemotherapy can be for a patient, the whole process was extremely smooth. He is indeed an extraordinary physician, both professionally but also personally.")
 
 approval_19 = Approval.create!(giver: user_4, receiver: user_14, specialty: oncology, headline: "Excellent, professionally & personally", content: "As a doctor myself he has been treating my mother for cancer. As difficult as chemotherapy can be for a patient, the whole process was extremely smooth. He is indeed an extraordinary physician, both professionally but also personally.")
-
-ApprovalField.create!(approval: approval_1, field: oncology_condition_1)
-ApprovalField.create!(approval: approval_1, field: oncology_condition_2)
-ApprovalField.create!(approval: approval_1, field: oncology_condition_3)
-ApprovalField.create!(approval: approval_1, field: oncology_condition_4)
 
 ApprovalField.create!(approval: approval_2, field: neurology_condition_1)
 ApprovalField.create!(approval: approval_2, field: neurology_condition_2)
