@@ -1,4 +1,4 @@
-<div class="dashboard-profile-summary">
+<div class="dashboard-profile-summary mt-4">
   <% percentage = 0 %>
   <% progress_color = "#42433e" %>
   <% font_color = "#42433E" %>
@@ -53,11 +53,11 @@
     <div class="justify-content-center d-flex position-absolute w-100"><%= percentage %>% Completed</div>
   </div>
   <div style="padding-top: 36px;">
-  <% if current_user.profile_picture != nil %>
+  <% if current_user.clinic.clinic_picture != nil %>
   <%= cl_image_tag current_user.clinic.clinic_picture, class: "avatar-square" %>
   <% end %>
   </div>
-    <div class="dashboard-profile-summary-data">
+    <div class="dashboard-profile-summary-data" id="current-clinic-data">
       <p><strong>Name:</strong>
         <% if current_user.clinic.name != nil %>
         <%= current_user.clinic.name %>
@@ -107,8 +107,53 @@
         <%= "No description provided." %>
         <% end %>
       </p>
+      <button id="edit-clinic-btn" class="btn-mint">Edit</button>
     </div>
-    <%= link_to "Edit Profile", "#", class: "btn-mint" %>
+
+    <div id="edit-clinic" class="hide">
+      <%= form_for @clinic, url: clinic_path(@clinic) do |f| %> <!-- , url: { action: "update" } -->
+        <br><strong>Clinic Picture</strong><br>
+        <%= f.file_field :clinic_picture %>
+        <%= f.hidden_field :clinic_picture_cache, as: :hidden %> <br>
+        <strong>Name:</strong><br>
+        <%= text_field_tag :name,
+          params[:name] = @clinic.name,
+          class: "input-field edit-field"
+          %>
+        <strong>Address:</strong><br>
+        <%= text_field_tag :address,
+          params[:address] = @clinic.address,
+          class: "input-field edit-field"
+          %>
+        <strong>Phone:</strong><br>
+        <%= text_field_tag :phone_number,
+          params[:phone_number] = @clinic.phone_number,
+          class: "input-field edit-field"
+          %>
+        <strong>Website:</strong><br>
+        <%= text_field_tag :website,
+          params[:website] = @clinic.website,
+          class: "input-field edit-field"
+          %>
+        <strong>Email:</strong><br>
+        <%= text_field_tag :email,
+          params[:email] = @clinic.email,
+          class: "input-field edit-field"
+          %>
+        <strong>Consultation Times:</strong><br>
+        <%= text_field_tag :consultation_times,
+          params[:consultation_times] = @clinic.consultation_times,
+          class: "input-field edit-field"
+          %>
+        <strong>Description:</strong><br>
+        <%= text_area_tag :description,
+          params[:description] = @clinic.description,
+          class: "input-field edit-field"
+          %>
+          <br>
+        <%= submit_tag "Save", id: "save-clinic-btn", class: "btn-mint" %>
+      <% end %>
+    </div>
 </div>
 
 

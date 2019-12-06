@@ -1,45 +1,63 @@
 <!-- Do not delete outer div -->
-    <div class="card-approval">
-      <div class="approval-header d-flex justify-content-between">
-  <!-- Header is a flex-box with three flex-items -->
-        <div>
-          <div>
-            <h4><%= '"' + approval.headline + '"' %></h4>
-          </div>
-          <div class="card-subtitle">
-            <p >Recommended for:</p>
-          </div>
-        </div>
+<div class="card-approval">
+  <div class="approval-header d-flex justify-content-between">
+<!-- Header is a flex-box with three flex-items -->
+    <div>
+      <div>
+        <h4><%= '"' + approval.headline + '"' %></h4>
+      </div>
+      <div class="card-subtitle">
+        <p >Recommended for:</p>
+      </div>
+    </div>
+      <% if approval.anonymous %>
         <div class="recommender-info">
           <div>
             <p>
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 48 48"><title>ic_check_circle_48px</title>
-              <g fill="rgb(111, 188, 180)">
-              <path d="M24 4C12.95 4 4 12.95 4 24c0 11.04 8.95 20 20 20 11.04 0 20-8.96 20-20 0-11.05-8.96-20-20-20zm-4 30L10 24l2.83-2.83L20 28.34l15.17-15.17L38 16 20 34z"></path>
-              </g>
-              </svg>
-             Verified doctor </p>
+              <%= render 'shared/icon_check' %>
+              Verified doctor
+            </p>
           </div>
           <div>
-            <p>in <% recommender = approval.giver %>
-            <%= recommender.specialties.first[:name]%></p>
+            <p>
+              in <% recommender = approval.giver %>
+              <%= recommender.specialties.first[:name]%>
+            </p>
           </div>
         </div>
-        <div>
-          <%= image_tag "profile.png", alt: "Doctor Avatar", class: "avatar-medium align"%>
+        <%= image_tag "profile.png", alt: "Doctor Avatar", class: "avatar-medium align"%>
+      <% else %>
+        <div class="recommender-info">
+          <div>
+            <p>
+              <%= render 'shared/icon_check' %>
+              <%= approval.giver.full_name_with_title %>
+            </p>
+          </div>
+          <p>
+            Verified doctor in <%= approval.giver.specialties.first.name%>
+          </p>
         </div>
-      </div>
+        <%= cl_image_tag approval.giver.profile_picture,
+          height: 50,
+          width: 50,
+          crop: :fill,
+          class: "avatar-medium"
+        %>
+      <% end %>
+    </div>
+
 
 <!-- Approval tags and content -->
-      <div class="d-flex flex-wrap">
-        <% approval.fields.each do |field|  %>
-        <div class="tag-outline"><%= field.name %></div>
-        <% end %>
-        <div><p style="margin-bottom: 0;"><%= approval.content %></p></div>
-      </div>
+  <div class="d-flex flex-wrap">
+    <% approval.fields.each do |field|  %>
+    <div class="tag-outline"><%= field.name %></div>
+    <% end %>
+  </div>
+    <div><p style="margin-bottom: 0;"><%= approval.content %></p></div>
 
-      <div class="card-date">
-        <%= "#{approval.created_at.strftime("%d")}" + " #{@months[approval.created_at.month]} " + "#{approval.created_at.strftime("%Y")}" %>
-      </div>
-    </div>
+  <div class="card-date">
+    <%= "#{approval.created_at.strftime("%d")}" + " #{@months[approval.created_at.month]} " + "#{approval.created_at.strftime("%Y")}" %>
+  </div>
+</div>
 

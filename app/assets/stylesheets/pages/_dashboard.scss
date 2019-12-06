@@ -85,6 +85,16 @@
       }
 }
 
+.gridded{
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: $xs;
+  height: fit-content;
+  text-align: left;
+  align-items: center;
+}
+
 .dashboard-profile-summary-data {
   text-align: left;
   margin-top: $lg;
@@ -95,4 +105,16 @@
   .btn-mint {
     width: 88px;
   }
+}
+
+.hide {
+  display: none;
+}
+
+#edit-profile, #edit-clinic {
+  text-align: left;
+}
+
+#personalized {
+  background: rgba(255, 255, 255, 0)
 }

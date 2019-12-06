@@ -21,19 +21,21 @@
 
 #landing-search {
   width: 60%;
+  min-width: 675px;
 }
 
 #landing-image img{
   width: 800px;
 }
 
-// Mission Section
+// Why DocRef Section
 
 #container-two {
   width: 100vw;
   margin: 0 auto auto auto;
   padding: 100px 200px 20px 200px;
   background-color: rgba(230, 230, 230, 0.3);
+  height: 100vh;
 }
 
 #why-docref {
@@ -56,6 +58,7 @@
 .mission-card-title {
   font-weight: bold;
   padding-bottom: $lg;
+  white-space: nowrap;
 }
 
 .mission-selling-point {

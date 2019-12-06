@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+   mount_uploader :profile_picture, ProfilePictureUploader
+
   belongs_to :clinic
   has_many :user_specialties
   has_many :specialties, through: :user_specialties
@@ -17,14 +19,16 @@ class User < ApplicationRecord
       tsearch: { prefix: true }
     }
 
-  mount_uploader :profile_picture, ProfilePictureUploader
-
   def full_name
     "#{self.first_name.capitalize} #{self.last_name.capitalize}"
   end
 
   def full_name_with_title
     "#{self.title} #{self.first_name.capitalize} #{self.last_name.capitalize}"
+  end
+
+  def full_name_with_title_speciality_clinic
+    "#{self.title} #{self.first_name.capitalize} #{self.last_name.capitalize} (#{self.specialties.first.name.capitalize}) - #{self.clinic.name}"
   end
 
   def position_specialty_clinic

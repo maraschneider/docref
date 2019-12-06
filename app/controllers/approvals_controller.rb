@@ -1,10 +1,13 @@
 class ApprovalsController < ApplicationController
-  before_action :set_receiver, only: [:new, :create, :edit, :update]
+  before_action :set_receiver, only: [:edit, :update]
   before_action :set_approval, only: [:edit, :update, :destroy]
 
   def new
     # errors.add(:name, :blank, message: "You cannot create a recommendation") if current_user == @receiver
-    @approval = Approval.new(receiver: @receiver, giver: current_user)
+    @doctors = policy_scope(User)
+    @doctor = search_doctor_by_name(params[:name]) if params[:name].present?
+    @approval = Approval.new(giver: current_user)
+    @approval.receiver = @doctor
     authorize @approval
   end
 
@@ -12,15 +15,17 @@ class ApprovalsController < ApplicationController
     @approval = Approval.new(approval_params)
     authorize @approval
     @approval.giver = current_user
-    @approval.receiver = @receiver
 
-    @approval.specialty = @receiver.specialties.first
+    @approval.specialty = @approval.receiver.specialties.first
+
+    params[:name] = @approval.receiver.full_name
     if @approval.save
       flash[:notice] = "Recommendation successfully created."
-      redirect_to doctor_path(@receiver)
+      redirect_to dashboard_path(current_user)
     else
-      flash[:alert] = "Recommendation was not created yet."
+      flash[:alert] = "Error while creating the recommendation."
       render :new
+
     end
   end
 
@@ -31,7 +36,7 @@ class ApprovalsController < ApplicationController
     @approval.update(approval_params)
     if @approval.save
       flash[:notice] = "Recommendation successfully updated."
-      redirect_to doctor_path(@receiver)
+      redirect_to dashboard_path(current_user)
     else
       flash[:alert] = "Recommendation was not updated yet."
       render :edit
@@ -60,7 +65,12 @@ class ApprovalsController < ApplicationController
       authorize @approval
   end
 
+  def search_doctor_by_name(search_input)
+    User.search_by_name(search_input).where(id: @doctors).first
+  end
+
+
   def approval_params
-    params.require(:approval).permit(:content, :headline, :anonymous, field_ids: [])
+    params.require(:approval).permit(:content, :receiver_id, :headline, :anonymous, field_ids: [])
   end
 end

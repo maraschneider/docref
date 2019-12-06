@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show, :dashboard]
   before_action :set_doctor, only: [:show]
+  before_action :set_current_user, only: [:edit, :update, :dashboard]
 
   # before_filter check if html, js etc
   def index
@@ -31,7 +32,8 @@ class UsersController < ApplicationController
     elsif params[:approval_field].present?
       @approvals = search_approvals_by_field(params[:approval_field])
     else
-      @approvals = Approval.all.select { |approval| approval.receiver_id == @doctor.id }
+      results = Approval.all.select { |approval| approval.receiver_id == @doctor.id }
+      @approvals = results.sort_by(&:"created_at").reverse
     end
     # months required to show "Nov" instead of '11' on approval cards
     @months = Date::ABBR_MONTHNAMES
@@ -42,12 +44,23 @@ class UsersController < ApplicationController
   end
 
   def dashboard
-    # reusing mikes card generator
-    @doctor = current_user
-    @approvals = Approval.all.select { |approval| approval.receiver_id == @doctor.id }
+    results = Approval.all.select { |approval| approval.giver_id == current_user.id }
+    @approvals = results.sort_by(&:"created_at").reverse
     @months = Date::ABBR_MONTHNAMES
+    @clinic = current_user.clinic
+    @doctor = current_user
     @user = current_user
     authorize @user
+  end
+
+  def edit
+  end
+
+  def update
+    @user.update(user_params)
+    if @user.save
+      redirect_to dashboard_path(@user)
+    end
   end
 
   private
@@ -61,12 +74,16 @@ class UsersController < ApplicationController
   def search_doctor_by_field(search_input)
     if search_input.is_a? Array
       search_input.each do |input|
-        @field = Field.joins(:approvals).where(approvals: { receiver: @doctors }).search_by_field(input)
-        @doctors = @field.map {|p| p.users }.flatten.uniq
+        @approvals = Approval.where(receiver: @doctors)
+        @field = Field.search_by_field(input)
+        @doctors = @approvals.joins(:fields).where(fields: {id: @field}).map {|p| p.receiver }.flatten.uniq
+        # @doctors = @field.joins(:approvals).where(approvals: { receiver: @doctors }).map {|p| p.users }.flatten.uniq
       end
     else
+      @approvals = Approval.where(receiver: @doctors)
       @field = Field.search_by_field(search_input)
-      @doctors = @field.map { |p| p.users }.flatten.uniq
+      @doctors = @approvals.joins(:fields).where(fields: {id: @field}).map {|p| p.receiver }.flatten.uniq
+      # @doctors = @field.joins(:approvals).where(approvals: { receiver: @doctors }).map { |p| p.users }.flatten.uniq
       # Field.joins(:approvals).where('lower(name) = ?', search_input.downcase).map {|p| p.users }.flatten.uniq
     end
     @doctors
@@ -75,6 +92,7 @@ class UsersController < ApplicationController
   def search_by_specialty_or_field(search_input)
     search_doctor_by_specialty(search_input)
     if @doctors == []
+      @doctors = policy_scope(User)
       @doctors = search_doctor_by_field(search_input)
       params[:field] = @field.first.name
     else
@@ -124,5 +142,14 @@ class UsersController < ApplicationController
   def set_doctor
     @doctor = User.find(params[:id])
     authorize @doctor
+  end
+
+  def set_current_user
+    @user = current_user
+    authorize @user
+  end
+
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :title, :position, :bio, :profile_picture)
   end
 end
