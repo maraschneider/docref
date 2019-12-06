@@ -3,6 +3,7 @@
 </div>
 
 <div>
-  <% @approvals = Approval.all.select { |approval| approval.receiver_id == current_user.id } %>
+  <% results = Approval.all.select { |approval| approval.receiver_id == current_user.id } %>
+  <% @approvals = results.sort_by(&:"created_at").reverse %>
   <%= render 'users/profile_page/profile_approvalcards_list' %>
 </div>

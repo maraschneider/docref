@@ -92,9 +92,13 @@
 }
 
 .gridded {
+  padding: 0 24px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: $xs;
+  height: fit-content;
+  text-align: left;
+  align-items: center;
 }
 
 .dashboard-profile-summary-data {

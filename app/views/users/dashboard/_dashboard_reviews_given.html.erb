@@ -1,6 +1,3 @@
-<!-- Reassigning @approvals here to get the GIVEN approvals-->
-  <% @approvals = Approval.all.select { |approval| approval.giver_id == @doctor.id } %>
-
 <!-- Do not delete outer div -->
 <div>
   <%= render 'users/dashboard/dashboard_reviews_given_quota' %>
@@ -12,8 +9,13 @@
     <div data-approval-id="<%= approval.id %>">
       <div class="approval-info-box d-flex align-items-center">
         <div>
-        <% recommendee = approval.receiver %>
-          <%= image_tag "profile.png", alt: "Doctor Avatar", class: "avatar-medium", style: "margin-right: 16px;" %>
+          <% recommendee = approval.receiver %>
+          <%= cl_image_tag recommendee.profile_picture,
+            height: 50,
+            width: 50,
+            crop: :fill,
+            class: "avatar-medium"
+          %>
         </div>
         <div>
               <p style= "padding: 0 16px; margin-bottom: 0;">You recommended <strong> <%= link_to "#{recommendee.title} #{recommendee.first_name} #{recommendee.last_name}", doctor_path(recommendee), style: "text-decoration: none; color: rgb(66, 67, 62);" %> </strong> at <%= recommendee.clinic.name %></p>
