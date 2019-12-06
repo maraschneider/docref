@@ -209,7 +209,7 @@ user_5 = User.create!(
   bio: "I have recently joined the UKB as a resident doctor in neurology. My dissertation was titled 'What went wrong in my life and how did I end up here?' Please do not hesitate to contact me or our office if you have any questions.",
   position: "Chief doctor",
   clinic: clinic_2)
-user_5[:profile_picture] = "https://res.cloudinary.com/ddoiquevw/image/upload/v1575626106/photo-1474176857210-7287d38d27c6_lpalzp.jpg"
+user_5[:profile_picture] = "https://res.cloudinary.com/ddoiquevw/image/upload/v1575465862/photo-1550831107-1553da8c8464_rf8v8q.jpg"
 user_5.save!
 
 user_6 = User.create!(
@@ -300,7 +300,7 @@ user_12 = User.create!(
   bio: "For the last twenty years, I have been specializing in oncology. I am practising at Charité Mitte and Virchow Campuses. In addition, I am involved in teaching our students as well as research on pancreatic cancer.",
   position: "Chief doctor",
   clinic: clinic_6)
-user_12[:profile_picture] = "https://res.cloudinary.com/ddoiquevw/image/upload/v1575465862/photo-1550831107-1553da8c8464_rf8v8q.jpg"
+user_12[:profile_picture] = "https://res.cloudinary.com/ddoiquevw/image/upload/v1575631245/photo-1551601651-bc60f254d532_qi9ri0.jpg"
 user_12.save!
 
 user_13 = User.create!(
