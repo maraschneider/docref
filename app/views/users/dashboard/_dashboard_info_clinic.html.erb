@@ -3,7 +3,7 @@
   <% progress_color = "#42433e" %>
   <% font_color = "#42433E" %>
 <!-- This calculates the percentage depending the amount of data saved in the profile -->
-  <% if current_user.clinic.name != nil %>
+  <% if !current_user.clinic.name.empty? %>
   <% percentage += 11 %>
   <% end %>
 
@@ -11,27 +11,27 @@
   <% percentage += 12 %>
   <% end %>
 
-  <% if current_user.clinic.address != nil %>
+  <% if !current_user.clinic.address.empty? %>
   <% percentage += 12 %>
   <% end %>
 
-  <% if current_user.clinic.phone_number != nil %>
+  <% if !current_user.clinic.phone_number.empty? %>
   <% percentage += 13 %>
   <% end %>
 
-  <% if current_user.clinic.website != nil %>
+  <% if !current_user.clinic.website.empty? %>
   <% percentage += 13 %>
   <% end %>
 
-  <% if current_user.clinic.email != nil %>
+  <% if !current_user.clinic.email.empty? %>
   <% percentage += 13 %>
   <% end %>
 
-  <% if current_user.clinic.consultation_times != nil %>
+  <% if !current_user.clinic.consultation_times.empty? %>
   <% percentage += 13 %>
   <% end %>
 
-  <% if current_user.clinic.description != nil %>
+  <% if !current_user.clinic.description.empty? %>
   <% percentage += 13 %>
   <% end %>
 <!-- This calculates the color of the progress bar's background depending on the percentge -->
@@ -62,49 +62,49 @@
     <div class="dashboard-profile-summary-data info-section" id="current-clinic-data">
       <div>
       <p><strong>Name:</strong>
-        <% if current_user.clinic.name != nil %>
+        <% if !current_user.clinic.name.empty? %>
         <%= current_user.clinic.name %>
         <% else %>
         <%= "No name provided." %>
         <% end %>
       </p>
       <p><strong>Address:</strong>
-        <% if current_user.clinic.address != nil %>
+        <% if !current_user.clinic.address.empty? %>
         <%= current_user.clinic.address %>
         <% else %>
         <%= "No address provided." %>
         <% end %>
       </p>
       <p><strong>Phone:</strong>
-        <% if current_user.clinic.phone_number != nil %>
+        <% if !current_user.clinic.phone_number.empty? %>
         <%= current_user.clinic.phone_number %>
         <% else %>
         <%= "No phone provided." %>
         <% end %>
       </p>
       <p><strong>Website:</strong>
-        <% if current_user.clinic.website != nil %>
+        <% if !current_user.clinic.website.empty? %>
         <%= current_user.clinic.website %>
         <% else %>
         <%= "No website provided." %>
         <% end %>
       </p>
       <p><strong>Email:</strong>
-        <% if current_user.clinic.email != nil %>
+        <% if !current_user.clinic.email.empty? %>
         <%= current_user.clinic.email %>
         <% else %>
         <%= "No email provided." %>
         <% end %>
       </p>
       <p><strong>Consultation Times:</strong>
-        <% if current_user.clinic.consultation_times != nil %>
+        <% if !current_user.clinic.consultation_times.empty? %>
         <%= current_user.clinic.consultation_times %>
         <% else %>
         <%= "No consultation times provided." %>
         <% end %>
       </p>
       <p><strong>Description:</strong>
-        <% if current_user.clinic.description != nil %>
+        <% if !current_user.clinic.description.empty? %>
         <%= current_user.clinic.description %>
         <% else %>
         <%= "No description provided." %>
