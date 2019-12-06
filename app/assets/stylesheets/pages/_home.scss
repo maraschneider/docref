@@ -33,13 +33,23 @@
 #container-two {
   width: 100vw;
   margin: 0 auto auto auto;
-  padding: 100px 200px 20px 200px;
+  padding: 50px 200px 100px 200px;
   background-color: rgba(230, 230, 230, 0.3);
-  height: 100vh;
+  height: 110vh;
 }
 
 #why-docref {
   text-align: center;
+}
+
+.why-container {
+  margin-top: $lg;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 40px;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: $xl;
 }
 
 .mission-card {
@@ -51,8 +61,10 @@
   text-align: center;
 }
 
-.mission-icon {
-  padding: 10px 60px;
+img.mission-icon {
+  padding: auto;
+  width: 100px;
+  justify-self: center;
 }
 
 .mission-card-title {
