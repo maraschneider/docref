@@ -10,12 +10,14 @@
       <div class="approval-info-box d-flex align-items-center">
         <div>
           <% recommendee = approval.receiver %>
-          <%= cl_image_tag recommendee.profile_picture,
-            height: 50,
-            width: 50,
-            crop: :fill,
-            class: "avatar-medium"
-          %>
+          <%= link_to doctor_path(recommendee) do  %>
+            <%= cl_image_tag recommendee.profile_picture,
+              height: 50,
+              width: 50,
+              crop: :fill,
+              class: "avatar-medium"
+            %>
+          <% end %>
         </div>
         <div>
               <p style= "padding: 0 16px; margin-bottom: 0;">You recommended <strong> <%= link_to "#{recommendee.title} #{recommendee.first_name} #{recommendee.last_name}", doctor_path(recommendee), style: "text-decoration: none; color: rgb(66, 67, 62);" %> </strong> at <%= recommendee.clinic.name %></p>
