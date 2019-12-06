@@ -1,4 +1,4 @@
-<div class="dashboard-profile-summary mt-4">
+<div class="dashboard-profile-summary info-section">
   <% percentage = 0 %>
   <% progress_color = "#42433e" %>
   <% font_color = "#42433E" %>
@@ -43,6 +43,7 @@
   <% font_color = "#FFFFFF" %>
   <% end %>
 
+<div>
   <h4>Personal information</h4>
   <div class="progress position-relative" style="height: 25px; width: 50%; margin: 0 auto; margin-top: 15px; font-size: 0.95rem; color: <%= font_color %>;">
     <div class="progress-bar" role="progressbar" style="background: <%= progress_color %>; width: <%= percentage %>%" aria-valuenow="<%= percentage %>" aria-valuemin="0" aria-valuemax="100"></div>
@@ -53,7 +54,8 @@
     <%= cl_image_tag current_user.profile_picture, class: "avatar-square" %>
   <% end %>
   </div>
-    <div class="dashboard-profile-summary-data" id="current-profile-data">
+    <div class="dashboard-profile-summary-data info-section" id="current-profile-data">
+      <div>
       <p><strong>Name:</strong>
         <%=current_user.first_name + " " + current_user.last_name%>
         </p>
@@ -85,8 +87,12 @@
         <%= "No bio provided." %>
         <% end %>
       </p>
-      <button id="edit-profile-btn" class="btn-mint">Edit</button>
+      </div>
+      <div class="edit-btn">
+        <button id="edit-profile-btn" class="btn-mint">Edit</button>
+      </div>
     </div>
+  </div>
 
     <div id="edit-profile" class="hide">
       <%#= form_for @user, url: doctor_path(@user), html: { multipart: true } do |f| %>

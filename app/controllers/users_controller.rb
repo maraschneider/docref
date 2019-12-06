@@ -94,7 +94,7 @@ class UsersController < ApplicationController
     if @doctors == []
       @doctors = policy_scope(User)
       @doctors = search_doctor_by_field(search_input)
-      params[:field] = @field.first.name
+      params[:field] = @field.first.name if @doctors != []
     else
       params[:specialty] = @specialty.first.name
     end

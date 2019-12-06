@@ -45,6 +45,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: $lg;
+  margin-top: 20px;
 }
 
 .dashboard-received {
@@ -85,7 +86,12 @@
       }
 }
 
-.gridded{
+.info-section {
+  height: 100%;
+ // display: grid;
+}
+
+.gridded {
   padding: 0 24px;
   display: grid;
   grid-template-columns: 1fr 1fr;
