@@ -16,11 +16,16 @@
   border-radius: $rad;
   border: 1px solid $mint;
   width: 100%;
+  outline: none
 }
 
 .input-lg {
   padding: $sm $lg;
   min-width: 265px;
+}
+
+input.select2-search__field {
+  outline: none;
 }
 
 .filter-bar {
@@ -89,7 +94,6 @@
   justify-items: space-between;
   margin: $md 0;
 
-
   .btn-mint {
     width: 104px;
   }
@@ -98,3 +102,7 @@
 .search-tag {
   padding: $sm 0;
 }
+
+ .select2-container--default .select2-selection--single {
+    outline:none;
+  }
