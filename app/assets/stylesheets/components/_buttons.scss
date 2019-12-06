@@ -9,6 +9,8 @@
 
   background-color: $mint;
   color: white;
+  outline:none;
+
 
   &:hover {
     background-color: white;
@@ -21,6 +23,7 @@
   text-decoration: none;
   background-color: white;
   color: $mint;
+  outline:none;
 
   &:hover {
     background-color: $mint;
