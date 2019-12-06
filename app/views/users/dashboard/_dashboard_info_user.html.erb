@@ -3,31 +3,31 @@
   <% progress_color = "#42433e" %>
   <% font_color = "#42433E" %>
 <!-- This calculates the percentage depending the amount of data saved in the profile -->
-  <% if current_user.first_name != nil %>
+  <% if !current_user.first_name.empty? %>
   <% percentage += 15 %>
   <% end %>
 
-  <% if current_user.last_name != nil %>
+  <% if !current_user.last_name.empty? %>
   <% percentage += 15 %>
   <% end %>
 
-  <% if current_user.email != nil %>
+  <% if !current_user.email.empty? %>
   <% percentage += 14 %>
   <% end %>
 
-  <% if current_user.profile_picture != nil %>
+  <% if !current_user.profile_picture.empty? %>
   <% percentage += 14 %>
   <% end %>
 
-  <% if current_user.bio != nil %>
+  <% if !current_user.bio.empty? %>
   <% percentage += 14 %>
   <% end %>
 
-  <% if current_user.position != nil %>
+  <% if !current_user.position.empty? %>
   <% percentage += 14 %>
   <% end %>
 
-  <% if current_user.title != nil %>
+  <% if !current_user.title.empty? %>
   <% percentage += 14 %>
   <% end %>
 <!-- This calculates the color of the progress bar's background depending on the percentge -->
@@ -60,28 +60,28 @@
         <%=current_user.first_name + " " + current_user.last_name%>
         </p>
       <p><strong>Title:</strong>
-        <% if current_user.title != nil %>
+        <% if !current_user.title.empty? %>
         <%= current_user.title %>
         <% else %>
         <%= "No title provided." %>
         <% end %>
       </p>
       <p><strong>Position:</strong>
-        <% if current_user.position != nil %>
+        <% if !current_user.position.empty? %>
         <%= current_user.position %>
         <% else %>
         <%= "No position provided." %>
         <% end %>
       </p>
       <p><strong>Email:</strong>
-        <% if current_user.email != nil %>
+        <% if !current_user.email.empty? %>
         <%= current_user.email %>
         <% else %>
         <%= "No email provided." %>
         <% end %>
       </p>
       <p><strong>Bio:</strong>
-        <% if current_user.bio != nil %>
+        <% if !current_user.bio.empty? %>
         <%= current_user.bio %>
         <% else %>
         <%= "No bio provided." %>
