@@ -11,14 +11,15 @@
           <%= text_field_tag :specialty_or_field,
           params[:specialty_or_field],
           class: "input-field input-lg m-0",
-            placeholder: "Cardiologist for Heart Failure"
+            placeholder: "Pancreatic Cancer"
             %>
             <%= text_field_tag :location,
             params[:location],
             class: "input-field input-lg m-0 address-input",
               placeholder: "Berlin"
               %>
-              <%= submit_tag "Search", class: "btn-mint btn-large" %>
+              <% submit_tag "Search", class: "btn-mint btn-large" %>
+              <%= link_to "Demo-Search", "https://www.docref.de/doctors?utf8=%E2%9C%93&specialty_or_field=pancreatic+cancer&location=Berlin%2C+Germany&commit=Search", class: "btn-mint btn-large", style: "width: 152px" %>
               <% end %>
             </div>
           </div>
